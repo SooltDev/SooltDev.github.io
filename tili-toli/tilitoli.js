@@ -2,6 +2,8 @@
     main script
 */
 
+document.title = "Tili-Tolti " + TiliToli.version;
+
 let step = 0;
 let stepContainer = document.querySelector(".game-messagebox .step");
 

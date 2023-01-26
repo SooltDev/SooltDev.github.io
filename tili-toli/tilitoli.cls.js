@@ -12,7 +12,7 @@
 
 class TiliToli{
     
-    version = "1.7"
+    static version = "1.7"
 
     constructor(o){
         this.sizex = o.sizex || 4;
