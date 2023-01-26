@@ -8,6 +8,8 @@ function reset(){
     document.querySelector(".game-status").innerHTML = "Tili-Toli";
 }
 
+const ttLevel = new NumberType("#tt-level");
+
 const tt = new TiliToli({
     sizex: 4,
     sizey: 4,
@@ -23,6 +25,8 @@ const tt = new TiliToli({
 
 document.querySelector("#new-game").addEventListener("click", function(){
     reset();
+    let level = ttLevel.initValue;
+    tt.setSize(level, level);
     tt.renderGameTable();
 });
 

@@ -26,6 +26,11 @@ class TiliToli{
         this.renderGameTable();
     }
 
+    setSize(x, y){
+        this.sizex = x;
+        this.sizey = y;
+    }
+
     #getDirection(){
 
     }
