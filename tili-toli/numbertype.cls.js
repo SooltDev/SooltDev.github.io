@@ -1,4 +1,7 @@
 /*
+    Name: NumberType
+    Version: 1.0
+    Description: DOM number input
 
     <div class="level-box numbertype" data-min="1" data-max="6">
         <div class="level-text">Szint: <span>1</span></div>

@@ -1,3 +1,7 @@
+/*
+    Game: Tili-Toli
+    Version: 1.6
+*/
 /**
  * @constructor - {
  *      sizex: number,
@@ -7,6 +11,8 @@
  */
 
 class TiliToli{
+    
+    version = "1.6"
 
     constructor(o){
         this.sizex = o.sizex || 4;
@@ -170,16 +176,43 @@ class TiliToli{
         }
     }
 
+    isValidDirection(dir){
+        let epmtySlot = this.gameBox.querySelector(".tili-toli-square-empty");
+        let epmtiSlotX = Number(epmtySlot.dataset.x );
+        let epmtiSlotY = Number(epmtySlot.dataset.y );
+
+        switch (dir){
+            case "down":
+                if (epmtiSlotX > 1)
+                    return true;
+            case "up":
+                if (epmtiSlotX < this.sizex)
+                    return true;
+            case "right":
+                if (epmtiSlotY > 1)
+                    return true;
+            case "left":
+                if (epmtiSlotY < this.sizey)
+                    return true;
+        }
+
+        return false;
+    }
+
     shuffle(step = 200, timer = 10){
 
         if (!this.complete){
         
             let directions = ["up", "down", "left", "right"];
             let stepCount = 0, _this = this;
+            let dir = directions[1];
 
             let timerId = setInterval(function(){
-                _this.move( directions[Math.floor(Math.random()*5)] );
-                stepCount++;
+                dir = directions[Math.floor(Math.random()*5)];
+                if (_this.isValidDirection(dir)){
+                    _this.move(dir);
+                    stepCount++;
+                }
                 if (stepCount == step)
                     clearInterval(timerId);
             }, timer);

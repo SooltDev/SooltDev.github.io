@@ -1,3 +1,6 @@
+/*
+    main script
+*/
 
 let step = 0;
 let stepContainer = document.querySelector(".game-messagebox .step");
