@@ -1,6 +1,6 @@
 /*
     Game: Tili-Toli
-    Version: 1.6
+    Version: 1.7
 */
 /**
  * @constructor - {
@@ -12,14 +12,14 @@
 
 class TiliToli{
     
-    version = "1.6"
+    version = "1.7"
 
     constructor(o){
         this.sizex = o.sizex || 4;
         this.sizey = o.sizey || 4;
         this.id = o.id || "tt";
 
-        this.complete = false;
+        this.complete = true;
 
         this.moveAction = o.moveAction || function(){};
         this.win = o.win || function(){};
@@ -80,13 +80,15 @@ class TiliToli{
                     epmtySlot.classList.remove("tili-toli-square-empty");
                     this.classList.add("tili-toli-square-empty");
                     _this.moveAction();
+
+                    if (_this.isWin()){
+                        _this.win();
+                        this.classList.remove("tili-toli-square-empty");
+                        this.innerHTML = _this.sizex * _this.sizey;
+                    }
                 }
 
-                if (_this.isWin()){
-                    _this.win();
-                    this.classList.remove("tili-toli-square-empty");
-                    this.innerHTML = _this.sizex * _this.sizey;
-                }
+                
             }
         });
 
