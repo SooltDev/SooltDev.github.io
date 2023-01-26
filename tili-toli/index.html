@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tili-Toli 1.0</title>
+    <script src="tilitoli.cls.js"></script>
+    <style>
+        .game-section, #tili-toli, .game-controll{
+            display: inline-block;
+        }
+
+        .game-section{
+            padding: 20px;
+            background-color: #dbd4cc;
+            border: 1px solid #bab2a7;
+            border-radius: 3px;
+        }
+
+        .game-controll{
+            vertical-align: top;
+            margin-left: 20px;
+        }
+
+        .game-messagebox{
+            border: solid 3px #a58965;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #c9b08f;
+            text-shadow: 1px 1px #d7d0c8;
+            color: #59472f;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
+
+        .game-messagebox span{
+
+        }
+        .game-status{
+            text-align: center;
+            padding: 20px 0;
+            font-size: 28px;
+            color: #2b7720;
+            font-weight: 600;
+        }
+
+        .game-messagebox span.step{
+            font-weight: bold;
+            width: 28px;
+            display: inline-block;
+        }
+
+        .game-button{
+            border: solid 3px #d3c1aa;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #bd9a6b;
+            color: #3c2a13;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+        }
+        .game-button:hover{
+            border: solid 3px #c2a683;
+        }
+
+        .tili-toli{
+            display: inline-block;
+            border: solid 14px #a58965;
+            border-radius: 5px;
+            background-color: #655b4e;
+        }
+        .tili-toli-row{
+            display: flex;
+            position: relative;
+        }
+        .tili-toli-square{
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 20px;
+            font-weight: 600;
+            width: 50px;
+            height: 50px;
+            display: block;
+            text-align: center;
+            line-height: 50px;
+            background-color: #c9b08f;
+            border: 1px solid #655b4e;
+            border-radius: 3px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 1px 1px #d7d0c8;
+            color: #59472f;
+            cursor: pointer;
+        }
+        .tili-toli-square-empty{
+            background-color: #655b4e;
+            z-index: 0;
+        }
+    
+    
+    </style>
+</head>
+<body>
+
+    <div class="game-section">
+        <div id="tili-toli"></div>
+        <div class="game-controll">
+            <div class="game-messagebox"><span>Lépések: </span><span class="step">0</span></div>
+            <div class="game-button" id="new-game">Új játék</div>
+            <div class="game-button" id="shuffle">Keverés</div>
+            <div class="game-status">Tili-Toli</div>
+        </div>
+    </div>
+
+    <script src="tilitoli.js"></script>
+</body>
+</html>
