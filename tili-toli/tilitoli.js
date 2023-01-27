@@ -7,6 +7,7 @@
 */
 
 document.title = "Tili-Tolti " + TiliToli.version;
+document.querySelector(".game-status").innerHTML = document.title ;
 
 let step = 0;
 const stepContainer = document.querySelector("#stepsct .step");
@@ -14,7 +15,7 @@ const stepContainer = document.querySelector("#stepsct .step");
 function reset(){
     stepContainer.innerHTML = "0";
     step = 0;
-    document.querySelector(".game-status").innerHTML = "Tili-Toli";
+    document.querySelector(".game-status").innerHTML = document.title ;
     ttimer.reset();
 }
 
@@ -51,12 +52,15 @@ document.querySelector("#new-game").addEventListener("click", function(){
     tt.setSize(level, level);
     tt.renderGameTable();
     ttimer.stop();
+    tt.displayEmptySlot();
     setTimeout(function(){
         tt.shuffle(300, 2);
-    }, 1000);
+    }, 500);
 });
 
+/*
 document.querySelector("#shuffle").addEventListener("click", function(){
     ttimer.stop();
     tt.shuffle(200, 2);
-})
+});
+//*/

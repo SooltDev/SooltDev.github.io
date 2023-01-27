@@ -175,6 +175,10 @@ class TiliToli{
         square.innerHTML = "";
     }
 
+    displayEmptySlot(){
+        this.#eraseSquare(this.sizex, this.sizey);
+    }
+
     renderGameTable(){
         let nextNum = 1, row, square;
 
@@ -193,7 +197,7 @@ class TiliToli{
             this.gameBox.appendChild(row);
         }
 
-        this.#eraseSquare(this.sizex, this.sizey);
+        //this.#eraseSquare(this.sizex, this.sizey);
 
         this.parentElement.appendChild(this.gameBox);
 
@@ -276,6 +280,9 @@ class TiliToli{
     }
 
     shuffle(step = 200, timer = 10){
+
+        if (!this.gameBox.querySelector(".tili-toli-square-empty"))
+            this.#eraseSquare(this.sizex, this.sizey);
 
         if (!this.complete){
         
