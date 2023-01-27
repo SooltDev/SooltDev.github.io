@@ -1,5 +1,9 @@
 /*
-    main script
+    File: MAIN SCRIPT
+
+    Game: Tili-Toli
+    Version: 2.0 Beta
+    Author: Fosztó Zsolt
 */
 
 document.title = "Tili-Tolti " + TiliToli.version;
@@ -25,6 +29,9 @@ const tt = new TiliToli({
     sizex: 4,
     sizey: 4,
     addTo: "#tili-toli",
+    stepType: "multi", // single/multi
+    keyControll: true, //false
+
     win: function(){
         document.querySelector(".game-status").innerHTML = "NYERT!";
         ttimer.stop();

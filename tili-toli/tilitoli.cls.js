@@ -1,20 +1,28 @@
 /*
     Game: Tili-Toli
-    Version: 1.8
+    Version: 2.0 Beta
     Author: Fosztó Zsolt
+    Description: ---
+
+    Fejlesztések: 
+        - 2.0 verziótól, nemcsak egy lapocskát lehetegyszerre mozgatni, hanem annyit, amennyi az üres szlott előtt van.
 */
 
 class TiliToli{
     
-    static version = "1.8"
+    static version = "2.0"
+    
     /**
      * 
      * @param {object} o
      */
+
     constructor(o){
         this.sizex = o.sizex || 4;
         this.sizey = o.sizey || 4;
         this.id = o.id || "tt";
+
+        this.stepType = o.stepType || "single";
 
         this.complete = true;
 
@@ -50,16 +58,8 @@ class TiliToli{
         return `${this.id}-${x}-${y}`;
     }
 
-    #createSquare(x, y, num){
-        let square = document.createElement("div");
-        square.classList.add("tili-toli-square");
-        square.id = this.#squareId(x, y);
-        square.innerHTML = `<span>${num}</span>`;
-        square.dataset.x = x;
-        square.dataset.y = y;
-
+    #squareOneStepOnClick(square, x, y){
         let _this = this;
-
         square.addEventListener("click", function(){
             if (!_this.complete){
                 let epmtySlot = _this.gameBox.querySelector(".tili-toli-square-empty");
@@ -88,12 +88,89 @@ class TiliToli{
 
             } // End If Not Complet
         });
+    }
+
+    #squareStep(square, emptySlot){
+        emptySlot.innerHTML = square.innerHTML;
+        square.innerHTML = "";
+        emptySlot.classList.remove("tili-toli-square-empty");
+        square.classList.add("tili-toli-square-empty");
 
         return square;
     }
 
+    #squareAllStepOnClick(square, x, y){
+        let _this = this;
+
+        square.addEventListener("click", function(){
+
+            if (!_this.complete){
+                let epmtySlot = _this.gameBox.querySelector(".tili-toli-square-empty");
+                let epmtiSlotX = Number(epmtySlot.dataset.x );
+                let epmtiSlotY = Number(epmtySlot.dataset.y );
+                
+                x = Number(x);
+                y = Number(y);
+
+                switch (true){
+                    //down
+                    case epmtiSlotY == y && epmtiSlotX > x:
+                        for (let i = epmtiSlotX-1; i >= x; i--)
+                            epmtySlot = _this.#squareStep(_this.#getSquareByXY(i, y), epmtySlot);
+                        _this.moveAction();
+                    break;
+                    //up
+                    case epmtiSlotY == y && epmtiSlotX < x:
+                        for (let i = epmtiSlotX+1; i <= x; i++)
+                            epmtySlot = _this.#squareStep(_this.#getSquareByXY(i, y), epmtySlot);
+                        _this.moveAction();
+                    break;
+                    //left
+                    case epmtiSlotX == x && epmtiSlotY > y:
+                        for (let i = epmtiSlotY-1; i >= y; i--)
+                            epmtySlot = _this.#squareStep(_this.#getSquareByXY(x, i), epmtySlot);
+                        _this.moveAction();
+                    break;
+                    //right
+                    case epmtiSlotX == x && epmtiSlotY < y:
+                        for (let i = epmtiSlotY+1; i <= y; i++)
+                            epmtySlot = _this.#squareStep(_this.#getSquareByXY(x, i), epmtySlot);
+                        _this.moveAction();
+                    break;
+                }
+
+                if (_this.isWin()){
+                    _this.win();
+                    square.classList.remove("tili-toli-square-empty");
+                    square.innerHTML = _this.sizex * _this.sizey;
+                }
+
+            } // End If Not Complet
+        });
+    }
+
+    #createSquare(x, y, num){
+        let square = document.createElement("div");
+        square.classList.add("tili-toli-square");
+        square.id = this.#squareId(x, y);
+        square.innerHTML = `<span>${num}</span>`;
+        square.dataset.x = x;
+        square.dataset.y = y;
+
+        if (this.stepType == "multi")
+            this.#squareAllStepOnClick(square, x, y);
+        else
+            this.#squareOneStepOnClick(square, x, y);
+
+        return square;
+    }
+
+    #getSquareByXY(x, y){
+        return this.gameBox.querySelector("#"+this.#squareId(x, y));
+    }
+
     #eraseSquare(x, y){
-        let square = this.gameBox.querySelector("#"+this.#squareId(x, y));
+        let square = this.#getSquareByXY(x, y);
         square.classList.add("tili-toli-square-empty");
         square.innerHTML = "";
     }
@@ -150,25 +227,25 @@ class TiliToli{
         switch (dir){
             case "down":
                 if (epmtiSlotX > 1){
-                    let square = this.gameBox.querySelector("#"+this.#squareId(epmtiSlotX-1, epmtiSlotY));
+                    let square = this.#getSquareByXY(epmtiSlotX-1, epmtiSlotY);
                     this.#replace(square, epmtySlot);
                 }
             break;
             case "up":
                 if (epmtiSlotX < this.sizex){
-                    let square = this.gameBox.querySelector("#"+this.#squareId(epmtiSlotX+1, epmtiSlotY));
+                    let square = this.#getSquareByXY(epmtiSlotX+1, epmtiSlotY);
                     this.#replace(square, epmtySlot);
                 }
             break;
             case "right":
                 if (epmtiSlotY > 1){
-                    let square = this.gameBox.querySelector("#"+this.#squareId(epmtiSlotX, epmtiSlotY-1));
+                    let square = this.#getSquareByXY(epmtiSlotX, epmtiSlotY-1);
                     this.#replace(square, epmtySlot);
                 }
             break;
             case "left":
                 if (epmtiSlotY < this.sizey){
-                    let square = this.gameBox.querySelector("#"+this.#squareId(epmtiSlotX, epmtiSlotY+1));
+                    let square = this.#getSquareByXY(epmtiSlotX, epmtiSlotY+1);
                     this.#replace(square, epmtySlot);
                 }
             break;
