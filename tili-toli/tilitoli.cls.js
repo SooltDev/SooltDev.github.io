@@ -1,19 +1,16 @@
 /*
     Game: Tili-Toli
-    Version: 1.7
+    Version: 1.8
+    Author: Fosztó Zsolt
 */
-/**
- * @constructor - {
- *      sizex: number,
- *      sizey: number,
- *      addTo: string - selector
- * }
- */
 
 class TiliToli{
     
-    static version = "1.7"
-
+    static version = "1.8"
+    /**
+     * 
+     * @param {object} o
+     */
     constructor(o){
         this.sizex = o.sizex || 4;
         this.sizey = o.sizey || 4;
@@ -23,6 +20,7 @@ class TiliToli{
 
         this.moveAction = o.moveAction || function(){};
         this.win = o.win || function(){};
+        this.afterShuffle = o.afterShuffle || function(){};
 
         this.parentElement = document.querySelector(o.addTo) || document.createElement("div");
 
@@ -88,8 +86,7 @@ class TiliToli{
                     }
                 }
 
-                
-            }
+            } // End If Not Complet
         });
 
         return square;
@@ -215,8 +212,10 @@ class TiliToli{
                     _this.move(dir);
                     stepCount++;
                 }
-                if (stepCount == step)
+                if (stepCount == step){
                     clearInterval(timerId);
+                    _this.afterShuffle();
+                }
             }, timer);
         }
     }

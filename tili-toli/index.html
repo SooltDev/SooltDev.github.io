@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tili-Toli 1.6</title>
     <script src="numbertype.cls.js"></script>
+    <script src="timer.cls.js"></script>
     <script src="tilitoli.cls.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -14,7 +15,8 @@
     <div class="game-section">
         <div id="tili-toli"></div>
         <div class="game-controll">
-            <div class="game-messagebox"><span>Lépések: </span><span class="step">0</span></div>
+            <div class="game-messagebox" id="timerct"><span>Idő: </span><span class="step">00:00</span></div>
+            <div class="game-messagebox" id="stepsct"><span>Lépések: </span><span class="step">0</span></div>
             <div class="level-box numbertype" data-min="1" data-max="4" data-init="3" id="tt-level">
                 <div class="level-text">Szint: <span>1</span></div>
                 <div class="level-control">
