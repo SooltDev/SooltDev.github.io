@@ -187,11 +187,13 @@ class TiliToli{
 
             let epmtySlot = square || this.gameBox.querySelector(".tili-toli-square-empty");
             
-            epmtySlot.classList.remove("tili-toli-square-empty");
-            epmtySlot.innerHTML = this.sizex * this.sizey;
+            if (epmtySlot){
+                epmtySlot.classList.remove("tili-toli-square-empty");
+                epmtySlot.innerHTML = this.sizex * this.sizey;
 
-            if (this.messageLayer){
-                this.messageLayer.show();
+                if (this.messageLayer){
+                    this.messageLayer.show();
+                }
             }
         }
     }
