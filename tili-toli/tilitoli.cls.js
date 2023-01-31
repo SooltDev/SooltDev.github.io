@@ -8,6 +8,39 @@
         - 2.0 verziótól, nemcsak egy lapocskát lehetegyszerre mozgatni, hanem annyit, amennyi az üres szlott előtt van.
 */
 
+class TiliToliMessage{
+    constructor (sel, text){
+        this.el = typeof sel == "string" ? document.querySelector(sel) : sel;
+
+        this.textBox = this.el.querySelector(".tili-toli-layertext");
+        this.textBox.innerText = text;
+    }
+
+    /**
+     * @param {any} txt
+     */
+
+    set text(txt){
+        this.textBox.innerText = txt;
+    }
+
+    get text(){
+        return this.textBox.innerText;
+    }
+
+    show(){
+        this.el.style.display = "flex";
+        this.el.classList.remove("hide");
+        this.el.classList.add("show");
+    }
+
+    hide(){
+        this.el.style.display = "none";
+        this.el.classList.remove("show");
+        this.el.classList.add("hide");
+    }
+}
+
 class TiliToli{
     
     static version = "2.0"
@@ -30,11 +63,14 @@ class TiliToli{
         this.win = o.win || function(){};
         this.afterShuffle = o.afterShuffle || function(){};
 
-        this.parentElement = document.querySelector(o.addTo) || document.createElement("div");
+        this.winnerText = o.winnerText || "NYERT!";
 
+        this.parentElement = document.querySelector(o.addTo) || document.createElement("div");
+        this.messageLayer = new TiliToliMessage(this.parentElement.querySelector(".tili-toli-layer"), this.winnerText);
+/*
         while (this.parentElement.firstElementChild)
             this.parentElement.firstElementChild.remove();
-
+//*/
         this.renderGameTable();
     }
 
@@ -139,14 +175,25 @@ class TiliToli{
                     break;
                 }
 
-                if (_this.isWin()){
-                    _this.win();
-                    square.classList.remove("tili-toli-square-empty");
-                    square.innerHTML = _this.sizex * _this.sizey;
-                }
+                _this.winnerPrize(square);
 
             } // End If Not Complet
         });
+    }
+
+    winnerPrize(square){
+        if (this.isWin()){
+            this.win();
+
+            let epmtySlot = square || this.gameBox.querySelector(".tili-toli-square-empty");
+            
+            epmtySlot.classList.remove("tili-toli-square-empty");
+            epmtySlot.innerHTML = this.sizex * this.sizey;
+
+            if (this.messageLayer){
+                this.messageLayer.show();
+            }
+        }
     }
 
     #createSquare(x, y, num){
@@ -181,9 +228,15 @@ class TiliToli{
 
     renderGameTable(){
         let nextNum = 1, row, square;
-
+/*
         while (this.parentElement.firstElementChild)
             this.parentElement.firstElementChild.remove();
+//*/
+        if (this.gameBox)
+            this.gameBox.remove();
+        
+        if (this.messageLayer)
+            this.messageLayer.hide();
 
         this.gameBox = document.createElement("div");
         this.gameBox.id = this.id;
@@ -225,34 +278,42 @@ class TiliToli{
 
     move(dir){
         let epmtySlot = this.gameBox.querySelector(".tili-toli-square-empty");
-        let epmtiSlotX = Number(epmtySlot.dataset.x );
-        let epmtiSlotY = Number(epmtySlot.dataset.y );
+        let epmtiSlotX, epmtiSlotY;
 
-        switch (dir){
-            case "down":
-                if (epmtiSlotX > 1){
-                    let square = this.#getSquareByXY(epmtiSlotX-1, epmtiSlotY);
-                    this.#replace(square, epmtySlot);
-                }
-            break;
-            case "up":
-                if (epmtiSlotX < this.sizex){
-                    let square = this.#getSquareByXY(epmtiSlotX+1, epmtiSlotY);
-                    this.#replace(square, epmtySlot);
-                }
-            break;
-            case "right":
-                if (epmtiSlotY > 1){
-                    let square = this.#getSquareByXY(epmtiSlotX, epmtiSlotY-1);
-                    this.#replace(square, epmtySlot);
-                }
-            break;
-            case "left":
-                if (epmtiSlotY < this.sizey){
-                    let square = this.#getSquareByXY(epmtiSlotX, epmtiSlotY+1);
-                    this.#replace(square, epmtySlot);
-                }
-            break;
+        if (epmtySlot){
+            epmtiSlotX = Number(epmtySlot.dataset.x );
+            epmtiSlotY = Number(epmtySlot.dataset.y );
+        
+            switch (dir){
+                case "down":
+                    if (epmtiSlotX > 1){
+                        let square = this.#getSquareByXY(epmtiSlotX-1, epmtiSlotY);
+                        this.#replace(square, epmtySlot);
+                        this.moveAction();
+                    }
+                break;
+                case "up":
+                    if (epmtiSlotX < this.sizex){
+                        let square = this.#getSquareByXY(epmtiSlotX+1, epmtiSlotY);
+                        this.#replace(square, epmtySlot);
+                        this.moveAction();
+                    }
+                break;
+                case "right":
+                    if (epmtiSlotY > 1){
+                        let square = this.#getSquareByXY(epmtiSlotX, epmtiSlotY-1);
+                        this.#replace(square, epmtySlot);
+                        this.moveAction();
+                    }
+                break;
+                case "left":
+                    if (epmtiSlotY < this.sizey){
+                        let square = this.#getSquareByXY(epmtiSlotX, epmtiSlotY+1);
+                        this.#replace(square, epmtySlot);
+                        this.moveAction();
+                    }
+                break;
+            }
         }
     }
 

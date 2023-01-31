@@ -7,14 +7,20 @@
     <title>Tili-Toli 1.6</title>
     <script src="numbertype.cls.js"></script>
     <script src="timer.cls.js"></script>
+    <script src="arrowkeyboard.cls.js"></script>
     <script src="tilitoli.cls.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="game-section">
+        <div class="game-title">Tili-Toli 2</div>
         <div class="gamebox">
-            <div id="tili-toli"></div>
+            <div id="tili-toli">
+                <div class="tili-toli-layer">
+                    <span class="tili-toli-layertext"></span>
+                </div>
+            </div>
             <div class="game-controll">
                 <div class="game-messagebox" id="timerct"><span>Idő: </span><span class="step">00:00</span></div>
                 <div class="game-messagebox" id="stepsct"><span>Lépések: </span><span class="step">0</span></div>
@@ -29,7 +35,10 @@
                 <!-- div class="game-button" id="shuffle">Keverés</div -->
             </div>
         </div>
-        <div class="game-status">Tili-Toli</div>
+        <div class="game-status"></div>
+        <p>A <b>Tili-Toli</b> mostatntól billentyűzetről is, és az alábbi virtuális billentyúzetről is játszható</p>
+        
+        
     </div>
 
     <script src="tilitoli.js"></script>

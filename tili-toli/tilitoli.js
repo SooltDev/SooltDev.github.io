@@ -7,15 +7,15 @@
 */
 
 document.title = "Tili-Tolti " + TiliToli.version;
-document.querySelector(".game-status").innerHTML = document.title ;
+//document.querySelector(".game-status").innerHTML = "Játék";
 
 let step = 0;
 const stepContainer = document.querySelector("#stepsct .step");
 
-function reset(){
+function reset() {
     stepContainer.innerHTML = "0";
     step = 0;
-    document.querySelector(".game-status").innerHTML = document.title ;
+    //document.querySelector(".game-status").innerHTML = "Játék";
     ttimer.reset();
 }
 
@@ -33,27 +33,53 @@ const tt = new TiliToli({
     stepType: "multi", // single/multi
     keyControll: true, //false
 
-    win: function(){
-        document.querySelector(".game-status").innerHTML = "NYERT!";
+    win: function () {
+        //document.querySelector(".game-status").innerHTML = "NYERT!";
         ttimer.stop();
     },
-    moveAction: function(){
+    moveAction: function () {
         step++;
-        stepContainer.innerHTML = step+"";
+        stepContainer.innerHTML = step + "";
     },
-    afterShuffle: function(){
+    afterShuffle: function () {
+        reset();
         ttimer.restart();
     }
 });
 
-document.querySelector("#new-game").addEventListener("click", function(){
+const arrows = new ArrowKeys({
+    renderTo: ".game-section",
+    events: {
+        keydown: function(){
+            tt.winnerPrize();
+        }
+    },
+    keyevents: {
+        "ArrowUp": function(){
+            tt.move("up");
+        },
+        "ArrowDown": function(){
+            tt.move("down");
+        },
+        "ArrowLeft": function(){
+            tt.move("left");
+        },
+        "ArrowRight": function(){
+            tt.move("right");
+        }
+    }
+});
+
+window.focus();
+
+document.querySelector("#new-game").addEventListener("click", function () {
     reset();
     let level = ttLevel.initValue;
     tt.setSize(level, level);
     tt.renderGameTable();
     ttimer.stop();
     tt.displayEmptySlot();
-    setTimeout(function(){
+    setTimeout(function () {
         tt.shuffle(300, 2);
     }, 500);
 });
