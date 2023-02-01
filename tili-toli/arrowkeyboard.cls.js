@@ -38,6 +38,8 @@ class ArrowKeys{
     }
 
     build(){
+        let keys = ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"];
+
         let div = document.createElement("div");
         div.innerHTML = ArrowKeys.#html;
 
@@ -50,38 +52,51 @@ class ArrowKeys{
 
         let _this = this;
 
-        for (let btn in this.keyevents){
+        for (let btn of keys){
             this[btn].addEventListener("click", this.keyevents[btn]);
         }
 
         document.body.addEventListener("keydown", function(event){
-            
-            switch (event.key){
-                case "ArrowUp":
-                    _this.up();
-                    _this.ArrowUp.classList.add("active");
-                    break;
-                case "ArrowDown":
-                    _this.down();
-                    _this.ArrowDown.classList.add("active");
-                    break;
-                case "ArrowLeft":
-                    _this.left();
-                    _this.ArrowLeft.classList.add("active");
-                    break;
-                case "ArrowRight":
-                    _this.right();
-                    _this.ArrowRight.classList.add("active");
-                    break;
-            }
 
-            if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(event.key))
+            /*
+                Ha nyil billentyuk akkor a switch-ben kezeljuk a nyil billentyuket a DOM miatt
+            */
+            if (keys.includes(event.key)){
+
+                switch (event.key){
+                    case "ArrowUp":
+                        _this.up();
+                        _this.ArrowUp.classList.add("active");
+                        break;
+                    case "ArrowDown":
+                        _this.down();
+                        _this.ArrowDown.classList.add("active");
+                        break;
+                    case "ArrowLeft":
+                        _this.left();
+                        _this.ArrowLeft.classList.add("active");
+                        break;
+                    case "ArrowRight":
+                        _this.right();
+                        _this.ArrowRight.classList.add("active");
+                        break;
+                }
                 _this.events.keydown();
+
+            } 
+            /*
+                Ellentkezo esetben, ha van a nyil billentyuk melett mas billentyu, arra is legyen lehetoseg lekezelni
+                pl az Entert.
+            */
+            else if (_this.keyevents[event.key] && typeof _this.keyevents[event.key] == "function"){
+                _this.keyevents[event.key]();
+            }
+                
 
         });
 
         document.body.addEventListener("keyup", function(event){
-            if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(event.key)){
+            if (keys.includes(event.key)){
                 _this[event.key].classList.remove("active");
                 _this.events.keyup();
             }

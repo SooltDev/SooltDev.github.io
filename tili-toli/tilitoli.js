@@ -66,6 +66,9 @@ const arrows = new ArrowKeys({
         },
         "ArrowRight": function(){
             tt.move("right");
+        },
+        "Enter": function(){
+            document.querySelector("#new-game").click();
         }
     }
 });
