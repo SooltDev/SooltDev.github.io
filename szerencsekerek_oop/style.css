@@ -1,0 +1,164 @@
+#szerencsekerek {
+    position: relative;
+    display: inline-flex;
+    background-color: #f0ebdd;
+    padding: 13px;
+    border: 2px solid #e3d4a7;
+    border-radius: 6px;
+}
+
+.kerek {
+
+    width: 94px;
+    position: relative;
+    background-color: #5a4102;
+    padding: 4px;
+    border: 2px solid #e2ce9c;
+}
+
+.kerek .tarcsa {
+
+    width: 86px;
+    position: relative;
+    box-shadow: 0 0 10px -2px #000;
+    margin: 2px 0 0 0;
+}
+
+.kerek .jelzo {
+
+    position: absolute;
+    margin: auto;
+    top: 46%;
+    right: 0;
+    font-size: 30px;
+    color: #f8d072;
+    text-shadow: 1px 1px 5px #3d0000;
+}
+
+.kerek-elem {
+    width: 80px;
+    border: 2px solid #e2ce9c;
+    margin: -2px 0 0 0;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 28px;
+}
+
+.kerek-elem span {
+    text-align: center;
+}
+
+.forgat {
+    display: block;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: rgb(53, 144, 0);
+    color: white;
+    border-radius: 3px;
+    text-align: center;
+    line-height: 24px;
+    font-size: 14px;
+    padding: 5px 10px;
+    margin: 0 auto 5px auto;
+    cursor: pointer;
+    box-shadow: 1px 1px 5px -2px #000;
+}
+.forgat:hover{
+    background-color: rgb(48, 131, 0);
+}
+
+.forgat:active{
+    box-shadow: none;
+    background-color: rgb(44, 119, 1);
+}
+.forgat.inactive{
+    background-color: rgb(121, 145, 106);
+    color: rgb(175, 185, 169);
+    box-shadow: none;
+    cursor: default;
+}
+
+.szoforgato{
+
+    margin: 0 0 0 10px;
+}
+.szoforgato-innerct{
+
+    display: block;
+    position: relative;
+    background-color: #2b5c91;
+    padding: 2px;
+    border: 2px solid #f8d072;
+    border-radius: 3px;
+    box-shadow: 1px 1px 5px -2px #000;
+}
+.szoforgato .szorow{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+}
+.szoforgato .szobox{
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    background-color: #3482d5;
+    color: #fff;
+    margin: 1px;
+    border-radius: 3px;
+    font-size: 20px;
+}
+
+.szoforgato .szobox.in-game{
+    background-color: #8cc3ff;
+    color: #2b5c91;
+}
+
+.szoforgato .szobox.in-game.highlight{
+    box-shadow: 0px 0px 5px 1px #c4e1ff;
+    background-color: #d4e9ff;
+}
+
+.szoforgato .betuk-ct{
+
+    margin: 12px 0 0 0;
+}
+
+.szoforgato .betuk-ct .szobox{
+    
+    background-color: #5f89b5;
+}
+
+.szoforgato .betuk-ct .szobox.letter{
+    background-color: #3e6691;
+}
+.szoforgato .betuk-ct .szobox.letter.felhasznalt{
+    background-color: #8c9dae;
+    color: #b1bdca;
+}
+.szoforgato .betuk-ct .szobox.letter.inactive{
+    color: #b1bdca;
+}
+
+.kijelzo{
+    display: block;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: white;
+    border-radius: 3px;
+    text-align: center;
+    line-height: 34px;
+    font-size: 18px;
+    margin: 0 auto 12px auto;
+    box-shadow: 1px 1px 5px -2px #000;
+    border: 2px solid #f8d072;
+    font-weight: 200;
+}
+
+.kijelzo .kijelzo-inner{
+    background-color: rgb(27, 53, 11);
+    border-radius: 3px;
+    padding: 5px 10px;
+}

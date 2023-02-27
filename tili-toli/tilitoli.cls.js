@@ -1,11 +1,11 @@
 /*
     Game: Tili-Toli
-    Version: 2.0 Beta
+    Version: 2.0 
     Author: Fosztó Zsolt
     Description: ---
 
     Fejlesztések: 
-        - 2.0 verziótól, nemcsak egy lapocskát lehetegyszerre mozgatni, hanem annyit, amennyi az üres szlott előtt van.
+        - 2.0 verziótól, nemcsak egy lapocskát lehet egyszerre mozgatni, hanem annyit, amennyi az üres szlott előtt van.
 */
 
 class TiliToliMessage{
