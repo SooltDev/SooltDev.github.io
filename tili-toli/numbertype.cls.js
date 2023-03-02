@@ -51,6 +51,7 @@ class NumberType{
     }
 
     set value(v){
-        this.valueContainer.innerText = v;
+        if (v >= this.min && v <= this.max)
+            this.valueContainer.innerText = v;
     }
 }
