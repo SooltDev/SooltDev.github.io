@@ -47,7 +47,9 @@ class TiliToliMessage{
 
 class TiliToli{
     
-    static version = "2.0"
+    static version = "2.1"
+
+    #paused = false;
     
     /**
      * 
@@ -204,10 +206,16 @@ class TiliToli{
 
     pause(){
         this.messageLayer.show(this.pauseText);
+        this.#paused = true;
     }
 
     resume(){
         this.messageLayer.hide();
+        this.#paused = false;
+    }
+
+    get paused(){
+        return this.#paused;
     }
 
     #createSquare(x, y, num){
@@ -354,7 +362,7 @@ class TiliToli{
         return false;
     }
 
-    shuffle(step = 200, timer = 10){
+    shuffle(step = 250, timer = 10){
 
         if (!this.gameBox.querySelector(".tili-toli-square-empty"))
             this.#eraseSquare(this.sizex, this.sizey);
@@ -380,3 +388,5 @@ class TiliToli{
     }
 
 }
+
+export {TiliToliMessage, TiliToli};

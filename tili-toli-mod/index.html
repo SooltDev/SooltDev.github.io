@@ -5,17 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tili-Toli 1.6</title>
-    <script src="numbertype.cls.js"></script>
-    <script src="timer.cls.js"></script>
-    <script src="arrowkeyboard.cls.js"></script>
-    <script src="tilitoli.cls.js"></script>
-    <script src="tooglebutton.cls.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style/style.css">
 </head>
 <body>
     <section class="content">
         <div class="game-section">
-            <div class="game-title">Tili-Toli 2</div>
+            <div class="game-title">Tili-Toli 2.1</div>
             <div class="gamebox">
                 <div id="tili-toli">
                     <div class="tili-toli-layer">
@@ -33,9 +28,11 @@
                         </div>
                     </div>
                     <div class="game-button" id="new-game">Kezdés</div>
-                    <div class="game-button" id="pause-game">
+                    <div class="game-button" id="new-gamer">Új játékos</div>
+                    <div class="game-button" id="game-records">Pontszámok</div>
+                    <!-- div class="game-button" id="pause-game">
                         <i class="si si-pause"></i> <span>Szünet</span>
-                    </div>
+                    </div -->
                     <!-- div class="game-button" id="shuffle">Keverés</div -->
                 </div>
             </div>
@@ -44,9 +41,11 @@
                 A <b>Tili-Toli</b> mostatntól billentyűzetről is, és az alábbi virtuális billentyúzetről is játszható.
                 Az <b>Enter</b> billentyű lenyomásával, újrakeverhetjük a játékot. Így nem kell a billentyűzetről átnyúlni az egérre, ha új játékot szeretnénk kezdeni.
             </p>
+            <!--div class="game-section"></div -->
         </div>
+        
     </section>
 
-    <script src="tilitoli.js"></script>
+    <script src="tilitoli.js" type="module"></script>
 </body>
 </html>

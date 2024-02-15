@@ -1,0 +1,221 @@
+@font-face {
+    font-family: 'ArchivoBlack-Regular';
+    src: url(ArchivoBlack-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Digit';
+    src: url(Digit.ttf.woff) format('woff');
+}
+
+.grenade-field{
+    display: inline-block;
+    border-top: 5px solid #ededed;
+    border-left: 5px solid #ededed;
+    border-right: 5px solid #827d7d;
+    border-bottom: 5px solid #827d7d;
+    padding: 10px;
+    background-color: #bbb;
+}
+
+.grenade-field-inner{
+    display: inline-block;
+    border-top: 5px solid #827d7d;
+    border-left: 5px solid #827d7d;
+    border-right: 5px solid #ededed;
+    border-bottom: 5px solid #ededed;
+    padding: 0;
+    background-color: #bbb;
+}
+
+.grenade-display{
+    border-top: 5px solid #827d7d;
+    border-left: 5px solid #827d7d;
+    border-right: 5px solid #ededed;
+    border-bottom: 5px solid #ededed;
+    width: auto;
+    height: 48px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px 4px;
+}
+
+.grenade-display .digit-display{
+    font-family: 'Digit';
+    font-size: 34px;
+    padding: 2px 10px 2px 2px;
+    background-color: #471616;
+    color: #f40000;
+    border-top: 2px solid #827d7d;
+    border-left: 2px solid #827d7d;
+    border-right: 2px solid #ededed;
+    border-bottom: 2px solid #ededed;
+    width: 55px;
+    height: 37px;
+    position: relative;
+    text-align: right;
+}
+.grenade-display .digit-display::before{
+    content: '888';
+    color: #701212;
+    position: absolute;
+    left: 2px;
+}
+.grenade-display .digit-display span {
+    position: relative;
+}
+
+.grenade-display .grenade-button{
+    width: 40px;
+    height: 40px;
+
+    border-top: 3px solid #ededed;
+    border-left: 3px solid #ededed;
+    border-right: 3px solid #827d7d;
+    border-bottom: 3px solid #827d7d;
+
+    cursor: pointer;
+    border-radius: 1px;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.grenade-display .grenade-button::before{
+    content: '\1F642';
+}
+
+.grenade-display .grenade-button:active{
+    border-top: 2px solid #827d7d;
+    border-left: 2px solid #827d7d;
+    border-right: 2px solid #ededed;
+    border-bottom: 2px solid #ededed;
+    font-size: 23px;
+}
+
+.grenade-display .grenade-button:active::before, 
+.grenade-display .grenade-button.whoom::before{
+    content: '\1F632';
+}
+
+.grenade-display .grenade-button.lose::before{
+    content: '\1F61E';
+}
+
+.grenade-display .grenade-button.winner::before{
+    content: '\1F60E';
+}
+
+.grenade-field .row{
+    display: flex;
+}
+
+.grenade-field .field{
+    width: 24px;
+    height: 24px;
+    background-color: #ccc;
+    border: 1px solid #777;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    margin: -1px -1px 0 0;
+    user-select: none;
+}
+
+.grenade-field .field.overlay{
+    
+    border-top: 3px solid #fff;
+    border-left: 3px solid #fff;
+    border-bottom: 3px solid #8a8686;
+    border-right: 3px solid #999494;
+    border-radius: 1px;
+        
+    box-sizing: border-box;
+    width: 26px;
+    height: 26px;
+    user-select: none;
+}
+
+.s1, .s2, .s3, .s4, .s5, .s6, .s7, .s8 {
+    font-family:'ArchivoBlack-Regular';
+    font-size: 18px !important;
+}
+
+.s1{
+    color: rgb(17, 47, 218);
+}
+.s2{
+    color: rgb(14, 144, 14);
+}
+.s3{
+    color: rgb(237, 13, 13);
+}
+.s4{
+    color: rgb(14, 14, 146);
+}
+.s5{
+    color: rgb(127, 1, 127);
+}
+.s6{
+    color: rgb(202, 0, 202);;
+}
+.s7{
+    color: rgb(13, 95, 13);
+}
+.s8{
+    color: rgb(134, 15, 15);
+}
+.s1::before{
+    content: '1';
+}
+.s2::before{
+    content: '2';
+}
+.s3::before{
+    content: '3';
+}
+.s4::before{
+    content: '4';
+}
+.s5::before{
+    content: '5';
+}
+.s6::before{
+    content: '6';
+}
+.s7::before{
+    content: '7';
+}
+.s8::before{
+    content: '8';
+}
+.bumm{
+    background-color: #8c4f49 !important;
+}
+.bumm::before{
+    content: '\1F4A5';
+}
+.bomb::before{
+    content: '\1F4A3';
+}
+.pin::before{
+    content: '\1F4CD';
+}
+.flag::before{
+    content: '\1F6A9';
+}
+
+.flag.bad::after{
+    content: '/';
+    position: absolute;
+    font-size: 24px;
+    font-weight: 100;
+    color: #2a1b1b;
+}
+.flag.bad::before{
+    opacity: 0.5;
+}

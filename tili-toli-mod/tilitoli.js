@@ -2,9 +2,15 @@
     File: MAIN SCRIPT
 
     Game: Tili-Toli
-    Version: 2.0 Beta
+    Version: 2.1 Beta
     Author: Fosztó Zsolt
 */
+
+import { ArrowKeys } from "./js/arrowkeyboard.cls.js";
+import { NumberType } from "./js/numbertype.cls.js";
+import { Timer } from "./js/timer.cls.js";
+import { TiliToli } from "./js/tilitoli.cls.js";
+import { ToggleButton } from "./js/tooglebutton.cls.js";
 
 document.title = "Tili-Tolti " + TiliToli.version;
 //document.querySelector(".game-status").innerHTML = "Játék";
@@ -73,6 +79,8 @@ const arrows = new ArrowKeys({
     }
 });
 
+window.arrows = arrows;
+
 window.focus();
 
 document.querySelector("#new-game").addEventListener("click", function () {
@@ -83,15 +91,9 @@ document.querySelector("#new-game").addEventListener("click", function () {
     ttimer.stop();
     tt.displayEmptySlot();
     setTimeout(function () {
-        tt.shuffle(300, 2);
+        tt.shuffle(300, 20);
     }, 500);
 });
-
-/*
-<div class="game-button" id="pause-game">
-                        <i class="si si-pause"></i> <span>Szünet</span>
-                    </div>
-*/
 
 const pauseBtn = new ToggleButton({
     id: 'pause-game',
@@ -99,18 +101,22 @@ const pauseBtn = new ToggleButton({
     status: 'off', //optional
     icon: {
         cssClass: 'si',
-        onClass: 'si-pause',
-        offClass: 'si-play'
+        offClass: 'si-pause',
+        onClass: 'si-play'
     },
     parentElement: document.querySelector('#game-controll'),
-    text: "Szünet :)",
-    offText: "Folytatás",
-    toggleEvents: {
+    text: "Szünet",
+    onText: "Folytatás",
+    events: {
         on: function(){
-            console.log("ON");
+            ttimer.pause();
+            tt.pause();
+            arrows.active = false;
         },
         off: function(){
-            console.log("OFF");
+            ttimer.start();
+            tt.resume();
+            arrows.active = true;
         }
     }
 });

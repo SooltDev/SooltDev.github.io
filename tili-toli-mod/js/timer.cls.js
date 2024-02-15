@@ -81,3 +81,5 @@ class Timer{
         this.start();
     }
 }
+
+export { Timer };

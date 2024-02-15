@@ -188,6 +188,28 @@
 .arrow-keys{
     
 }
+.arrow-keys.inactive .keyct .arrowkey{
+    background-color: #c7bdaf;
+    
+}
+.arrow-keys.inactive .keyct .arrowkey:hover{
+    background-color: #c7bdaf;
+}
+.arrow-keys.inactive .keyct .arrowkey::before{
+    color: #78736b;
+}
+.arrow-keys.inactive .keyct .arrowkey.key-up:active{
+    margin-bottom: 1px;
+    margin-top: 1px;
+}
+.arrow-keys.inactive .keyct .arrowkey:active, 
+.arrow-keys.inactive .keyct .arrowkey.active{
+    background-color: #c7bdaf;
+    width: 50px;
+    height: 50px;
+    margin: 1px;
+    font-size: 16px;
+}
 .arrow-keys .keyct{
     display: flex;
     justify-content: center;

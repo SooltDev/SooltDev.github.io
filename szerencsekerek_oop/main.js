@@ -15,10 +15,9 @@ let szoforgato = new Szoforgato({
     }
 });
 
-
 //szoforgato.rejtveny = "Aki másnak\nvermet ás,\nmaga esik bele";
 //szoforgato.rejtveny = "Nem látja a\nfától,\naz erdőt";
-szoforgato.rejtveny = "Két szék közt\na pad alatt";
+//szoforgato.rejtveny = "Két szék közt\na pad alatt";
 //szoforgato.rejtveny = "Rókalyuk";
 
 //*/
