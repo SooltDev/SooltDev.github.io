@@ -157,7 +157,7 @@ class Minesweeper {
     
                 field.addEventListener('contextmenu', (e) => {
                     e.preventDefault();
-
+            
                     if (!this.#bumm && field.classList.contains('overlay') && !this.isWinner() ){
                         const flagged = field.classList.toggle('flag');
                         this.flagNumber += flagged ? 1 : -1;
@@ -166,17 +166,45 @@ class Minesweeper {
                 });
 
                 field.addEventListener('mousedown', (e) => {
-                    if (e.button == 0)
+                    if (e.button == 0  && !field.classList.contains('flag')){
                         this.gameButton.classList.add('whoom');
+                        if (field.classList.contains('overlay')){
+                            field.classList.remove('overlay');
+                            field.dataset.overlayed = 'true';
+                        }
+
+                    }
                 });
 
                 field.addEventListener('mouseup', (e) => {
-                    if (e.button == 0)
+                    if (e.button == 0){
                         this.gameButton.classList.remove('whoom');
+                        if (field.dataset.overlayed == 'true'){
+                            console.log(field.dataset.overlayed);
+                            field.classList.add('overlay');
+                            delete field.dataset.overlayed;
+                        }
+                    }
+                });
+
+                field.addEventListener('mouseleave', (e) => {
+                    if (e.buttons == 1 && field.dataset.overlayed){
+                        field.classList.add('overlay');
+                        delete field.dataset.overlayed;
+                    }
+                });
+
+                field.addEventListener('mouseenter', (e) => {
+                    
+                    if (e.buttons == 1 && field.classList.contains('overlay') && !field.classList.contains('flag')){
+                        field.classList.remove('overlay');
+                        field.dataset.overlayed = true;
+                    }
                 });
     
-                field.addEventListener('click', () => {
-    
+                field.addEventListener('mouseup', (e) => {
+                    
+                    if (e.button == 0)
                     if (!this.#bumm){
     
                         const row = +field.dataset.row;
@@ -198,7 +226,7 @@ class Minesweeper {
                             }
                         }
                     }   
-                });
+                }); //end fieldClick
     
                 row.appendChild(field);
             }
