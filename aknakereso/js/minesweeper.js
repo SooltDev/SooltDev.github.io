@@ -259,6 +259,17 @@ class Minesweeper {
         }
         return false;
     }
+
+    #revealField(el){
+        el.classList.remove('overlay');
+        this.#overlayed--;
+
+        if (el.classList.contains('flag')){
+            el.classList.remove('flag');
+            this.flagNumber--;
+            this.mineNumberDisplay.textContent = this.mineNumber - this.flagNumber;
+        }
+    }
     
     detect(row, col){
 
@@ -272,28 +283,15 @@ class Minesweeper {
             return;
     
         if (typeof grenadeField[row][col] == 'number' && grenadeField[row][col] > 0){
-            //*
 
-            el.classList.remove('overlay');
+            this.#revealField(el);    
             el.classList.add('s' + grenadeField[row][col]);
-            this.#overlayed--;
             this.checkWinner();
 
-            //*
-
-            /*
-            setTimeout(() => {
-                el.classList.remove('overlay');
-                el.classList.add('s' + grenadeField[row][col]);
-                this.#overlayed--;
-                this.checkWinner();
-            }, 30);
-            //*/
-
         } else if (grenadeField[row][col] == 0){
-    
-            el.classList.remove('overlay');
-            this.#overlayed--;
+
+            this.#revealField(el);
+            
             //*
             if (col - 1 >= 0 )
                 this.detect(row, col-1); //bal
