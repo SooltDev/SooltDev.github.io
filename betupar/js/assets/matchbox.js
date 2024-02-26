@@ -35,28 +35,37 @@ class Matchbox extends EventManager{
 
         this.#playground = o.playground || null;
 
-        /* 
-            //Kisérlet arra, hogy a vonalak ne a body-ba legyenek, hanem a játékmezőben
-            //Az alábbi kód a koordináták ehhez való igazítását szolgálná
+        this.#fixLineCoords();
+
+        this.#build();
+
+    }
+
+    #fixLineCoords(){
         
+    /* 
+        //Kisérlet arra, hogy a vonalak ne a body-ba legyenek, hanem a játékmezőben
+        //Az alábbi kód a koordináták ehhez való igazítását szolgálná
+    */
         if (this.#playground.playground){
-            if (getComputedStyle(this.#playground.playground).position == "relative")
-                this.#xOffset = this.#playground.playground.offsetLeft;
-                this.#yOffset = this.#playground.playground.offsetTop;
+            if (getComputedStyle(this.#playground.playground).position == "relative"){
+                const rect = this.#playground.playground.getBoundingClientRect();
+
+                this.#xOffset = rect.left;
+                this.#yOffset = rect.top;
+            }
         }
         //*/
 
         // Beigazí az egér pozicióját attól függően, hogy merre húzzuk a vonalat.
+        
         if (this.#location == 'start'){
-            this.#xOffset = 10;
-            this.#yOffset = 5;
+            this.#xOffset += 10;
+            this.#yOffset -= 5;
         } else if (this.#location == 'target'){
-            this.#xOffset = -10;
-            this.#yOffset = -5;
+            this.#xOffset += -10;
+            this.#yOffset += -5;
         }
-
-        this.#build();
-
     }
 
     #build(){
@@ -93,6 +102,8 @@ class Matchbox extends EventManager{
         this.#startX = this.offsetMiddle.x;
         this.#startY = this.offsetMiddle.y;
 
+        this.#fixLineCoords();
+
         this.#matchStarting = true;
 
         // Attach the listeners to document
@@ -103,7 +114,10 @@ class Matchbox extends EventManager{
         this.line = new HTMLLine({
             color: '#37528e',
             height: 5,
-            coords: [ this.#startX, this.#startY, e.pageX, e.pageY ],
+            coords: [ 
+                e.clientX - this.#xOffset, e.clientY - this.#yOffset, 
+                this.#startX, this.#startY 
+            ],
             parentElement: this.parentElement.parentElement.parentElement
         });
 

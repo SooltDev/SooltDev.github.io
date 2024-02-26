@@ -1,8 +1,8 @@
 .content {
     /* Center the content */
-    /*align-items: center;*/
-    /*display: flex;*/
-    /*justify-content: center;*/
+    align-items: center;
+    display: flex;
+    justify-content: center;
     /* Misc */
     min-height: 32rem;
     padding: 40px 100px;
@@ -42,7 +42,7 @@
     margin: 10px auto;
     padding: 20px;
     background-color: rgb(192, 188, 183);
-    /*position: relative;*/
+    position: relative;
     min-width: 350px;
 }
 
