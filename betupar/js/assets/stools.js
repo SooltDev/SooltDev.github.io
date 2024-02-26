@@ -107,7 +107,7 @@ const createElement = (o) => {
     Object.assign(el.style, o.style);
 
     if (o.parentElement){
-        let pElement = getElement(o.parentElement)
+        let pElement = getElement(o.parentElement);
         if (pElement)
             pElement.appendChild(el);
     }

@@ -4,6 +4,7 @@ import * as sTools from "./assets/stools.js";
 import { elementsFromTempalte, templateToObject } from "./assets/evaltemplate.js";
 import { Matchbox } from "./assets/matchbox.js";
 import { HTMLLine } from "./assets/line.cls.js";
+import { rewards } from "./assets/rewards.js";
 
 const matchboxTemplate = `
     <div class="playground" data-eval="dom">

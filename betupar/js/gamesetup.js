@@ -3,6 +3,7 @@
 import { getElement, randomize, removeAllChild, shuffleArray, emptyArray} from "./assets/stools.js";
 import { elementsFromTempalte, templateToObject } from "./assets/evaltemplate.js";
 
+
 const template = `
     <div class="playground" data-eval="dom" data-domname="element">
         <div class="palyground-inner">
@@ -24,8 +25,6 @@ const template = `
 
     </div>
 `;
-
-
 
 const gameSetup = (options) => {
 
