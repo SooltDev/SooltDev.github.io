@@ -1,0 +1,201 @@
+.content {
+    /* Center the content */
+    /*align-items: center;*/
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /* Misc */
+    min-height: 32rem;
+    padding: 40px 100px;
+}
+
+.draggable {
+    /* Required styles */
+    cursor: move;
+    position: absolute;
+    user-select: none;
+
+    /* Center the content */
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+    /* Misc */
+    border: 1px solid #cbd5e0;
+    height: 8rem;
+    width: 8rem;
+}
+
+.box {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: rgb(128, 193, 195);
+    border-radius: 3px;
+}
+
+#box1 {
+    background-color: rgb(32, 111, 113);
+}
+
+.playground{
+    display: inline-block;
+    margin: 10px auto;
+    padding: 20px;
+    background-color: rgb(192, 188, 183);
+    /*position: relative;*/
+    min-width: 350px;
+}
+
+.palyground-inner{
+    display: flex;
+    background-color: #dfdcd8;
+    padding: 10px;
+    padding-bottom: 0;
+}
+
+.matchbox{
+
+    width: 125px;
+}
+
+.matchbox #match-from, 
+.matchbox #match-to{
+    margin: 1px;
+}
+
+.matchland{
+    width: 80px;
+}
+.matchcard{
+    width: 100px;
+    height: 100px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    border-radius: 3px;
+    background-color: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+    user-select: none;
+    position: relative;
+    border: 1px solid transparent;
+}
+
+.matchcard.in-game:hover, .matchcard.active,
+.matchcard.in-game:active, 
+.matchcard.in-game:focus{
+    width: 104px;
+    height: 104px;
+    margin-top: -2px;
+    margin-left: -2px;
+    margin-bottom: 8px;
+    box-shadow: 0px 0px 8px 4px #757575;
+    background-color: #e6f1e5;
+}
+.matchcard.in-game:hover .letter,
+.matchcard.in-game:focus .letter,
+.matchcard.in-game:active .letter,
+.matchcard.active .letter{
+    font-size: 64px;
+}
+.matchcard .letter{
+    font-size: 62px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border: 3px solid #1c3f80;
+    width: inherit;
+    display: inline-flex;
+    height: inherit;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    color: rgb(236, 17, 17);
+    line-height: 64px;
+    box-sizing: border-box;
+}
+
+.matchcard.finish{
+    opacity: 0.90;
+    border: 1px solid #918a80;
+    box-sizing: content-box;
+    border-radius: 4px;
+}
+
+.matchcard .letter.vowel{
+    color: #1558d5;
+}
+.matchcard .voice{
+    position: relative;
+}
+.matchcard .picture{
+    position: relative;
+}
+.panel {
+
+}
+
+.panel-inner{
+
+    display: flex;
+    padding: 20px 0 0 0;
+}
+.panel-inner.game-mode{
+    flex-direction: column;
+}
+.btn{
+
+    background-color: #985f49;
+    height: 40px;
+    /*! width: auto; */
+    border-radius: 3px;
+}
+
+.icon-btn{
+    width: 42px;
+    margin: 0 7px 0 0;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 30px 30px;
+    background-color: #655e53;
+    cursor: pointer;
+}
+
+.btn-home{
+
+    background-image: url('./svg/home-color-icon.svg');
+}
+
+.btn-reload{
+    background-image: url('./svg/reload-button-green-icon.svg');
+}
+
+.btn-status{
+    
+    background-color: #655e53;
+    width: 72%;
+}
+
+.btn-game-mode{
+    width: 100%;
+    margin: 0 7px 0 0;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: auto 62px;
+    background-color: #d2cfca;
+    cursor: pointer;
+    height: 80px;
+    margin-bottom: 20px;
+}
+.btn-game-mode:last-child{
+    margin: 0;
+}
+.letter-to-letter{
+    background-image: url('./svg/letter-to-letter.svg');
+}
+
+.voice-to-letter{
+    background-image: url('./svg/voice-to-letter.svg');
+}
+
+.letter-to-figure{
+    background-image: url('./svg/letter-to-figure.svg');
+}
