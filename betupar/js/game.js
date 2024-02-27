@@ -40,7 +40,6 @@ const isLower = letter => {
     return lowerCaseLetters.includes(letter);
 };
 
-
 const reverseChar = (l) => {
     let ret = '';
     if (l.length == 1)
@@ -58,7 +57,9 @@ const epmtyLine = (boxes) => {
 
 const matchLine = function(options){
     let GAMESETUP;
-
+    
+    let REWARD;
+    
     let Elements = {
         // Elements container on template
     };
@@ -159,6 +160,7 @@ const matchLine = function(options){
     const newGame = () => {
         epmtyLine(fromBoxes);
         epmtyLine(toBoxes);
+
         sTools.emptyArray(fromBoxes);
         sTools.emptyArray(toBoxes);
 
@@ -181,12 +183,18 @@ const matchLine = function(options){
                 playground: Elements
             });
 
-            toBox.on('link', () => {
+            fromBox.on('link', () => {
                 //good job effect
                 //add point
                 //testing when finish
-                alert('god job');
+
+                REWARD.correct();
             });
+
+            toBox.on('link', () => {
+                REWARD.correct();
+            });
+
 
             //ekkor van 2 box példányunk. így be tudjuk állítani a boxoknak a társát
             fromBox.partner = toBox;
@@ -218,6 +226,10 @@ const matchLine = function(options){
             fromBoxes[i].appendTo(matchFrom);
             toBoxes[i].appendTo(matchTo);
         }
+
+        REWARD = rewards({
+            parentElement: Elements.playground
+        });
     }
 
     return { render, gameOptions, newGame,

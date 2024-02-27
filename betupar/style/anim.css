@@ -1,0 +1,62 @@
+.line-correct {
+    background-image: url('./svg/clapping-icon.svg');
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 100;
+    background-position: center center;
+    background-size: 100% 100%;
+    transform: translate(-50%, -50%);
+    background-repeat: no-repeat;
+}
+
+.reward-layer {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.28);
+}
+
+.layerfadein{
+    animation: layerfadein .2s ease-in; 
+}
+
+@keyframes layerfadein{
+    from{
+        background-color: rgba(0, 0, 0, 0);
+    }
+
+    to{
+        background-color: rgba(0, 0, 0, 0.28);
+    }
+}
+
+.fadein{
+    animation: fadein 2s ease; 
+}
+
+@keyframes fadein {
+    0%{
+        opacity: 1;
+    }
+
+    100%{
+        opacity: 0;
+    }
+}
+.zoomin{
+    animation: zoomin .35s ease-in; 
+}
+@keyframes zoomin {
+    0% {
+        transform: scale(0) translate(-50%, -50%);
+    }
+
+    100% {
+        transform: scale(1) translate(-50%, -50%);
+    }
+}

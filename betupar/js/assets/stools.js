@@ -141,7 +141,9 @@ function removeAllChild(element, onlyHTML = false){
     }
 }
 
+const isObject = o => o instanceof Object && !Array.isArray(o);
+
 export {
     randomize, createElement, getElement, removeAllChild, 
-    shuffleArray, emptyArray, deepAssign, capitalize
+    shuffleArray, emptyArray, deepAssign, capitalize, isObject
 };

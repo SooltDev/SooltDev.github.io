@@ -9,10 +9,28 @@ const rewards = (o) => {
 
     }
 
+    const layer = () => {
+        const element = document.createElement('div');
+        element.className = 'reward-layer layerfadein';
+
+        parentElement.appendChild(element);
+
+        return element;
+    }
+
     const correct = () => {
-        const element = sTools.createElement({
-            
-        });
+        const element = document.createElement('div');
+
+        const parent = layer();
+        parent.appendChild(element);
+
+        setTimeout(() => {
+            element.className = 'line-correct zoomin';
+        }, 200);
+        setTimeout(() => {
+            parent.remove();
+        }, 1600);
+
     }
 
     const incorrect =() => {
