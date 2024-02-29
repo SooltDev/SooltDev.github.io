@@ -23,6 +23,7 @@ class Matchbox extends EventManager{
     line;
     #xOffset = 0;
     #yOffset = 0;
+    #wrong = 0;        // Az elrontott összekötések száma
 
     constructor(o){
         super();
@@ -81,13 +82,16 @@ class Matchbox extends EventManager{
     }
     /*
         Ha felengedjük az egér gombját (mouseup), akkor megnézzük, hogy a társától indult-e vonal
-
     */
     #checkPartner = (e) => {
-        if (!this.matching){
+        if (!this.matching){//ha nem erről a kártáról indult a vonalösszekötés
             if (this.partner.matching){
                 this.#linked = true;
                 this.partner.makeLine();
+            } else{
+                this.trigger('badlink');
+                this.wrongInc();
+                this.partner.wrongInc();
             }
         }
     }
@@ -255,6 +259,18 @@ class Matchbox extends EventManager{
             this.#letter = this.#letter[0].toUpperCase() + this.#letter.slice(1);
 
         return this.#letter;
+    }
+
+    /**
+     * Igazat ad vissza, ha volt már ezzel a kártyával hibás összekötés.
+     * @returns {boolean}
+     */
+    isWrong(){
+        return this.#wrong > 0;
+    }
+
+    wrongInc(){
+        this.#wrong++;
     }
 
     /**

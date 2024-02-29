@@ -1,5 +1,5 @@
-.line-correct {
-    background-image: url('./svg/clapping-icon.svg');
+
+.reward{
     width: 150px;
     height: 150px;
     position: absolute;
@@ -10,6 +10,22 @@
     background-size: 100% 100%;
     transform: translate(-50%, -50%);
     background-repeat: no-repeat;
+}
+
+.reward.line-correct {
+    background-image: url('./svg/clapping-icon.svg');
+}
+
+.reward.line-incorrect {
+    background-image: url('./svg/surprisedo-icon.svg');
+}
+
+.reward.all-success {
+    background-image: url('./svg/star-struck-emoji-icon.svg');
+}
+
+.reward.all-finished {
+    background-image: url('./svg/happy-emoji-icon.svg');
 }
 
 .reward-layer {

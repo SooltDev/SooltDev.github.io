@@ -87,6 +87,22 @@ const matchLine = function(options){
         return from.type + 'To' + sTools.capitalize(to.type);
     }
 
+    const isPerfect = () => {
+        for (const card of fromBoxes)
+            if ( !card.linked || card.isWrong() )
+                return false;
+
+        return true;
+    }
+
+    const isComplete = () => {
+        for (const card of fromBoxes)
+            if ( !card.linked )
+                return false;
+
+        return true;
+    }
+
     const clearDOM = () => {
         for (const name in Elements){
             Elements[name].remove();
@@ -107,6 +123,7 @@ const matchLine = function(options){
         homeBtn.addEventListener("click", () => {
             clearDOM();
             GAMESETUP.render();
+            REWARD.layer.remove();
         });
     }
 
@@ -157,12 +174,24 @@ const matchLine = function(options){
         return letters;
     }
 
+    const linkEvent = async () => {
+        if (isPerfect())
+            REWARD.success();
+        else if (isComplete())
+            REWARD.finished();
+        else
+            REWARD.correct();
+    }
+
     const newGame = () => {
         epmtyLine(fromBoxes);
         epmtyLine(toBoxes);
 
         sTools.emptyArray(fromBoxes);
         sTools.emptyArray(toBoxes);
+
+        if (REWARD && REWARD.layer)
+            REWARD.layer.remove();
 
         letters = randomLetters();
         //console.log(from);
@@ -183,18 +212,15 @@ const matchLine = function(options){
                 playground: Elements
             });
 
-            fromBox.on('link', () => {
-                //good job effect
-                //add point
-                //testing when finish
-
-                REWARD.correct();
+            fromBox.on('link', linkEvent);
+            fromBox.on('badlink', () => {
+                REWARD.incorrect();
             });
 
-            toBox.on('link', () => {
-                REWARD.correct();
+            toBox.on('link', linkEvent);
+            toBox.on('badlink', () => {
+                REWARD.incorrect();
             });
-
 
             //ekkor van 2 box példányunk. így be tudjuk állítani a boxoknak a társát
             fromBox.partner = toBox;
