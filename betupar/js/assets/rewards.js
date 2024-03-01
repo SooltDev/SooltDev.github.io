@@ -1,5 +1,13 @@
 import * as sTools from "./stools.js";
 import { SElement, createSElement } from "./selement.js";
+import { evalTemplate, elementsFromTempalte} from "./evaltemplate.js";
+
+
+const starsTpl = `
+    <div class="stars-ct" data-eval="dom">
+        <div class="stars-inner" data-eval="dom"></div>
+    </div>
+`;
 
 /**
  * Addig fog érni az element1, ameddig az element2
@@ -95,12 +103,13 @@ const rewards = (o) => {
 
     }
 
-    const addStar = () => {
-
+    const addStars = (starNumber) => {
+        const {starsCt, starsInner} = elementsFromTempalte(starsTpl);
+        
     }
 
     return {
-        correct, incorrect, success, failed, addStar, goodJob, finished,
+        correct, incorrect, success, failed, addStars, goodJob, finished,
         get layer(){
             return layerElement;
         }

@@ -103,6 +103,9 @@ const matchLine = function(options){
         return true;
     }
 
+    const countWrong = () => {
+        return fromBoxes.reduce( (total, card) => card.isWrong() ? ++total : total, 0 );
+    }
     const clearDOM = () => {
         for (const name in Elements){
             Elements[name].remove();
@@ -177,8 +180,10 @@ const matchLine = function(options){
     const linkEvent = async () => {
         if (isPerfect())
             REWARD.success();
-        else if (isComplete())
+        else if (isComplete()){
             REWARD.finished();
+            console.log(countWrong());
+        }
         else
             REWARD.correct();
     }
