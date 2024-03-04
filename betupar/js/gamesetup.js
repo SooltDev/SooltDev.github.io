@@ -3,6 +3,7 @@
 import { getElement, randomize, removeAllChild, shuffleArray, emptyArray} from "./assets/stools.js";
 import { elementsFromTempalte, templateToObject } from "./assets/evaltemplate.js";
 import { loadLetterCSV } from "./assets/csvtojson.js";
+//import letterFigure from '../szavak.json';
 
 
 const template = `
@@ -88,8 +89,10 @@ const gameSetup = (options) => {
         });
 
         letterToFigureBtn.addEventListener('click', async () => {
-            const letterFigure = await loadLetterCSV('/data/szavak.csv');
-            console.log(letterFigure);
+            const res = await fetch('/szavak.json');
+            const data = await res.json();
+
+            console.log(data);
         });
 
         parentElement.appendChild(Elements.element);

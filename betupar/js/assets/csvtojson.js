@@ -35,7 +35,14 @@ const letterCSVToJSON = (csv, sep = ',', header = true, grouping = true) => {
 }
 
 const loadLetterCSV = async (url) => {
-    const res = await fetch(url);
+    const res = await fetch(url, {
+        method: 'GET',
+        headers: {
+            "Content-Type": "text/csv"
+        },
+        mode: 'same-origin',
+        referrerPolicy: "no-referrer"
+    });
     const data = await res.text();
 
     return letterCSVToJSON(data);
