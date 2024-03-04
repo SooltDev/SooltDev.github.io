@@ -2,6 +2,7 @@
 
 import { getElement, randomize, removeAllChild, shuffleArray, emptyArray} from "./assets/stools.js";
 import { elementsFromTempalte, templateToObject } from "./assets/evaltemplate.js";
+import { loadLetterCSV } from "./assets/csvtojson.js";
 
 
 const template = `
@@ -75,7 +76,7 @@ const gameSetup = (options) => {
 
         clearDOM();
 
-        const { letterToLetterBtn } = Elements = elementsFromTempalte(template);
+        const { letterToLetterBtn, letterToFigureBtn } = Elements = elementsFromTempalte(template);
 
         letterToLetterBtn.addEventListener('click', () => {
             newGame({
@@ -84,6 +85,11 @@ const gameSetup = (options) => {
                 fromType: 'letter',
                 toType: 'letter'
             });
+        });
+
+        letterToFigureBtn.addEventListener('click', async () => {
+            const letterFigure = await loadLetterCSV('/data/szavak.csv');
+            console.log(letterFigure);
         });
 
         parentElement.appendChild(Elements.element);
