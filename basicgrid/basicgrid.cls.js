@@ -1,16 +1,20 @@
 
 const SElement = {
     create(o){
-        Object.assign(this, {
+        o = Object.assign({
             tagName: "div"
         }, o);
 
-        const element = document.createElement(tagName);
+        const element = document.createElement(o.tagName);
+
         if (o.cssName)
-            element.className = cssName;
+            element.className = o.cssName;
 
         if (o.content)
-            element.innerHTML = content;
+            element.innerHTML = o.content;
+
+        if (o.parentElement)
+            o.parentElement.appendChild(element);
         
         return element;
     },
@@ -29,6 +33,14 @@ class BasicGrid{
         desc: "▼" //csokkeno
     }
 
+    parentElement;
+    element; //gridElement
+    headers;
+    renderTo;
+    data;
+    titleElement;
+    bodyElement;
+
     constructor(o){
         Object.assign(this, {
             
@@ -40,39 +52,42 @@ class BasicGrid{
 
     build(){
         this.parentElement = document.querySelector(this.renderTo);
-        this.grid = SElement.create({cssName: "basic-grid"});
-        this.parentElement.appendChild(this.grid);
-        this.title = SElement.create("div", "basic-grid-title", titletext);
-        this.grid.appendChild(this.title);
+        this.element = SElement.create({cssName: "basic-grid"});
+        this.parentElement.appendChild(this.element);
+        this.titleElement = SElement.create({cssName: "basic-grid-title", content: this.title});
+        this.element.appendChild(this.titleElement);
     }
 
     renderHeader(){
-        let cell;
+
+        const headerElement = this.element.querySelector('.grid-head');
+        if (headerElement)
+            headerElement.remove();
+
         const row = SElement.create({cssName: "grid-row grid-head"});
-        this.grid.appendChild(row);
-
-        const _this = this;
-
+        this.titleElement.insertAdjacentElement('afterend', row);
+        
+        //return;
         for (const head of this.headers){
-            cell = SElement.create({cssName: "grid-cell", content: head.text});
+            const cell = SElement.create({cssName: "grid-cell", content: head.text});
             cell.style.width = head.width ? head.width : "100%";
     
             if (head.sortable){
     
                 let sortElement = head.order ?
-                SElement.create({tagName: "span", cssName: "grid-sort " + head.order, content: order[head.order]}) :
+                SElement.create({tagName: "span", cssName: "grid-sort " + head.order, content: this.order[head.order]}) :
                 SElement.create({tagName: "span", cssName: "grid-sort ", content: "♦"});
     
                 cell.appendChild(sortElement);
     
-                sortElement.onclick = function(){
-                    let order = this.classList.contains("asc") ? "desc" : "asc";
+                sortElement.addEventListener('click', () => {
+                    let order = sortElement.classList.contains("asc") ? "desc" : "asc";
                     //reset header
-                    _this.headers.forEach(h => h.order = undefined);
+                    this.headers.forEach(h => h.order = undefined);
     
                     //set order in header
                     head.order = order;
-                    _this.data = _this.data.sort( (el, nextEl) => {
+                    this.data = this.data.sort( (el, nextEl) => {
                         let element, nextElement
                         if (order == "asc"){
                             element = el[head.key];
@@ -82,55 +97,58 @@ class BasicGrid{
                             nextElement = el[head.key];
                         }
     
-                        if (element > nextElement)
-                            return 1;
-                        if (element == nextElement)
-                            return 0;
-                        
-                        return -1;
+                        return typeof element == "string" ? element.localeCompare(nextElement) : element - nextElement;
                     });
-    
-                    _this.render();
-                }
+
+                    this.render();
+                })
             }
     
             row.appendChild(cell);
         }
     }
 
-    render(){
-        let row, cell;
+    renderRows(){
+        
+        if (!this.bodyElement)
+            this.bodyElement = SElement.create({cssName: 'grid-body', parentElement: this.element});
+        else this.bodyElement.innerHTML = '';
 
         for (const element of this.data){
 
-            row = createElementWithCSS("div", "grid-row");
-            grid.appendChild(row);
+            const row = SElement.create({cssName: "grid-row"});
+            this.bodyElement.appendChild(row);
     
-            row.onclick = function(){
-                let addOrRemove = this.classList.contains("selected-row") ? "remove" : "add";
-                grid.querySelectorAll(".selected-row").forEach(r => r.classList.remove("selected-row"));
+            row.addEventListener('click', () => {
+                let addOrRemove = row.classList.contains("selected-row") ? "remove" : "add";
+                this.bodyElement.querySelectorAll(".selected-row").forEach(r => r.classList.remove("selected-row"));
                 
-                this.classList[addOrRemove]("selected-row");
-            }
+                row.classList[addOrRemove]("selected-row");
+            });
     
-            for (const head of headers){
-                cell = createElementWithCSS("div", "grid-cell", element[head.key]);
+            for (const head of this.headers){
+                const cell = SElement.create({cssName: "grid-cell", content: element[head.key]} );
                 cell.style.width = head.width ? head.width : "100%";
                 row.appendChild(cell);
             }
         }
     }
 
+    render(){
+        this.renderHeader();
+        this.renderRows();
+    }
+
     sortByKey(key = "id", order = "asc"){ // order = asc/desc
 
     }
-
+/*
     set title(text){
-        this.title.innerHTML = text;
+        this.titleElement.innerHTML = text;
     }
 
     get title(){
-        return this.title.innerText;
+        return this.titleElement.innerText;
     }
 
     set header(h){
@@ -140,5 +158,5 @@ class BasicGrid{
     get header(){
         return this.headers;
     }
-
+*/
 }
