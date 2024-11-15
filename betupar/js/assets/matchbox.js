@@ -133,11 +133,14 @@ class Matchbox extends EventManager{
         //console.log(e);
         //console.log(this);
 
+        const clientX = isTouchScreen() ? e.touches[0].clientX : e.clientX;
+        const clientY = isTouchScreen() ? e.touches[0].clientY : e.clientY;
+
         this.line = new HTMLLine({
             color: '#37528e',
             height: 5,
             coords: [ 
-                e.clientX - this.#xOffset, e.clientY - this.#yOffset, 
+                clientX - this.#xOffset, clientY - this.#yOffset, 
                 this.#startX, this.#startY 
             ],
             parentElement: this.parentElement.parentElement.parentElement
@@ -177,9 +180,11 @@ class Matchbox extends EventManager{
 
     #mouseMove = (e) => {
 
-        //this.line.setLine(this.#startX, this.#startY, e.clientX - this.#xOffset, e.clientY - this.#yOffset);
+        const clientX = isTouchScreen() ? e.touches[0].clientX : e.clientX;
+        const clientY = isTouchScreen() ? e.touches[0].clientY : e.clientY;
+
         this.line.setLine(
-            e.clientX - this.#xOffset, e.clientY - this.#yOffset, 
+            clientX - this.#xOffset, clientY - this.#yOffset, 
             this.#startX, this.#startY
         );
 
