@@ -163,8 +163,8 @@ class Matchbox extends EventManager{
         // Remove the handlers of mousemove and mouseup
         
         if (isTouchScreen()){
-            document.addEventListener('touchmove', this.#mouseMove);
-            document.addEventListener('touchend', this.#mouseUp);
+            document.removeEventListener('touchmove', this.#mouseMove);
+            document.removeEventListener('touchend', this.#mouseUp);
         } else {
             document.removeEventListener('mousemove', this.#mouseMove);
             document.removeEventListener('mouseup',this.#mouseUp);
