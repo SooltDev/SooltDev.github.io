@@ -1,4 +1,4 @@
-import { createElement, getElement } from "./stools.js";
+import { createElement, getElement, isTouchScreen } from "./stools.js";
 import { EventManager } from "./eventmanager.cls.js";
 import { HTMLLine } from "./line.cls.js";
 
@@ -89,12 +89,13 @@ class Matchbox extends EventManager{
         
         this[this.makeFuncName()]();
 
-        this.element.addEventListener('mousedown', this.#mouseDown);
-        //this.typeElement.addEventListener('mouseover', this.#mouseOver);
-        this.typeElement.addEventListener('mouseup', this.#checkPartner);
-
-        document.addEventListener('touchstart', this.#mouseDown);
-        document.addEventListener('touchend', this.#checkPartner);
+        if (isTouchScreen()){
+            document.addEventListener('touchstart', this.#mouseDown);
+            document.addEventListener('touchend', this.#checkPartner);
+        } else {
+            this.element.addEventListener('mousedown', this.#mouseDown);
+            this.typeElement.addEventListener('mouseup', this.#checkPartner);
+        }
 
     }
     /*
@@ -144,22 +145,27 @@ class Matchbox extends EventManager{
 
         //console.log(this.line);
 
-        document.addEventListener('mousemove', this.#mouseMove);
-        document.addEventListener('mouseup', this.#mouseUp);
-
-        document.addEventListener('touchmove', this.#mouseMove);
-        document.addEventListener('touchend', this.#mouseUp);
+        if (isTouchScreen()){
+            document.addEventListener('touchmove', this.#mouseMove);
+            document.addEventListener('touchend', this.#mouseUp);
+        } else {
+            document.addEventListener('mousemove', this.#mouseMove);
+            document.addEventListener('mouseup', this.#mouseUp);
+        }
 
         this.trigger('mousemove');
     }
 
     #mouseUp = (e) => {
         // Remove the handlers of mousemove and mouseup
-        document.removeEventListener('mousemove', this.#mouseMove);
-        document.removeEventListener('mouseup',this.#mouseUp);
-
-        document.addEventListener('touchmove', this.#mouseMove);
-        document.addEventListener('touchend', this.#mouseUp);
+        
+        if (isTouchScreen()){
+            document.addEventListener('touchmove', this.#mouseMove);
+            document.addEventListener('touchend', this.#mouseUp);
+        } else {
+            document.removeEventListener('mousemove', this.#mouseMove);
+            document.removeEventListener('mouseup',this.#mouseUp);
+        }
         
         this.line.destroy();
         this.line = null;
