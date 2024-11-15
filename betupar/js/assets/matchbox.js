@@ -90,8 +90,8 @@ class Matchbox extends EventManager{
         this[this.makeFuncName()]();
 
         if (isTouchScreen()){
-            document.addEventListener('touchstart', this.#mouseDown);
-            document.addEventListener('touchend', this.#checkPartner);
+            this.element.addEventListener('touchstart', this.#mouseDown);
+            this.typeElement.addEventListener('touchend', this.#checkPartner);
         } else {
             this.element.addEventListener('mousedown', this.#mouseDown);
             this.typeElement.addEventListener('mouseup', this.#checkPartner);
@@ -243,10 +243,22 @@ class Matchbox extends EventManager{
     }
 
     removeMouseEvents() {
-        this.element.removeEventListener('mousedown', this.#mouseDown);
-        this.typeElement.removeEventListener('mouseup', this.#checkPartner);
-        document.removeEventListener('mousemove', this.#mouseMove);
-        document.removeEventListener('mouseup',this.#mouseUp);
+
+        if (isTouchScreen()){
+            this.element.removeEventListener('touchstart', this.#mouseDown);
+            this.typeElement.removeEventListener('touchend', this.#checkPartner);
+        }else {
+            this.element.removeEventListener('mousedown', this.#mouseDown);
+            this.typeElement.removeEventListener('mouseup', this.#checkPartner);
+        }
+
+        if (isTouchScreen()){
+            document.removeEventListener('touchmove', this.#mouseMove);
+            document.removeEventListener('touchend',this.#mouseUp);
+        }else {
+            document.removeEventListener('mousemove', this.#mouseMove);
+            document.removeEventListener('mouseup',this.#mouseUp);
+        }
     }
 
     finishStyle(){
