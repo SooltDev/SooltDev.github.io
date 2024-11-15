@@ -93,6 +93,9 @@ class Matchbox extends EventManager{
         //this.typeElement.addEventListener('mouseover', this.#mouseOver);
         this.typeElement.addEventListener('mouseup', this.#checkPartner);
 
+        document.addEventListener('touchstart', this.#mouseDown);
+        document.addEventListener('touchend', this.#checkPartner);
+
     }
     /*
         Ha felengedjük az egér gombját (mouseup), akkor megnézzük, hogy a társától indult-e vonal
@@ -143,6 +146,10 @@ class Matchbox extends EventManager{
 
         document.addEventListener('mousemove', this.#mouseMove);
         document.addEventListener('mouseup', this.#mouseUp);
+
+        document.addEventListener('touchmove', this.#mouseMove);
+        document.addEventListener('touchend', this.#mouseUp);
+
         this.trigger('mousemove');
     }
 
@@ -150,6 +157,9 @@ class Matchbox extends EventManager{
         // Remove the handlers of mousemove and mouseup
         document.removeEventListener('mousemove', this.#mouseMove);
         document.removeEventListener('mouseup',this.#mouseUp);
+
+        document.addEventListener('touchmove', this.#mouseMove);
+        document.addEventListener('touchend', this.#mouseUp);
         
         this.line.destroy();
         this.line = null;
