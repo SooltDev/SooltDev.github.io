@@ -6,8 +6,8 @@ const vowels = 'a,á,e,é,i,í,o,ó,ö,ő,u,ú,ü,ű'.split(',');
 const isVowle = (letter) => vowels.includes(letter.toLowerCase());
 
 class Matchbox extends EventManager{
-    static #types = ['letter', 'vioce', 'picture'];
-    #type = 'letter';  // letter, voice, picture
+    static #types = ['letter', 'voice', 'figure'];
+    #type = 'letter';  // letter, voice, figure
     #letter = null;    // char 
     #vowel = false;    // true, ha magánhangzó
     #location;
@@ -24,6 +24,8 @@ class Matchbox extends EventManager{
     #xOffset = 0;
     #yOffset = 0;
     #wrong = 0;        // Az elrontott összekötések száma
+    #imgPath = undefined;
+    #voicePath = undefined;
 
     constructor(o){
         super();
@@ -33,6 +35,14 @@ class Matchbox extends EventManager{
         this.type = o.type;
         this.letter = o.letter;
         this.location = o.location;
+
+        if (this.type == 'figure')
+            this.#imgPath = o.imgPath;
+
+        if (this.type == 'voice'){
+            console.log('VoiceType o: ', o);
+            this.#voicePath = o.voicePath;
+        }
 
         this.#playground = o.playground || null;
 
@@ -50,7 +60,9 @@ class Matchbox extends EventManager{
     */
         if (this.#playground.playground){
             if (getComputedStyle(this.#playground.playground).position == "relative"){
-                const rect = this.#playground.playground.getBoundingClientRect();
+                const rect = this.#playground.palygroundInner.getBoundingClientRect();
+
+                //console.log(this.#playground);
 
                 this.#xOffset = rect.left;
                 this.#yOffset = rect.top;
@@ -61,17 +73,19 @@ class Matchbox extends EventManager{
         // Beigazí az egér pozicióját attól függően, hogy merre húzzuk a vonalat.
         
         if (this.#location == 'start'){
-            this.#xOffset += 10;
-            this.#yOffset -= 5;
+            this.#xOffset += 5;
+            this.#yOffset += 0;
         } else if (this.#location == 'target'){
-            this.#xOffset += -10;
-            this.#yOffset += -5;
+            this.#xOffset += -5;
+            this.#yOffset += 0;
         }
     }
 
     #build(){
         this.element = document.createElement('div');
         this.element.className = 'matchcard in-game';
+
+        console.info(this.makeFuncName());
         
         this[this.makeFuncName()]();
 
@@ -175,11 +189,36 @@ class Matchbox extends EventManager{
     }
 
     makeVoice(){
+        this.typeElement = createElement({
+            tagName: 'div',
+            className: 'voice',
+            parentElement: this.element
+        });
 
+        const audio = new Audio(this.#voicePath.normalize('NFD'));
+
+        this.typeElement.addEventListener('click', () => {
+            console.log(this.type, this.#voicePath);
+            audio.play();
+        });
+
+        console.log(this);
     }
 
-    makePicture(){
+    makeFigure(){
+        this.typeElement = createElement({
+            tagName: 'div',
+            className: 'figure',
+            parentElement: this.element
+        });
 
+        const img = createElement({
+            tagName: 'img'
+        });
+
+        img.src = this.#imgPath;
+
+        this.typeElement.appendChild(img);
     }
 
     removeMouseEvents() {

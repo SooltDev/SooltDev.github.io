@@ -2,12 +2,12 @@
 
 import { getElement, randomize, removeAllChild, shuffleArray, emptyArray} from "./assets/stools.js";
 import { elementsFromTempalte, templateToObject } from "./assets/evaltemplate.js";
-import { loadLetterCSV } from "./assets/csvtojson.js";
+import { letterCSVToJSON, loadLetterCSV } from "./assets/csvtojson.js";
 
 
 const template = `
-    <div class="playground" data-eval="dom" data-domname="element">
-        <div class="palyground-inner">
+    <div class="playground gamemenu" data-eval="dom" data-domname="element">
+        <div class="palyground-inner gamemenu">
             <img width="320" src="./style/svg/logo.svg"></img>
         </div>
 
@@ -19,8 +19,7 @@ const template = `
                 </div>
                 <div class="btn btn-game-mode icon-btn letter-to-figure" id="letter-to-figure-btn" data-eval="dom">
                 </div>
-                <div class="btn btn-game-mode icon-btn options" id="options-btn" data-eval="dom">
-                </div>
+                
             </div>    
         </div>
 
@@ -37,15 +36,13 @@ const gameSetup = (options) => {
     };
 
     const newGame = (opt) => {
-        /*
-        const app = matchLine({
-            parentElement: opt.parentElement
-        });
-        */
+        
         const app = GAME;
 
         app.render();
         
+        console.log(opt);
+
         app.gameOptions({
             letterNumber: opt.letterNumber || 4,
             from: {
@@ -76,7 +73,7 @@ const gameSetup = (options) => {
 
         clearDOM();
 
-        const { letterToLetterBtn, letterToFigureBtn } = Elements = elementsFromTempalte(template);
+        const { letterToLetterBtn, letterToFigureBtn, voiceToLetterBtn } = Elements = elementsFromTempalte(template);
 
         letterToLetterBtn.addEventListener('click', () => {
             newGame({
@@ -87,12 +84,25 @@ const gameSetup = (options) => {
             });
         });
 
-        letterToFigureBtn.addEventListener('click', async () => {
-            
-            const res = await fetch('/szavak.json');
-            const data = await res.json();
+        voiceToLetterBtn.addEventListener('click', () => {
+            newGame({
+                parentElement,
+                letterNumber: 4,
+                fromType: 'voice',
+                toType: 'letter'
+            });
+        });
 
+        letterToFigureBtn.addEventListener('click', async () => {
+            const data = await loadLetterCSV('./data/szavak.csv');
             console.log(data);
+            GAME.images = data;
+            newGame({
+                parentElement,
+                letterNumber: 4,
+                fromType: 'letter',
+                toType: 'figure'
+            });
         });
 
         parentElement.appendChild(Elements.element);

@@ -8,7 +8,7 @@ import { rewards } from "./assets/rewards.js";
 
 const matchboxTemplate = `
     <div class="playground" data-eval="dom">
-        <div class="palyground-inner">
+        <div class="palyground-inner" data-eval="dom">
             <div class="matchbox">
                 <div id="match-from" data-eval="dom"></div>
             </div>
@@ -31,6 +31,12 @@ const lowerCaseLetters = 'a,á,b,c,cs,d,e,é,f,g,gy,h,i,í,j,k,l,ly,m,n,ny,o,ó,
 const upperCaseLetters = lowerCaseLetters.map(
     l => l.length == 1 ? l.toUpperCase() : l[0].toUpperCase() + l.slice(1)
 );
+
+const IMAGE_PATH = 'data/images/';
+const getIMGPath = (img, ext = 'png') => IMAGE_PATH + img + '.' + ext;
+
+const VOICE_PATH = 'data/voices/';
+const getVoicePath = (voice, ext = 'wav') => VOICE_PATH + voice.toLowerCase() + '.' + ext;
 
 const wowels = 'a,á,e,é,i,í,o,ó,ö,ő,u,ú,ü,ű'.split(',');
 
@@ -59,6 +65,7 @@ const matchLine = function(options){
     let GAMESETUP;
     
     let REWARD;
+    let IMAGES;
     
     let Elements = {
         // Elements container on template
@@ -106,6 +113,9 @@ const matchLine = function(options){
     const countWrong = () => {
         return fromBoxes.reduce( (total, card) => card.isWrong() ? ++total : total, 0 );
     }
+
+
+
     const clearDOM = () => {
         for (const name in Elements){
             Elements[name].remove();
@@ -126,7 +136,8 @@ const matchLine = function(options){
         homeBtn.addEventListener("click", () => {
             clearDOM();
             GAMESETUP.render();
-            REWARD.layer.remove();
+            if (REWARD && REWARD.layer)
+                REWARD.layer.remove();
         });
     }
 
@@ -138,7 +149,7 @@ const matchLine = function(options){
      * @param {Object} o.to A jobb oldalon levő kártyák beállításai
      */
     const gameOptions = (o) => {
-        o = sTools.deepAssign(o, {
+        o = sTools.deepAssign({
                 letterNumber: 4,
                 gameType: 'mixed', //mixed, 'upper', 'lower'
                 from: {
@@ -149,7 +160,7 @@ const matchLine = function(options){
                     type: 'letter',
                     location: 'target'
                 }
-            });
+            }, o);
 
         //console.log(o);
         letterNumber = o.letterNumber;
@@ -163,32 +174,55 @@ const matchLine = function(options){
 
         for (let i = 0; i < letterNumber; i++){
 
-            let upperOrLetter = sTools.randomize(0, 2);
             let randomLetter = '';
-            let randomChars = upperOrLetter ? upperCaseLetters : lowerCaseLetters;
 
             do {
-                randomLetter = randomChars[sTools.randomize(0, randomChars.length)];
-            } while (letters.includes(randomLetter.toLowerCase()))
+                randomLetter = lowerCaseLetters[sTools.randomize(0, lowerCaseLetters.length)];
+            } while (letters.includes(randomLetter))
 
             letters.push(randomLetter);
+        }
+
+        let upperNumber = sTools.randomize(1, letters.length);
+
+        for (let i = 0; i < upperNumber; i++){
+            let rand;
+
+            do{
+                rand = sTools.randomize(0, letters.length);
+            } while ( !isLower(letters[rand]) )
+            
+            letters[rand] = letters[rand].toUpperCase();
         }
 
         return letters;
     }
 
+    const randomImageByLetter = (letter) => {
+        const images = IMAGES[letter.toLowerCase()];
+        const randIMG = images[sTools.randomize(0, images.length)];
+        return sTools.removeAccents(randIMG);
+    }
+
+    /**
+     * 
+     */
     const linkEvent = async () => {
-        if (isPerfect())
-            REWARD.success();
-        else if (isComplete()){
-            REWARD.finished();
-            console.log(countWrong());
+        
+        await REWARD.correct();
+
+        if (isComplete()){
+            await (isPerfect() ? REWARD.success : REWARD.finished)();
+            await sTools.delay(600);
+            REWARD.addStars(letterNumber - countWrong());
         }
-        else
-            REWARD.correct();
     }
 
     const newGame = () => {
+
+        console.log(gameMode());
+        console.log(IMAGES);
+
         epmtyLine(fromBoxes);
         epmtyLine(toBoxes);
 
@@ -197,6 +231,9 @@ const matchLine = function(options){
 
         if (REWARD && REWARD.layer)
             REWARD.layer.remove();
+        
+        if (Elements.statusDisplay.firstElementChild)
+            Elements.statusDisplay.firstElementChild.remove();
 
         letters = randomLetters();
         //console.log(from);
@@ -207,14 +244,17 @@ const matchLine = function(options){
                 type: from.type,
                 letter: letter,
                 location: from.location,
-                playground: Elements
+                playground: Elements,
+                voicePath: gameMode() == 'voiceToLetter' ? getVoicePath(letter) : undefined 
             });
             //- elkészítjül a társának is az új példányát
+            console.log("GameMode: ", gameMode(), getVoicePath(letter));
             const toBox = new Matchbox({
                 type: to.type,
                 letter: gameMode() == 'letterToLetter' ? reverseChar(letter) : letter,
                 location: to.location,
-                playground: Elements
+                playground: Elements,
+                imgPath: gameMode() == 'letterToFigure' ? getIMGPath(randomImageByLetter(letter)) : undefined,
             });
 
             fromBox.on('link', linkEvent);
@@ -259,7 +299,8 @@ const matchLine = function(options){
         }
 
         REWARD = rewards({
-            parentElement: Elements.playground
+            parentElement: Elements.playground,
+            statusDisplay: Elements.statusDisplay
         });
     }
 
@@ -271,10 +312,16 @@ const matchLine = function(options){
             return Elements
         },
         /**
-         * @param {any} s
+         * @param {object} s
          */
         set gameSetup(s){
             GAMESETUP = s;
+        },
+        /**
+         * @param {object} data
+         */
+        set images(data){
+            IMAGES = data;
         }
     }
 }

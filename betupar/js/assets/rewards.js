@@ -1,6 +1,6 @@
 import * as sTools from "./stools.js";
 import { SElement, createSElement } from "./selement.js";
-import { evalTemplate, elementsFromTempalte} from "./evaltemplate.js";
+import { elementsFromTempalte } from "./evaltemplate.js";
 
 
 const starsTpl = `
@@ -22,13 +22,16 @@ const setHeightToHeight = (element1, element2) => {
 const rewards = (o) => {
 
     const parentElement = sTools.getElement(o.parentElement);
+    const statusDisplay = sTools.getElement(o.statusDisplay);
+
     let layerElement;
+    let layerExtraCss = '';
 
     const goodJob = () => {
 
     }
 
-    const layer = () => {
+    const layer = (pElement = parentElement) => {
         return new Promise(function(resolve, reject){
 
             const element = document.createElement('div');
@@ -38,10 +41,14 @@ const rewards = (o) => {
                 resolve(element);
             });
 
-            element.style.height = parentElement.offsetHeight+'px';
-            element.className = 'reward-layer layerfadein';
+            element.style.height = pElement.offsetHeight+'px';
+            //element.className = 'reward-layer layerfadein';
+            element.classList.add('reward-layer');
+            element.classList.add('layerfadein');
+            if (layerExtraCss)
+                element.classList.add(layerExtraCss);
 
-            parentElement.appendChild(element);
+            pElement.appendChild(element);
         });
     }
 
@@ -51,50 +58,48 @@ const rewards = (o) => {
 
         const element = document.createElement('div');
 
-        const parent = await layer();
+        const parent = await layer(
+            !options.hideAfterFinish ? parentElement.firstElementChild : parentElement
+        );
+
         parent.appendChild(element);
 
-        element.addEventListener('animationend', () => {
+        return new Promise( (resolve, reject) => {
 
-            if (!options.hideAfterFinish){
-                parent.addEventListener('click', () => {
+            element.addEventListener('animationend', () => {
+                if (!options.hideAfterFinish){
+                    resolve(element);
+                }
+            });
+    
+            element.className = 'reward ' + cssName + ' ' + animName;
+
+            if (options.hideAfterFinish)
+                setTimeout(() => {
                     parent.remove();
-                });
-                parent.style.transition = 'height .2s ease-in';
-                setHeightToHeight(parent, parentElement.firstElementChild);
-            }
+                    resolve();
+                }, 1600);
         });
-
-        element.className = 'reward ' + cssName + ' ' + animName;
-        
-        if (options.hideAfterFinish)
-            setTimeout(() => {
-                parent.remove();
-                
-            }, 1600);
-        else {
-
-        }
-
-        return {parent, element};
     }
 
-    const correct = () => {
-        rewardAnim('line-correct', 'zoomin');
+    const correct = async () => {
+        await rewardAnim('line-correct', 'zoomin');
     }
 
     const incorrect =() => {
         rewardAnim('line-incorrect', 'zoomin');
     }
 
-    const success = () => {
-        rewardAnim('all-success', 'zoomin', {
+    const success = async () => {
+        layerExtraCss = 'finish';
+        await rewardAnim('all-success', 'zoomin', {
             hideAfterFinish: false
         });
     }
 
-    const finished = () => {
-        rewardAnim('all-finished', 'zoomin', {
+    const finished = async () => {
+        layerExtraCss = 'finish';
+        await rewardAnim('all-finished', 'zoomin', {
             hideAfterFinish: false
         });
     }
@@ -105,7 +110,32 @@ const rewards = (o) => {
 
     const addStars = (starNumber) => {
         const {starsCt, starsInner} = elementsFromTempalte(starsTpl);
-        
+        statusDisplay.appendChild(starsCt);
+
+        const stars = [];
+
+        console.log(starsCt);
+
+        for (let i = 0; i < starNumber; i++){
+            const star = sTools.createElement({
+                tagName: 'span',
+                className: 'reward-star'
+            });
+
+            starsInner.appendChild(star);
+
+            stars.push(star);
+        }
+
+        stars.reverse().slice(1).every( (star, i) => {
+            console.log(star);
+            stars[i].addEventListener("animationend", () => {
+                star.classList.add('zoominout');
+            });
+            return true;
+        });
+
+        stars[0].classList.add('zoominout');
     }
 
     return {

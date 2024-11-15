@@ -23,11 +23,12 @@ const letterCSVToJSON = (csv, sep = ',', header = true, grouping = true) => {
 
     const object = {};
 
-    rows.slice(1).forEach( row => {
-        if (!row[0] in object)
+    rows.slice(1).forEach( line => {
+        const row = line.split(',');
+        if (!(row[0] in object))
             object[row[0]] = [];
 
-        object[row[0]] = row[1];
+        object[row[0]].push(row[1]);
     });
 
     return object;
@@ -39,9 +40,7 @@ const loadLetterCSV = async (url) => {
         method: 'GET',
         headers: {
             "Content-Type": "text/csv"
-        },
-        mode: 'same-origin',
-        referrerPolicy: "no-referrer"
+        }
     });
     const data = await res.text();
 
