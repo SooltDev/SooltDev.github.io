@@ -88,7 +88,7 @@ class Matchbox extends EventManager{
         console.info(this.makeFuncName());
         
         this[this.makeFuncName()]();
-        /*
+
         if (isTouchScreen()){
             this.element.addEventListener('touchstart', this.#mouseDown);
             this.typeElement.addEventListener('touchend', this.#checkPartner);
@@ -96,9 +96,6 @@ class Matchbox extends EventManager{
             this.element.addEventListener('mousedown', this.#mouseDown);
             this.typeElement.addEventListener('mouseup', this.#checkPartner);
         }
-        */
-        this.element.addEventListener('pointerdown', this.#mouseDown);
-        this.typeElement.addEventListener('pointerup', this.#checkPartner);
 
     }
     /*
@@ -152,7 +149,7 @@ class Matchbox extends EventManager{
         });
 
         //console.log(this.line);
-        /*
+
         if (isTouchScreen()){
             document.addEventListener('touchmove', this.#mouseMove);
             document.addEventListener('touchend', this.#mouseUp);
@@ -160,16 +157,13 @@ class Matchbox extends EventManager{
             document.addEventListener('mousemove', this.#mouseMove);
             document.addEventListener('mouseup', this.#mouseUp);
         }
-        */
-        document.addEventListener('pointermove', this.#mouseMove);
-        document.addEventListener('pointerup', this.#mouseUp);
 
         this.trigger('mousemove');
     }
 
     #mouseUp = (e) => {
         // Remove the handlers of mousemove and mouseup
-        /*
+        
         if (isTouchScreen()){
             document.removeEventListener('touchmove', this.#mouseMove);
             document.removeEventListener('touchend', this.#mouseUp);
@@ -179,9 +173,6 @@ class Matchbox extends EventManager{
             document.removeEventListener('mousemove', this.#mouseMove);
             document.removeEventListener('mouseup',this.#mouseUp);
         }
-        */
-        document.removeEventListener('pointermove', this.#mouseMove);
-        document.removeEventListener('pointerup',this.#mouseUp);
         
         this.line.destroy();
         this.line = null;
@@ -256,7 +247,7 @@ class Matchbox extends EventManager{
     }
 
     removeMouseEvents() {
-        /*
+
         if (isTouchScreen()){
             this.element.removeEventListener('touchstart', this.#mouseDown);
             this.typeElement.removeEventListener('touchend', this.#checkPartner);
@@ -264,11 +255,7 @@ class Matchbox extends EventManager{
             this.element.removeEventListener('mousedown', this.#mouseDown);
             this.typeElement.removeEventListener('mouseup', this.#checkPartner);
         }
-        */
-        this.element.removeEventListener('pointerdown', this.#mouseDown);
-        this.typeElement.removeEventListener('pointerup', this.#checkPartner);
 
-        /*
         if (isTouchScreen()){
             document.removeEventListener('touchmove', this.#mouseMove);
             document.removeEventListener('touchend',this.#mouseUp);
@@ -276,10 +263,6 @@ class Matchbox extends EventManager{
             document.removeEventListener('mousemove', this.#mouseMove);
             document.removeEventListener('mouseup',this.#mouseUp);
         }
-        */
-        document.removeEventListener('pointermove', this.#mouseMove);
-        document.removeEventListener('pointerup',this.#mouseUp);
-
     }
 
     finishStyle(){
