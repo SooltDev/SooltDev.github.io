@@ -89,7 +89,7 @@ class Matchbox extends EventManager{
         
         this[this.makeFuncName()]();
 
-        if (isTouchScreen()){
+        if (isTouchScreen){
             this.element.addEventListener('touchstart', this.#mouseDown);
             this.typeElement.addEventListener('touchend', this.#checkPartner);
         } else {
@@ -102,7 +102,7 @@ class Matchbox extends EventManager{
         Ha felengedjük az egér gombját (mouseup), akkor megnézzük, hogy a társától indult-e vonal
     */
     #checkPartner = (e) => {
-        console.log(e);
+        console.log('checkpartner', e);
         
         if (!this.matching){//ha nem erről a kártáról indult a vonalösszekötés
             if (this.partner.matching){
@@ -135,8 +135,8 @@ class Matchbox extends EventManager{
         //console.log(e);
         //console.log(this);
 
-        const clientX = isTouchScreen() ? e.touches[0].clientX : e.clientX;
-        const clientY = isTouchScreen() ? e.touches[0].clientY : e.clientY;
+        const clientX = isTouchScreen ? e.touches[0].clientX : e.clientX;
+        const clientY = isTouchScreen ? e.touches[0].clientY : e.clientY;
 
         this.line = new HTMLLine({
             color: '#37528e',
@@ -150,7 +150,7 @@ class Matchbox extends EventManager{
 
         //console.log(this.line);
 
-        if (isTouchScreen()){
+        if (isTouchScreen){
             document.addEventListener('touchmove', this.#mouseMove);
             document.addEventListener('touchend', this.#mouseUp);
         } else {
@@ -164,7 +164,7 @@ class Matchbox extends EventManager{
     #mouseUp = (e) => {
         // Remove the handlers of mousemove and mouseup
         
-        if (isTouchScreen()){
+        if (isTouchScreen){
             document.removeEventListener('touchmove', this.#mouseMove);
             document.removeEventListener('touchend', this.#mouseUp);
             console.log(e);
@@ -184,8 +184,8 @@ class Matchbox extends EventManager{
 
     #mouseMove = (e) => {
 
-        const clientX = isTouchScreen() ? e.touches[0].clientX : e.clientX;
-        const clientY = isTouchScreen() ? e.touches[0].clientY : e.clientY;
+        const clientX = isTouchScreen ? e.touches[0].clientX : e.clientX;
+        const clientY = isTouchScreen ? e.touches[0].clientY : e.clientY;
 
         this.line.setLine(
             clientX - this.#xOffset, clientY - this.#yOffset, 
@@ -248,7 +248,7 @@ class Matchbox extends EventManager{
 
     removeMouseEvents() {
 
-        if (isTouchScreen()){
+        if (isTouchScreen){
             this.element.removeEventListener('touchstart', this.#mouseDown);
             this.typeElement.removeEventListener('touchend', this.#checkPartner);
         }else {
@@ -256,7 +256,7 @@ class Matchbox extends EventManager{
             this.typeElement.removeEventListener('mouseup', this.#checkPartner);
         }
 
-        if (isTouchScreen()){
+        if (isTouchScreen){
             document.removeEventListener('touchmove', this.#mouseMove);
             document.removeEventListener('touchend',this.#mouseUp);
         }else {

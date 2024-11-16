@@ -158,7 +158,7 @@ const isObject = o => o instanceof Object && !Array.isArray(o);
 const removeAccents = str =>
   str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
-const isTouchScreen = () => "ontouchstart" in document.documentElement;
+const isTouchScreen = "ontouchstart" in document.documentElement;
 
 export {
     randomize, createElement, getElement, removeAllChild, 
