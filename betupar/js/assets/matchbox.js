@@ -91,10 +91,10 @@ class Matchbox extends EventManager{
 
         if (isTouchScreen){
             this.element.addEventListener('touchstart', this.#mouseDown);
-            this.typeElement.addEventListener('touchend', this.#checkPartner);
+            this.typeElement.addEventListener('touchend', this.checkPartner);
         } else {
             this.element.addEventListener('mousedown', this.#mouseDown);
-            this.typeElement.addEventListener('mouseup', this.#checkPartner);
+            this.typeElement.addEventListener('mouseup', this.checkPartner);
         }
 
     }
@@ -102,11 +102,11 @@ class Matchbox extends EventManager{
     /*
         Ha felengedjük az egér gombját (mouseup), akkor megnézzük, hogy a társától indult-e vonal
     */
-    #checkPartner = (e) => {
+    checkPartner = (e) => {
         console.log('checkpartner');
         console.log(e);
         
-        if (!this.matching){//ha nem erről a kártáról indult a vonalösszekötés
+        if (!this.matching){//ha nem erről a kártyáról indult a vonalösszekötés
             if (this.partner.matching){
                 this.#linked = true;
                 this.partner.makeLine();
@@ -155,7 +155,7 @@ class Matchbox extends EventManager{
         if (isTouchScreen){
             document.addEventListener('touchmove', this.#mouseMove);
             document.addEventListener('touchend', this.#mouseUp);
-            e.target.releasePointerCapture(e.pointerId);
+            //e.target.releasePointerCapture(e.pointerId);
         } else {
             document.addEventListener('mousemove', this.#mouseMove);
             document.addEventListener('mouseup', this.#mouseUp);
@@ -168,19 +168,31 @@ class Matchbox extends EventManager{
     //#region #mouseUp
     #mouseUp = (e) => {
         // Remove the handlers of mousemove and mouseup
+        let check = false;
         
         if (isTouchScreen){
             document.removeEventListener('touchmove', this.#mouseMove);
             document.removeEventListener('touchend', this.#mouseUp);
-            console.log(e);
+            
+            console.log('mouseup', e);
+            const onUpElement = document.elementFromPoint(e.changedTouches[0].clientX, e.changedTouches[0].clientY);
+            if (onUpElement == this.partner.typeElement){
+                this.#partner.checkPartner(e);
+                console.log('aftercheck', this.line);
+                check = true;
+            }else{
+                console.log("wrong");
+            }
             
         } else {
             document.removeEventListener('mousemove', this.#mouseMove);
             document.removeEventListener('mouseup',this.#mouseUp);
         }
         
-        this.line.destroy();
-        this.line = null;
+        if (!check){
+            this.line.destroy();
+            this.line = null;
+        }
 
         this.#matchStarting = false;
 
@@ -190,7 +202,7 @@ class Matchbox extends EventManager{
 
     //#region #mouseMove
     #mouseMove = (e) => {
-
+        e.preventDefault();
         const clientX = isTouchScreen ? e.touches[0].clientX : e.clientX;
         const clientY = isTouchScreen ? e.touches[0].clientY : e.clientY;
 
@@ -258,10 +270,10 @@ class Matchbox extends EventManager{
 
         if (isTouchScreen){
             this.element.removeEventListener('touchstart', this.#mouseDown);
-            this.typeElement.removeEventListener('touchend', this.#checkPartner);
+            this.typeElement.removeEventListener('touchend', this.checkPartner);
         }else {
             this.element.removeEventListener('mousedown', this.#mouseDown);
-            this.typeElement.removeEventListener('mouseup', this.#checkPartner);
+            this.typeElement.removeEventListener('mouseup', this.checkPartner);
         }
 
         if (isTouchScreen){
@@ -276,6 +288,7 @@ class Matchbox extends EventManager{
     finishStyle(){
         this.element.classList.remove('in-game');
         this.element.classList.add('finish');
+        
         if (this.line){
             this.line.color = 'green';
             this.line.element.style.opacity = '0.45';
