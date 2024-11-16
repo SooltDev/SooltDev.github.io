@@ -80,7 +80,7 @@ class Matchbox extends EventManager{
             this.#yOffset += 0;
         }
     }
-
+    //#region #build
     #build(){
         this.element = document.createElement('div');
         this.element.className = 'matchcard in-game';
@@ -98,6 +98,7 @@ class Matchbox extends EventManager{
         }
 
     }
+    //#endregion
     /*
         Ha felengedjük az egér gombját (mouseup), akkor megnézzük, hogy a társától indult-e vonal
     */
@@ -121,7 +122,7 @@ class Matchbox extends EventManager{
     #mouseOver = (e) => {}
     #mouseOut = (e) => {}
 */
-
+    //#region #mouseDown
     #mouseDown = (e) => {
         // Get the current mouse position
         this.#startX = this.offsetMiddle.x;
@@ -154,6 +155,7 @@ class Matchbox extends EventManager{
         if (isTouchScreen){
             document.addEventListener('touchmove', this.#mouseMove);
             document.addEventListener('touchend', this.#mouseUp);
+            e.target.releasePointerCapture(e.pointerId);
         } else {
             document.addEventListener('mousemove', this.#mouseMove);
             document.addEventListener('mouseup', this.#mouseUp);
@@ -161,7 +163,9 @@ class Matchbox extends EventManager{
 
         this.trigger('mousemove');
     }
+    //#endregion
 
+    //#region #mouseUp
     #mouseUp = (e) => {
         // Remove the handlers of mousemove and mouseup
         
@@ -182,7 +186,9 @@ class Matchbox extends EventManager{
 
         this.trigger('mouseup');
     }
+    //#endregion
 
+    //#region #mouseMove
     #mouseMove = (e) => {
 
         const clientX = isTouchScreen ? e.touches[0].clientX : e.clientX;
@@ -195,6 +201,7 @@ class Matchbox extends EventManager{
 
         this.trigger('move');
     }
+    //#endregion
 
     calcXY2(x, y){
 

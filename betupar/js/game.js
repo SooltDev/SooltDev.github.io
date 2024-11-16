@@ -6,6 +6,12 @@ import { Matchbox } from "./assets/matchbox.js";
 import { HTMLLine } from "./assets/line.cls.js";
 import { rewards } from "./assets/rewards.js";
 
+if (sTools.isTouchScreen){
+    document.documentElement.addEventListener('touchmove', (ev) => {
+        ev.preventDefault();
+    });
+}
+
 const matchboxTemplate = `
     <div class="playground" data-eval="dom">
         <div class="palyground-inner" data-eval="dom">
