@@ -102,7 +102,8 @@ class Matchbox extends EventManager{
         Ha felengedjük az egér gombját (mouseup), akkor megnézzük, hogy a társától indult-e vonal
     */
     #checkPartner = (e) => {
-        console.log('checkpartner', e);
+        console.log('checkpartner');
+        console.log(e);
         
         if (!this.matching){//ha nem erről a kártáról indult a vonalösszekötés
             if (this.partner.matching){
