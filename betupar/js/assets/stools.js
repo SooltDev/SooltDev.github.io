@@ -159,7 +159,7 @@ const removeAccents = str =>
   str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
 const isTouchScreen = "ontouchstart" in document.documentElement;
-
+//const isTouchScreen = true;
 export {
     randomize, createElement, getElement, removeAllChild, 
     shuffleArray, emptyArray, deepAssign, capitalize, isObject,

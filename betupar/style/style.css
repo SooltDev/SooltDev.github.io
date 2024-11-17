@@ -3,9 +3,6 @@
     align-items: center;
     display: flex;
     justify-content: center;
-    /* Misc */
-    min-height: 32rem;
-    padding: 40px 100px;
 }
 
 .draggable {

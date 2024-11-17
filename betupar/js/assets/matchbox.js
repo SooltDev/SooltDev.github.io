@@ -29,8 +29,6 @@ class Matchbox extends EventManager{
 
     constructor(o){
         super();
-
-        //console.log(o);
         
         this.type = o.type;
         this.letter = o.letter;
@@ -40,7 +38,6 @@ class Matchbox extends EventManager{
             this.#imgPath = o.imgPath;
 
         if (this.type == 'voice'){
-            console.log('VoiceType o: ', o);
             this.#voicePath = o.voicePath;
         }
 
@@ -61,8 +58,6 @@ class Matchbox extends EventManager{
         if (this.#playground.playground){
             if (getComputedStyle(this.#playground.playground).position == "relative"){
                 const rect = this.#playground.palygroundInner.getBoundingClientRect();
-
-                //console.log(this.#playground);
 
                 this.#xOffset = rect.left;
                 this.#yOffset = rect.top;
@@ -102,9 +97,8 @@ class Matchbox extends EventManager{
     /*
         Ha felengedjük az egér gombját (mouseup), akkor megnézzük, hogy a társától indult-e vonal
     */
+   //#region checkPartner
     checkPartner = (e) => {
-        console.log('checkpartner');
-        console.log(e);
         
         if (!this.matching){//ha nem erről a kártyáról indult a vonalösszekötés
             if (this.partner.matching){
@@ -117,7 +111,7 @@ class Matchbox extends EventManager{
             }
         }
     }
-
+    //#endregion
 /*
     #mouseOver = (e) => {}
     #mouseOut = (e) => {}
@@ -134,9 +128,6 @@ class Matchbox extends EventManager{
 
         // Attach the listeners to document
 
-        //console.log(e);
-        //console.log(this);
-
         const clientX = isTouchScreen ? e.touches[0].clientX : e.clientX;
         const clientY = isTouchScreen ? e.touches[0].clientY : e.clientY;
 
@@ -149,8 +140,6 @@ class Matchbox extends EventManager{
             ],
             parentElement: this.parentElement.parentElement.parentElement
         });
-
-        //console.log(this.line);
 
         if (isTouchScreen){
             document.addEventListener('touchmove', this.#mouseMove);
@@ -173,15 +162,16 @@ class Matchbox extends EventManager{
         if (isTouchScreen){
             document.removeEventListener('touchmove', this.#mouseMove);
             document.removeEventListener('touchend', this.#mouseUp);
-            
-            console.log('mouseup', e);
+
             const onUpElement = document.elementFromPoint(e.changedTouches[0].clientX, e.changedTouches[0].clientY);
             if (onUpElement == this.partner.typeElement){
                 this.#partner.checkPartner(e);
-                console.log('aftercheck', this.line);
                 check = true;
-            }else{
-                console.log("wrong");
+            }else if (onUpElement.parentElement.classList.contains("matchcard")){
+
+                this.trigger('badlink');
+                this.partner.wrongInc();
+                this.wrongInc();
             }
             
         } else {
@@ -243,11 +233,8 @@ class Matchbox extends EventManager{
         const audio = new Audio(this.#voicePath.normalize('NFD'));
 
         this.typeElement.addEventListener('click', () => {
-            console.log(this.type, this.#voicePath);
             audio.play();
         });
-
-        console.log(this);
     }
 
     makeFigure(){
