@@ -167,7 +167,7 @@ class Matchbox extends EventManager{
             if (onUpElement == this.partner.typeElement){
                 this.#partner.checkPartner(e);
                 check = true;
-            }else if (onUpElement.parentElement.classList.contains("matchcard")){
+            }else if (onUpElement != this.typeElement && onUpElement.parentElement.classList.contains("matchcard")){
 
                 this.trigger('badlink');
                 this.partner.wrongInc();
