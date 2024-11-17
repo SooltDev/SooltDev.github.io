@@ -164,6 +164,8 @@ class Matchbox extends EventManager{
             document.removeEventListener('touchend', this.#mouseUp);
 
             const onUpElement = document.elementFromPoint(e.changedTouches[0].clientX, e.changedTouches[0].clientY);
+            console.log(onUpElement);
+            
             if (onUpElement == this.partner.typeElement){
                 this.#partner.checkPartner(e);
                 check = true;
