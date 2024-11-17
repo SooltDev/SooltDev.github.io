@@ -1,3 +1,6 @@
+html, body {
+    overscroll-behavior: none;
+  }
 .content {
     /* Center the content */
     align-items: center;
