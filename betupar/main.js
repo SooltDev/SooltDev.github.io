@@ -1,10 +1,7 @@
 import { gameSetup } from "./js/gamesetup.js";
 import { matchLine } from "./js/game.js";
 
-document.documentElement.requestFullscreen("hide").then( () => {
-    screen.orientation.lock('portrait');
-});
-
+screen.orientation.lock('portrait');
 
 const game = matchLine({
     parentElement: '#content',
