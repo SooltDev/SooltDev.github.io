@@ -63,7 +63,7 @@ html, body {
     position: relative;
     justify-content: space-between;
     box-sizing: border-box;
-    height: 85%;
+    height: 90%;
 }
 
 .matchbox{
@@ -193,7 +193,7 @@ html, body {
 
 .panel {
 
-    height: 15%;
+    height: 10%;
     box-sizing: border-box;
 }
 
