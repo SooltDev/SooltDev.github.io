@@ -1,0 +1,82 @@
+[
+    {
+        "id": 1,
+        "name": "Aritmetikai"
+    },
+    {
+        "id": 2,
+        "name": "Stringműveletek"
+    },
+    {
+        "id": 3,
+        "name": "Tömbök"
+    },
+    {
+        "id": 4,
+        "name": "Dátumok"
+    },
+    {
+        "id": 5,
+        "name": "OOP"
+    },
+    {
+        "name": "DOM műveletek",
+        "id": 6
+    },
+    {
+        "name": "AJAX",
+        "id": 7
+    },
+    {
+        "name": "Feltételes mód",
+        "id": 8
+    },
+    {
+        "name": "Feltételes, Aritmetikai",
+        "id": 9
+    },
+    {
+        "name": "Math",
+        "id": 10
+    },
+    {
+        "name": "Egyszerű",
+        "id": 11
+    },
+    {
+        "name": "Feltételes (ternary)",
+        "id": 12
+    },
+    {
+        "name": "Function",
+        "id": 13
+    },
+    {
+        "name": "Ciklusok",
+        "id": 14
+    },
+    {
+        "name": "Összetett",
+        "id": 15
+    },
+    {
+        "name": "Object",
+        "id": 16
+    },
+    {
+        "name": "Reguláris kifejezések",
+        "id": 17
+    },
+    {
+        "name": "Promise, Async",
+        "id": 18
+    },
+    {
+        "name": "Eseménykezelés",
+        "id": 19
+    },
+    {
+        "name": "Teszt",
+        "id": 20
+    }
+]

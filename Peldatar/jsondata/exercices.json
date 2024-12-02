@@ -1,0 +1,805 @@
+[
+    {
+        "id": 1,
+        "text": "Írj javasvcript programot, mely kiszámolja egy háromszög területét.",
+        "code": "",
+        "strong": 1,
+        "category": [
+            1
+        ],
+        "name": "Háromszög területe"
+    },
+    {
+        "id": 2,
+        "text": "Írj javasvcript programot, mely kiszámolya egy téglalap, vagy négyzet területét",
+        "code": "",
+        "strong": 1,
+        "category": [
+            1
+        ],
+        "name": "négyszög terültete"
+    },
+    {
+        "text": "Írj javasvcript programot, mely kiszámolya egy henger, űrtartalmát.",
+        "id": 3,
+        "category": [
+            1
+        ],
+        "name": "henger űrtartalma"
+    },
+    {
+        "text": "Írj javasvcript programot, mely kiszámolya egy kör kerültetét.",
+        "category": [
+            1
+        ],
+        "id": 4,
+        "name": "Kör kerülete"
+    },
+    {
+        "text": "Írj JavaScript függvényt, mely bemenetként megkap egy számpárt, és igazat ad vissza, ha a összegük páros szám, hamisat, ha nem.",
+        "category": [
+            8
+        ],
+        "id": 5,
+        "name": "Páros számpár"
+    },
+    {
+        "text": "Írj függvényt, amely ellenőriz két egész számot, és igazat ad vissza, ha valamelyik 15, vagy ha összegük vagy különbségük 15.",
+        "category": [
+            8
+        ],
+        "id": 6,
+        "name": "Értékteszt"
+    },
+    {
+        "text": "Írj Javascript programot, mely bemenetként megkap 2 számot, és igazat ad vissza, ha a két szám ellenkező előjelű, hamisat, ha nem.",
+        "category": [
+            8
+        ],
+        "id": 7,
+        "name": "Ellenkező előjel"
+    },
+    {
+        "text": "Írj egy függvényt, mely egy számról eldönti, hogy egy másik szám többszöröse-e.",
+        "category": [
+            9
+        ],
+        "id": 8,
+        "name": "Többszörös"
+    },
+    {
+        "text": "Írj JavaScript programot amely, három megadott egész szám közül visszaadja a legnagyobbat.",
+        "category": [
+            8
+        ],
+        "id": 9,
+        "name": "Legnagyobb, 3 param közül"
+    },
+    {
+        "text": "Írj Javascript programot, mely két megadott szám közül megkeresi, hogy melyik van közelebb a 100-hoz",
+        "category": [
+            10
+        ],
+        "id": 10,
+        "name": "100-hoz közelebb"
+    },
+    {
+        "text": "Írj függvényt, mely 3 számról eldönti, hogy az utolsó számjegyük egyforma-e.",
+        "category": [
+            9
+        ],
+        "id": 11,
+        "name": "Utolsó számjegyük egyforma"
+    },
+    {
+        "text": "Írj programot, mely eldönti egy számbról, hogy egy adott inervallumba van-e.",
+        "category": [
+            8
+        ],
+        "id": 12,
+        "name": "Intervallumban van-e?"
+    },
+    {
+        "text": "Írj függvényt, mely pontszámok alapján minősítést ad.\n        - Ha a pontszámok elérik a 100-at, a minősítés \"Tökéletes\"\n        - Ha a pontszámok 90-99 közt vannak, akkor \"Kiválló\"\n        - Ha a pontszámok 75-89 közt vannak, akkor \"Jó\"\n        - Ha a pontszámok 50-74 közt vannak, akkor \"Elégséges\"\n        - 50-alatt pedig \"Elégtelen\"\n    minpősítéssel tér vissza.",
+        "category": [
+            8
+        ],
+        "id": 13,
+        "name": "Minősítés"
+    },
+    {
+        "text": "Írj függvényt, mely meghatározza egy adott szög típusát.  \n    A szögek típusai:\n        Hegyesszög: 0 és 90 fok közti szög.\n        Derékszög: 90 fokos szög.\n        Tompaszög: 90 és 180 fok közti szög.\n        Egyenes szög: 180 fokos szög.",
+        "category": [
+            8
+        ],
+        "id": 14,
+        "name": "Szöghatározó"
+    },
+    {
+        "text": "Írj függvényt, amely két egész számot és egy osztót vesz fel, és eldönti, hogy a 2 egész szám hasonló-e az osztó függvényében. \n    Ha az adott osztó mindkét egész számot osztja, vagy egyiket sem osztja, akkor a két megadott egész szám hasonló.",
+        "category": [
+            9
+        ],
+        "id": 15,
+        "name": "Hasonló számok"
+    },
+    {
+        "text": "Írj függvényt mely felveszi egy művelet 2 operandusát, és az eredményt.\n    A függvény döntse el, hogy a 4 alapművelet közül (*, /, +, -), melyiket kell elvégeznünk a 2 operandus közt, hogy megkapjuk\n    a harmadik paraméterként írt eredményt. Térjen vissza, a helyes operátorral (stringként), vagy ha egyik művelet sem\n    adja a megadott eredményt, a függvény térjen vissza null értékkel.",
+        "category": [
+            9
+        ],
+        "id": 16,
+        "name": "Műveletkereső"
+    },
+    {
+        "text": "Írj függvényt, mely megszámolja egy szöveg szavainak számát. tehát bemeneti értéke egy szöveg, kimenete, pedig\nkimenete pedig, a szöveg szavainak száma.",
+        "category": [
+            2
+        ],
+        "id": 18,
+        "name": "Szószámláló"
+    },
+    {
+        "text": "Írj egy monogram függvényt, mely paraméterként megkap egy nevet, és visszatér a név monogramjával.\n       pl: monogram(\"Kovács János Géza\"): //->  K.J.G.\n       (tehát visszatér a kezdőbetűkkel)\n\n       Professzionális verzió:\n        a. A kettős betűkre is működjön\n        b. Kötőjelek esetén is működjön\n\n       pl: monogram(\"Horváth-Zsombori Ádám Csongor\") //-> H.-Zs.Á.CS.",
+        "category": [
+            2
+        ],
+        "id": 19,
+        "name": "Monogram"
+    },
+    {
+        "text": "Készítsetek egy palindroma függvényt, mely bementi értékként megkap egy szöveget vagy számsort, és true értékkel tér vissza,\n       amennyiben a bemeneti érték palindroma. false értékkel amennyiben nem.\n       Azokat a szavakat, számsorokat, kisebb szövegeket hívjuk palindromáknak, melyek visszafele való olvasata is ugyan az.\n       pl: Lehel, Indul a pap aludni. , 939... stb...",
+        "category": [
+            2
+        ],
+        "id": 20,
+        "name": "Palindróma"
+    },
+    {
+        "text": "//Adott az alábbi beosztások tömb:\nconst beosztasok = [\"raktáros\", \"adminisztrátor\", \"logisztikus\"];\n\n//És adott az alábbi szöveg:\n\nlet s = \"A cégnél Sándor raktáros, Ottó logisztikus és Irma adminisztrátor, Jakab pedig biztonsági őr.\";\n\n//A feladat az, hogy az s szövegben léptessük elő \"vezető\" beosztásba azokat, akiknek\n//pozíciója szerepel a beosztások tömbbe",
+        "category": [
+            2
+        ],
+        "id": 21,
+        "name": "Előléptetés"
+    },
+    {
+        "text": "Valósíts meg egy cica osztályt:\n        - a következő adatokkal: neve, súlya, és hogy éhes-e (az éhes legyen boolean típusú)\n        - Az osztálynak legyen egy eszik metódusa, ami egy float értéket vár (étel mennyisége), \n        és egy boolean-al tér vissza (sikeres volt -e az etetés). Ha a macska éhes, az etetés\n        sikeres, és a súlya nőjön az étel mennyiségével. A macska ezután ne legyen éhes. Ha a\n        macska nem éhes, az etetés nem sikeres.\n        -Az osztálynak legyen egy futkos metódusa, ami nem vár paramétert. A macska\n        súlya csökkenjen 0.1-el, és ha nem volt éhes, akkor éhezzen meg.",
+        "category": [
+            5
+        ],
+        "id": 22,
+        "name": "Cica"
+    },
+    {
+        "text": "Valósítsatok meg egy Autó osztályt\n    - Az Auto osztály konstruktorában állítsuk be az autó rendszámát, az üzemanyagtartály méretét literben,\n      az autó átlagfogyasztását (Hány litert fogyaszt 100km-en), és azt, hogy az auto eddig hány km-et tett meg.\n\n    - rendelkezzen a egy tankol metódussal, ami paraméterként megkapja, hogy hány litret szeretnénk tankolni.\n        - A tankolás sikeres, ha a tartályba belefér még a tankolni kívánt mennyiség\n        - A tankolás sikertelen, ha nem fér bele a kívánt mennyiség.\n        - A metódus visszatér a tankolás sikerével vagy sikertelenségével, azaz egy logikai típussal.\n\n    - rendelkezzen egy szervíz (szerviz) metódussal, ami lefut előszőr a konstruktorban.\n        - Ez a 10 000 km-enkénti kötelező szervízet jelenti.\n        - ha megtettünk vele 10 000 km tvolságot, kötelezően szervízelni kell, anékül ne indulhasson el az autó.\n          szervíz után természetesen ez a számláló nullázódik.\n\n    - rendekezzen egy száguld (szaguld) metódussal, ami paraméterben megkapja az utazás távolságát km-ben.\n        - az üzemanyag fogyjon annyival, amennyi szükséges a megtenni kívánt távolság megtételéhez.\n        - a megtett km-ek növekedjen a megtett út hosszával.\n        - ha nincs elegendő üzemanyag, az autó ne induljon es térjen vissza \"tankolj\" üzenettel.\n        - ha eljött a kötelező szervíz ideje, az autó ne induljon el és térjen vissza \"szerviz\" üzenettel.\n        - ha sikeresen megtette a távot, térjen vissza \"siker\" üzenettel.",
+        "category": [
+            5
+        ],
+        "id": 23,
+        "name": "Autó"
+    },
+    {
+        "text": "Készítsen egy munkavállaló osztályt. \n    A mezői: \n        - név, \n        - fizetés, - legyen privát változó\n        - éves szabadság (napok száma) - legyen privát változó\n        - eddig kivett szabadság. (napok száma) - legyen privát változó\n    Metódusok:\n        - kivehetoSzabadsag: - amely a még szabadságként kivehető napok számát adja vissza.\n        - szabadsag(napok): - amely kivesz \"napok\" nap szabadságot, amennyiben a kért szabadság kiadható\n            - a függvény térjen vissza true értékkel, amennyiben sikerült kivenni a szabadságot, és ebben az esetben\n            az éves szabadságból vonja ki a kivett szabadságot. És false értékkel térjen vissza, amennyiben ennyi szabadságot már\n            nem vehet, vagyis nem sikerült ennyi nappal elmennie szabadságra.\n        - kereset() - visszaadja, hogy ebben az évben eddig mennyit keresett\n        - hatralevoKereset() - visszaadja, hogy az aktuális évben még mennyi fizetést kell kapjon.\n        - a fizetésre írjuk setter/getter függvényt.",
+        "category": [
+            5
+        ],
+        "id": 24,
+        "name": "Munkavállaló"
+    },
+    {
+        "text": "prompt segítségével olvassatok be 2 számot, és a ? operátor segítségével döntsétek el, hogy melyik nagyobb. Ezt a számot tároljátok el egy változóban, majd konzolban jelenítsétek meg ennek az új változónak a tartalmát.",
+        "category": [
+            12
+        ],
+        "id": 25,
+        "name": "Melyik a nagyobb?"
+    },
+    {
+        "text": "Egy változóban tároljátok el a fent beolvasott 2 szám különbségét, úgy, hogy minden esetben, a nagyobból vonjuk ki a kisebbet.Konzolban jelenítsétek meg az eredményt.",
+        "category": [
+            12
+        ],
+        "id": 26,
+        "name": "Különbség"
+    },
+    {
+        "text": "Egy rendezvényre készülünk, melynek regisztrációs feltétele, hogy az illető 16 és 25 év közti legyen. Aki ennél kisebb, \n       túl fiatal, aki idősebb, az túl idős.\n       A feladatban kérjük be a regisztrálandó személy életkorát (prompt segítségével) és abban az esetben, ha a regisztrálandó személy\n       életkora benne van ebben az intervallumban, egy \"alert\" ablakban jelenítsük meg, hogy \"Sikeres regisztráció\" \n       különben, írjuk ki, hogy \"Nem megfelelő életkor\"",
+        "category": [
+            12
+        ],
+        "id": 27,
+        "name": "Korosztály regisztráció"
+    },
+    {
+        "text": "A fent bekért életkorról döntsük el, hogy melyik korosztályhoz tartozik. Ha az illető kisebb, mint 12 éves, \n    akkor, \"gyerek\", ha 12 és 17 év közt van, akkor \"kamasz\"-nak itéljük, 18 felett pedig \"felnőtt\"-nek.\n    konzolban jelenítsd meg az eredményt.",
+        "category": [
+            12
+        ],
+        "id": 28,
+        "name": "Korosztályhatározó"
+    },
+    {
+        "text": "Egy számról döntsük el, hogy 1, 2, illetve, hogy 3 jegyű-e. Ugyancsak konzolban, jelenítsük meg az eredményt.",
+        "category": [
+            12
+        ],
+        "id": 29,
+        "name": "Hányjegyű?"
+    },
+    {
+        "text": "Írj függvényt mely megkap 2 operandust, és egy eredményt. A függvény döntse el, hogy a 4 alapművelet valamelyike,\n    adhatja-e a megadott eredményt, ha igen, térjen vissza true értékkel, ha nem, egy false értékkel.",
+        "category": [
+            13
+        ],
+        "id": 30,
+        "name": "Műveletteszt"
+    },
+    {
+        "text": "Írj függvényt, mely visszatér egy 2 jegyű szám tagjainak összegével.\n    25 esetén 2+5, vagyis 7-el",
+        "category": [
+            13
+        ],
+        "id": 31,
+        "name": "Számtagok összege"
+    },
+    {
+        "text": "Írjunk egy \"prim\" nevezetű függvényt, mely egy számról eldönti, hogy prím szám-e vagy sem.\n(Azokat az 1-nél nagyobb természetese számokat nevezzük prímszámoknak, melyeknek 1-en és önmagukon kívül nincs osztójuk)",
+        "category": [
+            13
+        ],
+        "id": 32,
+        "name": "Prím"
+    },
+    {
+        "text": "Írjatok egy \"osszeg\" nevű függvényt, mely bemeneti paraméterként megkap egy tömböt, mely számokkal van feltöltve, és \n       kimenetként visszaadja, a tömb elemeinek az összegét.",
+        "category": [
+            3
+        ],
+        "id": 33,
+        "name": "Tömb összeg"
+    },
+    {
+        "text": "Írjatok egy \"fibonacci\" nevezetű függvényt, mely előállítja a fobonacci sorozat első n elemét. (\"n\" a függvény bemeneti értéke)\n       A fibonacci első eleme 0, míg a második 1. A többi az előző kettőnek az összege.",
+        "category": [
+            3
+        ],
+        "id": 34,
+        "name": "Fibonacci"
+    },
+    {
+        "text": "Írjatok egy szorzótábla generátor függvényt, mely paraméterként megkap egy számot, és egy selectort.\n       A függvény generálja le a paraméterként megkapott szám 10-es szorzótábláját, és jelenítse meg, a második paraméterként\n       kapott selector innerHTML-jébe.\n        pl:\n            szorzotablaGenerator(8, \"#content\"); \n            // az alábbi kimenetet adja:\n            // 1 * 8 = 8\n            // 2 * 8 = 16\n            // 3 * 8 = 24\n            //   .\n            //   .\n            //   .\n            // 10 * 8 = 80",
+        "category": [
+            14
+        ],
+        "id": 35,
+        "name": "Szorzótábla generátor"
+    },
+    {
+        "text": "Írj JavaScript függvényt annak ellenőrzésére, hogy egy adott egész számok tömbjének első vagy utolsó pozíciójában 1 szerepel-e. \n    A tömb hosszának nagyobbnak vagy egyenlőnek kell lennie 1-nél.",
+        "category": [
+            3
+        ],
+        "id": 36,
+        "name": "elől hátul, 1-e?"
+    },
+    {
+        "text": "Írj függvényt, mely leellenőrzi, hogy egy adott tömb első és utolsó eleme egyforma-e",
+        "category": [
+            3
+        ],
+        "id": 37,
+        "name": "Elől hátul egyforma-e?"
+    },
+    {
+        "text": "Írj függvényt egy adott tömb, első és utoló elemének felcserélésre.",
+        "category": [
+            3
+        ],
+        "id": 38,
+        "name": "Helycsere"
+    },
+    {
+        "text": "Írj függvényt, mely visszaadja egy karakterláncokat tartalmazó tömbből, a leghosszabb karakterláncot.",
+        "category": [
+            3
+        ],
+        "id": 39,
+        "name": "Leghosszabb elem (string)"
+    },
+    {
+        "text": "Írj függvényt, mely összehasonlít 2 tömböt, és true értékkel tér vissza, ha a 2 tömb egyforma.\n    Két tömb akkor egyforma, ha minden azonos indexen levő elemük egyforma.",
+        "category": [
+            3
+        ],
+        "id": 40,
+        "name": "Egyforma tömbök"
+    },
+    {
+        "text": "Írj egy függvényt, mely segítségével a felhasználó fel tud tölteni egy tömböt.\n        Prompt segítségével, addig kérünk be egy újabb elemet, amíg azt nem gépeljük be, hogy \"stop\"",
+        "category": [
+            14
+        ],
+        "id": 41,
+        "name": "Tömbfeltöltés"
+    },
+    {
+        "text": "Készítsetek egy tömbfeltöltő programot, amit most user felületről teszünk meg, nem csak simán promtból: \n        A HTML oldalon hozzatok létre egy input mezőt, és egy \"Hozzáad\" gombot. \n        A gombra klikkelve, a program adja hozzá a tömbhöz az újonnan bevitt elemet. \n        - Csak akkor adjuk hozzá az elemet a tömbhöz, ha az input mező nem üres, és legkevesebb 2 karaktert tartalmaz.\n        Továbbá hozzatok létre még egy listáz gombot is, melyre klikkelve, a HTML oldalon kilistázzuk a tömb elemeit.\n        Így a felhasználó le tudja ellenőrizni az eddig bevitt adatokat.",
+        "category": [
+            6
+        ],
+        "id": 42,
+        "name": "DOM tömbfeltöltés"
+    },
+    {
+        "text": "Írj függvényt, amely megkeresi egy tömb legnagyobb elemnét",
+        "category": [
+            3
+        ],
+        "id": 43,
+        "name": "Max keresés"
+    },
+    {
+        "text": "Írj függvényt, amely egy pozitív egész számokat tartalmazó tömböt, két részre oszt. \n        Az első elem az első részhez tartozik, a második elem a második részhez, a harmadik elem az első részhez és így tovább. \n        Számítsátok ki a két rész összegét, és a függvény térjen vissza egy 4 elemű tömbbel.\n        [ [első résztömb], első résztömb összege, [második résztömb], második résztömb összege ]\n        [1, 2, 3, 4, 5, 6] paramétert esetén a visszatérési érték:\n        [[1, 3, 5], 9, [2, 4, 6], 12]",
+        "category": [
+            3
+        ],
+        "id": 44,
+        "name": "Tömbfelosztás"
+    },
+    {
+        "text": "Írj függvényt, mely paraméterként megkap egy tömböt amit, aztán balra forgat, egy megadott számszor.",
+        "category": [
+            3
+        ],
+        "id": 45,
+        "name": "Balra forgat"
+    },
+    {
+        "text": "Írj függvényt mely egy egy number érték tagjait visszatéríti egy tömbben\n        pl: 256 esetén a visszatérési érték [2, 5, 6]",
+        "category": [
+            3
+        ],
+        "id": 46,
+        "name": "Számbontás"
+    },
+    {
+        "text": "Írj függvényt, mely megkeresi egy adott egész számokat tartalmazó tömb két szomszédos eleme közötti maximális különbséget.",
+        "category": [
+            3
+        ],
+        "id": 47,
+        "name": "Max szomszéd"
+    },
+    {
+        "text": "Írj függvényt, mely megkeresi egy adott egész számok tömbjében leggyakrabban előforduló számot.",
+        "category": [
+            3
+        ],
+        "id": 48,
+        "name": "Leggyakoribb"
+    },
+    {
+        "text": "Írj függvényt, mely véletlenszerűen generál egy css rgb színkódot.\n        És egy fill nevezetű függvényt, aminek átadunk egy selectort. A függvény a selectornak megfelelő elemet, az előző\n        véleltelszín generátorral fesse ki.",
+        "category": [
+            6
+        ],
+        "id": 49,
+        "name": "Véletlenszinező"
+    },
+    {
+        "text": "Írj függvényt, mely megfordítja egy numerikus érték karaktereinek a sorrendjét.",
+        "category": [
+            15
+        ],
+        "id": 50,
+        "name": "Számfordító"
+    },
+    {
+        "text": "Írj függvényt, amely megszámolja egy adott karakterlánc magánhangzóinak számát!",
+        "category": [
+            2
+        ],
+        "id": 51,
+        "name": "Magánhangszószámláló"
+    },
+    {
+        "text": "Írkjatok egy \"deAccent\" nevű ékezetmentesítő függvényt, mely bemenetként megkap egy stringet, és visszatér az ékezetmentes változattal. Tehát az \"á\" hangot \"a\"-ra, az \"ó\" hangot \"o\"-ra, ... cseréli.",
+        "category": [
+            2
+        ],
+        "id": 52,
+        "name": "Ékezetmentesítő"
+    },
+    {
+        "text": "Írj programot, mely kiszűri, a \"numbers\" tömbből, a 20, és 50 közé eső számokat.\n        - lehetőleg használjatok tömbkezelő függvényeket.",
+        "category": [
+            3
+        ],
+        "id": 53,
+        "name": "Intervallumszűrő"
+    },
+    {
+        "text": "Írjatok egy multiDelete függvényt, mely bemenetként megkap egy tömböt, melyből elemeket szeretnénk törölni, és egy másik tömbben\n       azokat az elemeket, amelyeket törölni szeretnénk. A függvény törölje az első paraméterként megadott tömbből, a második paraméterként\n       megadott tömb elemeit. A függvény végül térjen vissza a sikeresen törölt elemek tömbjével.",
+        "category": [
+            3
+        ],
+        "id": 54,
+        "name": "multiDelete"
+    },
+    {
+        "text": "Valósítsunk meg egy egyszerű CRUD apit egy dolgozókat tartalmazó tömbön. A CRUD egy rövídítés: A Create, Read, Update és Delete szavak kezdőbetűi.\n   -\"Create\" címszó alatt egy olyan függvényt valósítsatok meg, mely hozzáad egy új dolgozót, a tömbhöz.\n           Nehézség, hogy az id-t a program kell automatikusan hozzáadja. Az id legyen AutoIncrement, ami azt jelenti, hogy az újonnan bevitt adat, az addig legnagyobb ID-nál egy értékkel nagyobb lesz. \n   -\"Read\" címszó alatt egy olyan függvényt valósítsatok meg, mely segítségével le tudunk kérdezni ID alapján egy dolgozót a dolgozók tömbből.\n   -\"Update\" címszó alatt egy olyan függvényt valósítsatok meg, mely id alapján módosítást hajt végre az adott id-val rendelkező bejegyzésen\n           minta: updteDolgozo(3, {position: \"vezető\", age: 29, vegzettseg: \"főiskola\"});\n   - \"Delete\" címszó alatt pedig egy ember törlését valósítsátok meg. Amelyben a függvény megkapja a törlendő ember id-ját.\n            és ha létezik ilyen id-jú elem a tömbben, akkor, azt törli az dolgozók tömbből.",
+        "category": [
+            16
+        ],
+        "id": 55,
+        "name": "Crud on Object array"
+    },
+    {
+        "text": "Írj függvényt annak ellenőrzésére, hogy egy adott egész számok tömbje szigorúan növekvő vagy csökkenő sorozatot képvisel-e.",
+        "category": [
+            3
+        ],
+        "id": 56,
+        "name": "Szigorúan növekvő"
+    },
+    {
+        "text": "Írj függvényt, mely egy tömbből eltávolítja azokat a számokat, amelyekből több van, és csak egyet hagy meg belőlük.",
+        "category": [
+            3
+        ],
+        "id": 57,
+        "name": "Mindenből csak egy"
+    },
+    {
+        "text": "Írj egy függvényt, mely visszaadja egy fájl kiterjesztést. (bemenetként megkapja a fájl nevét, vagy egy teljes elérési útvonalat.)",
+        "category": [
+            2
+        ],
+        "id": 58,
+        "name": "Fájl kiterjesztés"
+    },
+    {
+        "text": "Írj egy \"dr(name)\" függvényt, mely doktorrá nevezi ki azokat a neveket, amelyek előtt nincs ott a \"dr.\" és visszatér az új névvel.\n       Ha a bemenetként kapott név nem már rendelkezik a \"dr.\" előtaggal, akkor simán a bemeneti névvel térjen vissza.",
+        "category": [
+            2
+        ],
+        "id": 59,
+        "name": "Dr."
+    },
+    {
+        "text": "Írj függvényt, mely egy szöveg felsorolás tagjait ABC szerint sorba rendezi. \n(Szövegfelsorolás, amikor egy stringbe van a felsorolás: \"Alma, Körte, Szilva, Barack, Ananász\")",
+        "category": [
+            15
+        ],
+        "id": 62
+    },
+    {
+        "text": "Írj függvényt annak tesztelésére, hogy egy karakterlánc \"Script\"-re végződik-e. \n       A karakterlánc hosszának 6-nál nagyobbnak vagy egyenlőnek kell lennie.",
+        "category": [
+            2
+        ],
+        "id": 63,
+        "name": "Script a vége"
+    },
+    {
+        "text": "Írj függvényt, amely egy adott karakterlánc minden karakterét lecseréli az angol ABC következőjére!  \n       Megjegyzés: az „a” helyett „b” lesz, a „z” helyett „a”.",
+        "category": [
+            2
+        ],
+        "id": 64,
+        "name": "Szomszédos betű"
+    },
+    {
+        "text": "Írj függvényt, mely egy adott karakterláncban minden szó első betűjét nagybetűssé alakítja.",
+        "category": [
+            15
+        ],
+        "id": 65,
+        "name": "Iniciálé"
+    },
+    {
+        "text": "Írj függvényt, mely megnézi, hogy egy karakterláncban kis vagy nagy betűből van-e több, és az egész stringet, olyanná alakítja.",
+        "category": [
+            2
+        ],
+        "id": 66,
+        "name": "Sok lúd disznót győz :)"
+    },
+    {
+        "text": "Írj függvényt, mely eldönti, hogy egy karakerlánc lehet-e mondat, vagy sem. \n        Egy karakterlánc akkor tekinhető mondatnak, ha nagy betűvel kezdődik, és ponttal végződik.",
+        "category": [
+            2
+        ],
+        "id": 67,
+        "name": "Mondat"
+    },
+    {
+        "text": "Írj függvényt, mely string műveltek segítségével, eldönti, hogy a paramétere, lehet-e egy email cím, vagy sem.",
+        "category": [
+            2
+        ],
+        "id": 68,
+        "name": "String email"
+    },
+    {
+        "text": "Adott az alábbi string\n*/\n    let cicus = \"Cirmi délben eszik majd alszik egy nagyot. Aztán ha felkelt játszik egyet.\";\n/*\n    Reguláris kifejezés segítségével szedjük ki a \"cicus\" változóból az ik-es igéket.",
+        "category": [
+            17
+        ],
+        "id": 69,
+        "name": "Ik-es igék"
+    },
+    {
+        "text": "irjatok regularis kifejezest, mely egy szovegbol kiveszi a datumido karakterlancokat pl 2021.09.28 09:59 (UTC)",
+        "category": [
+            17
+        ],
+        "id": 70,
+        "name": "Dátumidő"
+    },
+    {
+        "text": "Írjunk reguláris kifejezést mely kiveszi egy sztringből az aritmetikai műveleteket. (nem csak a műveletjeleket, hanem a a műveletsort)",
+        "category": [
+            17
+        ],
+        "id": 71,
+        "name": "Aritmetikai műveletek"
+    },
+    {
+        "text": "Írjunk reguláris kifejezést, amely a teljes nevekre illeszkedik (Csaladnev Keresztnev)\n    A név több tagból is állhat, mint 2, és illeszkedjen a kötőjeles nevekre is.",
+        "category": [
+            17
+        ],
+        "id": 72,
+        "name": "Teljes nevek"
+    },
+    {
+        "text": "Írjunk reguláris kifejezést, mely egy email címre illeszkedik.\n    (Itt nem vagyok kiváncsi a copy-paste megoldásokra. Tehát, ha te megad kisakkoztad, csak akkor küld be ezt a feladatot.)",
+        "category": [
+            17
+        ],
+        "id": 73,
+        "name": "regExp Email"
+    },
+    {
+        "text": "Adott az alábbi szöveg:\n*/\n    let szoveg = \"Márton március 25-én indul diplomáciai útra, mert 26-án fontos tárgyalása van, ahol 13 ügyféllel találkozik. Utána siet haza, hogy elérje a 28-án rendezett konferenciát.\";\n/*\n    Írjunk reguláris kifejezéseket, mely kiveszi azokat a számokat, melyeket kötőjeles toldalék követ. Ám az eredményben, csak a számok legyenek.\n    tehát a szoveg.match kimenete Array(3) [ \"25\", \"26\", \"28\" ] kell legyen. A 13 nem szerepeljen benne.\n\n    .a. Ha ez megvan, akkor próbáljátok úgy átalakítani ezt a reguláris kifejezést, hogy akkor is működjön, ha némely hónap napja,\n       még régiesen van meghatározva, tehát, hogy pont is van a szám után.",
+        "category": [
+            17
+        ],
+        "id": 74,
+        "name": "Kalendárium"
+    },
+    {
+        "text": "Írjatok reguláris kifejezést, mely egy valós óra:perc-re illeszkedik. \n        - A formátum tehát: hh:mm\n        - ha véletlenül valaki nem tudná olvasni a dátum idő formátumokat: a \"hh\" azt jelenti, hogy a hours 2 karakteren, míg az \"mm\", hogy a minutes 2 karakteren\n       !A valós óra:perc, azt jelenti, hogy csak akkor illeszkedik, ha az idő 00:00 és 23:59 tartományban mozog.",
+        "category": [
+            17
+        ],
+        "id": 75,
+        "name": "Valós Óra"
+    },
+    {
+        "text": "Írjatok reguláris kifejezést, amely egy magyar mobil számra illeszkedik.",
+        "category": [
+            17
+        ],
+        "id": 76,
+        "name": "Magyar mobilszám"
+    },
+    {
+        "text": "Adott az alábbi szöveges feladat:\n*/\n\nconst szovegesFeladat1 = ` Adott az alábbi 2 halmaz: A = [1, 34, 43, 12, 6, 78, 41, 23], és B = [12, 42, 24, 41, 6, 33, 23] Határozzátok meg A és B metszetét. `;\n\n/*\n!!!Nem a stringben levő feladatot kell megoldani, hanem az alábbiakat:\n    .a.) Szedjük ki a szögletes zárójelben levő számsort, szögletes zárójelek nélkül.\n*/\n\n/*\n    .b.) Szedjük ki a teljes halmazokat, szögletes zárójelekkel együtt\n*/\n\n/*\n    .c.) Szedjük ki a számhalmazokat, névvel együtt\n        így: A = [1, 34, 43, 12, 6, 78, 41, 23]",
+        "category": [
+            17
+        ],
+        "id": 77,
+        "name": "Szöveges feladat"
+    },
+    {
+        "text": "Írj egy compareDate(date1, date2) függvényt, mely összehasonlít 2 dátumot, és visszatér a rendezéshez szükséges értékekkel\n        - date1 > date2 esetén: 1\n        - date1 == date2 esetén: 0\n        - date1 < date2 esetén: -1\n\n        Ennek a segégdfüggvénynek a segítségével dátum alapján isrendezni tudjuk egy tömb elemeit.",
+        "category": [
+            4
+        ],
+        "id": 78,
+        "name": "compareDate"
+    },
+    {
+        "text": "Írj egy isEqualsDate(date1, date2) függvényt, mely az előző compareDate függvényt felhasználva true értéket ad vissza, ha a bementi 2 dátum egyenlő. false, ha nem.",
+        "category": [
+            4
+        ],
+        "id": 79,
+        "name": "isEqualsDate"
+    },
+    {
+        "text": "Írj függvényt, mely a milisecundomot, átváltja napokra.",
+        "category": [
+            4
+        ],
+        "id": 80,
+        "name": "ms átváltó"
+    },
+    {
+        "text": "Írj függvényt, mely visszaadja, hogy hány nap telt el 2 dátum közt.",
+        "category": [
+            4
+        ],
+        "id": 81,
+        "name": "Dátumkülönbség"
+    },
+    {
+        "text": "Írj függvényt, mely egy objectbe adja vissza, hogy hány év, hány hónap, hány nap, hány óra, és hány perc telt el 2 dátum közt.",
+        "category": [
+            4
+        ],
+        "id": 82,
+        "name": "Date különbség részletező"
+    },
+    {
+        "text": "Írj egy isFuture(date) függvényt, mely egy dátumról eldönti, hogy az egy jövőbeli dátum-e. true értékkel tér vissza, ha igen. false, ha nem.",
+        "category": [
+            4
+        ],
+        "id": 83,
+        "name": "A jövő"
+    },
+    {
+        "text": "Írj függvényt, mely egy dátumhoz paraméter lista alapján hozzá addja egy dátumidő paramétereit. A paraméterlista a következő\n        dateIncremnet(date, year, month, date, hours, minutes, secounds);\n        ha a date-hez 5 napot akarok hozzáadni, akkor úgy hívom meg a függvényt, hogy \n        dateIncrement(date, 0, 0, 5); Tehát a paraméterek, jobbról balra elhagyhatóak legyenek, vagyis opcionálisak.",
+        "category": [
+            4
+        ],
+        "id": 84,
+        "name": "dateIncremnet"
+    },
+    {
+        "text": "Írj howOld(birthDate) függvényt, mely paraméterként megkapja egy személy születési évét, és visszatér az illető korával. (vagyis, hogy hány éves)",
+        "category": [
+            4
+        ],
+        "id": 85,
+        "name": "howOld"
+    },
+    {
+        "text": "Írj egy isExpire(date) függvényt, ami tru értékkel tér vissza, ha lejárt a bemenetként kapott dátumidő.",
+        "category": [
+            4
+        ],
+        "id": 86,
+        "name": "A múlt"
+    },
+    {
+        "text": "Írjatok egy egyszerű számológép programot, mely két operandus között végzi el az alapműveleteket.\n    A HTML oldalon készítsétek el az ürlapot, mely áll 2 input mezőből a két oprtandus számára.\n    A 2 operandus mező közt egy select-option serzkezetet, melyben kliválaszthatjuk a négy alapművelet valamelyikét.\n    Majd a második operandus mező után egy \"=\" gombot, melyre kattintva megmutatjuk a HTML oldalon az eredményt.\n    A html szerkezet tehát a következő:\n    [input, operandus1] [select, operátor] [input, operandus2] [buttun, =] [display tag]",
+        "category": [
+            6
+        ],
+        "id": 87,
+        "name": "Egyszerű számológép"
+    },
+    {
+        "text": "Készítsetek egy stopperóra applikációt, mely tartalmaz egy \"display\" taget egy \"start\", \"stop\", \"reset\" és \"részidő\" gombokat.",
+        "category": [
+            6
+        ],
+        "id": 88,
+        "name": "Stopper"
+    },
+    {
+        "text": "Készíts egy osztályt, mely egy tömböt tárolására alkalmas, és\n        - Képes kiszamolni az elemek összegét, átlagát, minimumát, maximumát (ezek egy-egy külön függvény legyenek)\n        - Egy másik ugyanilyen példány tömbjének elemeiből képes átvenni azokat az elemeket, amelyek még nem szerepelnek saját\n        magában",
+        "category": [
+            5
+        ],
+        "id": 89,
+        "name": "Tömb class"
+    },
+    {
+        "text": "Készíts egy kör osztályt, mely konstruktora megkapja a kör\n            - sugarát\n            - x, y, koordinátáit. Itt jelenik meg a képernyőn.\n            - háttérszínét\n\n            Példáonyisításkor jöjjön létre egy div, melyből kört csinálunk, Adjuyk hozzá a body-hoz, és állítsuk be a pozicióját x, y\n            koordinátákra.\n\n            Az osztály rendelkezzen egy .moveToXY(x, y) metódussal, mely a kört az új pozicióba helyezi.\n            Hogy látványos legyen a mozgás, adjatok hozzá egy css animációt, mely 1 másodperc alatt mozgatja át a kört az új",
+        "category": [
+            5
+        ],
+        "id": 90,
+        "name": "Kör osztály"
+    },
+    {
+        "text": "Írj egy progmaot, mely bekér egy számot. A szám akkor helyes, ha 2 jegyű szám, és a válaszadásra 7 másodperc álljon rendelkezésre.\n       A HTML oldal tartalmazzon egy start gombot, melyel elindul az adatbevitel.\n       A feladatot Promise alapon oldjátok meg. \n            - A promise akkor sikeres, ha 7mp elteltével egy 2 jegyű szám a beírt érték. \n            - ÉS akkor sikertelen, ha nem 2 jegyű.\n            - Ha sikerült a helyes adatot bevinni, akkor a HTML oldalon jelenjen meg egy üzenet, hogy \"Helyes adat.\"\n            - Ha nem, akkor pedig, hogy \"Helytelen adat.\"",
+        "category": [
+            18
+        ],
+        "id": 91,
+        "name": "Számteszt"
+    },
+    {
+        "text": "Írjatok egy függvényt, mely legenerál egy sakktáblát, ami meg is jelenik a HTML oldalon. A sakktábla, n*n-es legyen, és divekből\n       rakjátok össze. tehát ne csak 8x8-as táblát lehessen legenerálni a függvénnyel.\n.a. Miután sikerült, készíts egy másolatot a függvényről, és csináld meg úgy is, hogy balodalt a sorszámozás, míg alul a betű\"számozás\" jelenjen meg.",
+        "category": [
+            6
+        ],
+        "id": 92,
+        "name": "Sakktábla"
+    },
+    {
+        "text": "Küldjetek kérést az alábbi erőforrásra, melyben földrengés adatok vannak tárolva. Az oldalon jelenítsétek meg, a 10 legjelentősebb\n       földrengés helyszínét és értékét, egy listában. https://seismic-api.science.unimelb.edu.au/significant-quakes",
+        "category": [
+            7
+        ],
+        "id": 93,
+        "name": "Max földrengés"
+    },
+    {
+        "text": "Egy adattömből Javascript segítségével rendereljetek le egy listát <ul><li>Szoveg</li>...</ul> \n        és hozzatok létre egy gombot. A gombra klikkelve fordítsátok meg a lista sorrendjét.",
+        "category": [
+            6
+        ],
+        "id": 94,
+        "name": "Fordítva"
+    },
+    {
+        "text": "Készítsetek egy dobókocka osztályt\n        - Az osztály rendelkezzen egy dob metódussal, mely szimulálja, hogy dobtunk egyet a kockával.\n          viszatér a dobott számmal, ám a példányban el is tárolja, hogy hányast dobtunk, amit egy getter függvénnyel lehessen lekérdezni.\n          És itt máris megtanultik egy újabb értelmét a getternek. Úgy kérünk le értéket, hogy az csak olvasható legyen.\n          ha nem írjuk meg a settert melléje, akkor azt ugy nem tudjuk beállítani. És ez esetben nem is kell, hisz új értéket, \n          csak új dobással szerezhet a kocka.\n        - Továbbá ezt a kocák lehessen bárhova HTML-en belül lerenderelni. Amit persze megtehetünk úgy is, hogy megadjuk a konstruktorban\n          a renderTo lehetőséget, és a kocka ide jön létre.\n        - Hétfőn megtanuljuk a setTimeOut és setInterval függvényeket, és akkor szimulálni fogjuk a kocka gurítást is.",
+        "category": [
+            5
+        ],
+        "id": 95,
+        "name": "Dobókocka"
+    },
+    {
+        "text": "Írjatok egy szójáték függvényt, mely bemenetként megkap egy szöveget, kimenetként pedig a szó első és utolsó betűjét. A két betű közt pedig annyi pontot, ahány karakter van a 2 betű közt.\n        (\"Fogas kérdés\" esetén a kimenet \"F..........s\" lenne.)",
+        "category": [
+            2
+        ],
+        "id": 96,
+        "name": "Fogas kérdés"
+    },
+    {
+        "text": "Írj programot, mely billentyűzetről mozgat egy négyzetet a HTML oldalon.",
+        "category": [
+            19
+        ],
+        "id": 98,
+        "name": "Mozgatás"
+    },
+    {
+        "text": "Készíts egy olyan függvényt, amely bemeneti paraméterként megkapja egy intervallum határait,\n        kimenetként pedig, visszatér a bemenetként kapott két szám közé eső prímszámok tömbjével.",
+        "category": [
+            3
+        ],
+        "id": 99,
+        "name": "Prímkereső"
+    },
+    {
+        "text": "A html oldalatokon készítsetek egy 3 mezőből álló űrlapot, és egy hozzáad gombot.\n        A 3 űrlapmező a következők: Név, cím, telefonszám.\n        A hozzáad gomb hatására a 3 mezőből hozzátok létre egy táblázat sorát (dom függvények segítségével)\n        majd adjátok hozzá a html oldalatokon elhelyezett táblázathoz.\n        (egyéni döntés, hogy table-tr-td, vagy div alapú táblázatot készítetek.)",
+        "category": [
+            6
+        ],
+        "id": 100,
+        "name": "Táblázatfeltöltő"
+    },
+    {
+        "text": "Készítsetek egy Lottoszelveny osztályt, mely konstruktora megkapja a selectortát annak a HTML tagnek, amelyben meg szeretnénk jeleníteni. \nAz objektum, új példány létrehozásakor, jelenítsen meg egy teljes 5-ös lotto szelvényt.\nA lottószelvényen lehessen kiválasztani a megtenni kívánt 5 számot.",
+        "category": [
+            5
+        ],
+        "id": 101,
+        "name": "Lottószelvény"
+    },
+    {
+        "text": "Írj egy függvényt, mely megszámolja, hogy egy adott kulcskifejezés, hányszor szerepel egy stringben.",
+        "category": [
+            17
+        ],
+        "id": 102,
+        "name": "Kifejezésszámláló"
+    },
+    {
+        "text": "Kő, papír, olló. Gép ellen. A gép véletlenszerűen generáljon egy értéket 1-3 közt. 1-kő, 2-papír, 3-olló.\nLegyen az oldalon egy kezdés gomb, amit ha megnyomunk, elkezdődik a játék. Egy játékmenet 3 körből álljon. \nMinden körre 3mp álljon rendelkezésre. A végén az nyer, akinek több pontja van. \nEgy kör menete: \n  - elindul a visszaszámláló.\n  - a gép játékos generál egy értéket, ekkor ezt még nem mutatjuk meg.\n  - a játékos ez alatt a 3 mp alatt kell nyomjon egy billentyűt. \"K\"-kő, \"P\"-papír, \"O\"-olló.\n  - amikor a játékos lenyomta valamelyik billentyűt, megmutatjuk a gép választásával együtt a választásunkat, és eredményt hirdetünk, valaki javára.\n  - a kör akkor sikeres, ha 3 mp alatt sikerült választanunk a Kő, papír és olló közül. \n  A játék 3 sikeres körig tart.",
+        "category": [
+            15
+        ],
+        "id": 103,
+        "name": "Kő-papír-olló"
+    },
+    {
+        "text": "Készítsetek egy JSON fájlt, amiben az órán megírt textBoxokhoz használatos adatokat tároljátok.\n    Ez a fáj tartalmazzon 5-nél több textboxra való adatot (cím, alcím, szöveg)\n\n    Ajax segítségével töltsétek be ezt a JSON-t és a már megírt TextBox használatával\n    generáljátok le, az adatoknak megfelelő szövegdobozokat a JSON-ból.\n\n\tMajd a JSON fájlhoz, adj hozzá újabb adatokat, és élvezd munkád gyümölcsét! :) \n\tHiszen, ha kész a munkád, ahhoz, hogy újabb tartalmak jelenjenek meg az oldalon, semmi mást\n\tnem kell tenned, mint, újabb adatokat írj a JSON-ba. És az oldal újratöltésével automatikusan \n\tmegjelnnek, az új dobozok is, anélkül, hogy a forráskódhoz hozzá kellene nyúlnod.",
+        "category": [
+            7
+        ],
+        "name": "",
+        "id": 104
+    }
+]

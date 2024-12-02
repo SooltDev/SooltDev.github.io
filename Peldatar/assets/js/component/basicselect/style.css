@@ -1,0 +1,96 @@
+.select {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    border: 2px solid #587ea3;
+    border-radius: 3px;
+    background-color: #d2dfed;
+    padding: 0;
+    position: relative;
+    top: 0px;
+    overflow: visible;
+    width: 200px;
+    display: block;
+
+}
+
+.select span {
+
+    line-height: 18px;
+    padding: 0 5px;
+}
+
+.select .select-button {
+
+    display: flex;
+    background-color: #699aca;
+    color: #fff;
+    border-top-right-radius: 0px;
+    font-size: 12px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 28px;
+    padding: 0 7px;
+    height: 100%;
+    align-items: center;
+}
+
+.select .select-display{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: stretch;
+    height: 100%;
+}
+.select.open {
+    z-index: 1;
+}
+
+.select.open .select-display {
+    border-bottom: 0px solid #8aa6c0;
+    height: 100%;
+}
+
+
+.select .select-display .select-text {
+
+    display: flex;
+    width: auto;
+    overflow: hidden;
+    text-wrap: nowrap;
+    align-items: center;
+}
+.select .select-options{
+    display: none;
+    transition: height 2s;
+    position: absolute;
+    width: 100%;
+    border: 2px solid #417099;
+    border-top: 1px solid #7ea6c9;
+    background-color: #d2dfed;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    margin-left: -2px;
+    
+    list-style-type: none;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.select.open .select-options{
+    display: block;
+}
+
+.select .select-options li {
+    cursor: pointer;
+    padding: 3px 13px;
+}
+
+.select .select-options li:hover {
+    background-color: #85b2d8;
+}
+
+.select .select-options li.selected {
+    background-color: #5a93ca;
+    color: white;
+}

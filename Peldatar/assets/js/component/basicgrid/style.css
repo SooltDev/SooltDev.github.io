@@ -1,0 +1,233 @@
+#grid-container{
+    padding: 10px;
+    margin: 0 0 15px 0
+}
+
+.basic-grid{
+
+    border-radius: 9px;
+    background-color: #fff;
+    box-shadow: 4px 4px 22px -2px #00000069;
+    padding: 10px;
+}
+
+.basic-grid .basic-grid-title{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 24px;
+    margin: 0 0 8px 0;
+}
+
+.basic-grid .grid-row{
+    display: flex;
+}
+.basic-grid .grid-row.selected-row{
+    
+    box-shadow: 1px 1px 5px -2px #000;
+    /*z-index: 1;*/
+    position: relative;
+    border-radius: 3px;
+}
+.basic-grid .grid-row.selected-row .grid-cell{
+    background-image: linear-gradient(180deg, #d2dfed, #d2dfed);
+    border: 1px solid #c0d2e5;
+    color: #012d67;
+}
+.basic-grid .grid-row.selected-row .grid-cell:first-child{
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+.basic-grid .grid-row.selected-row .grid-cell:last-child{
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.basic-grid .grid-row:nth-child(odd) .grid-cell{
+
+    background-color: #eff3f7;
+}
+
+.basic-grid .grid-row .grid-cell{
+    width: 100%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 6px;
+    border: 1px solid #e6e6e6;
+    margin: -1px -1px 0 0;
+    font-size: 14px;
+    color: #4e4e4e;
+    box-sizing: border-box;
+    display: flex;
+}
+.basic-grid .grid-row.grid-head .grid-cell:first-child{
+    border-top-left-radius: 3px;
+}
+.basic-grid .grid-row.grid-head .grid-cell:last-child{
+    border-top-right-radius: 3px;
+}
+.basic-grid .grid-row:last-child .grid-cell:first-child{
+    border-bottom-left-radius: 5px;
+}
+.basic-grid .grid-row:last-child .grid-cell:last-child{
+    border-bottom-right-radius: 5px;
+}
+.basic-grid .grid-row.grid-head{
+
+    margin: 0 0 8px 0;
+    border-radius: 3px;
+}
+
+.basic-grid .grid-row.grid-head .grid-cell{
+
+    margin: 0px -1px 0 0;
+    background-image: linear-gradient(180deg, #d3e0ed, #98b6d5);
+    color: #1f559c;
+    font-weight: bold;
+    border: 1px solid #99b7d5;
+    position: relative;
+    display: block;
+    clear: both;
+}
+
+.basic-grid .grid-row.grid-head .grid-cell .grid-sort{
+    float: right;
+    cursor: pointer;
+}
+
+.grid-sort.asc, .grid-sort.desc{
+    color: #fff;
+}
+
+.basic-grid-action-delete,
+.basic-grid-action-edit,
+.basic-grid-action-save{
+    margin-right: 5px;
+}
+
+.grid-action-btn a{
+    text-decoration: none;
+}
+
+.grid-action-btn.inactive{
+    opacity: 0.5;
+}
+.grid-action-btn.inactive a{
+    cursor: default;
+}
+
+.grid-cell input{
+    margin: -7px;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: inset 2px 2px 6px -3px #a7a7a7;
+    border-radius: 0px;
+}
+
+.grid-cell textarea{
+    width: 100%;
+    margin: 0;
+    height: 74px;
+    resize: vertical;
+}
+
+.grid-pagination{
+
+}
+
+.grid-pagination grid-cell{
+    
+}
+
+.grid-pagination-controll{
+
+    justify-content: flex-end;
+}
+
+.grid-pagination-btn{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    padding: 3px 3px;
+    margin: 0 5px;
+    cursor: pointer;
+    line-height: 18px;
+    /*! background-color: #9dbad7; */
+    border-radius: 3px;
+    /*! border: 1px solid #6087ae; */
+}
+.grid-pagination-btn.inactive{
+    cursor: default;
+    color: #9d9d9d;
+    /*! background-color: #ccdbe9; */
+    /*! border: 1px solid #adbecf; */
+}
+.grid-firstpage{
+
+}
+.grid-prevpage{
+    
+}
+.grid-nextpage{
+
+}
+.grid-lastpage{
+
+}
+.grid-pagination-info{
+    
+}
+.grid-active-page{
+    
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    line-height: 18px;
+}
+
+.basic-grid .grid-row .grid-cell.grid-checkbox,
+.basic-grid .grid-row.grid-head .grid-cell.grid-checkbox{
+
+    justify-content: center;
+    display: flex;
+    width: 45px;
+}
+
+.grid-cell.grid-checkbox input[type="checkbox"]{
+    
+    width: auto;
+}
+
+.grid-header{
+
+    display: flex;
+    padding: 0 0 8px 0px;
+}
+.grid-title{
+
+    flex: 1;
+    font-size: 20px;
+    font-weight: bold;
+}
+.grid-search-ct{
+
+    flex: 1;
+    display: flex;
+    justify-content: end;
+    position: relative;
+}
+.grid-search{
+
+    flex: 1;
+    padding: 2px 5px 2px 35px !important;
+}
+.grid-search-ct:before{
+    background-image: url('../../../style/search.svg');
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    content: '';
+    left: 5px;
+    top: 6px;
+    background-repeat: round;
+    background-size: cover;
+    margin: 0 0 0 0px;
+}

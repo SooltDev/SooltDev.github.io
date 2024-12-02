@@ -1,0 +1,47 @@
+.scroll-off {
+    overflow: hidden;
+}
+
+.basic-alert-window {
+
+    display: none;
+    max-width: 400px;
+    margin: 0 auto;
+    position: fixed;
+    left: 50%;
+    border: 1px solid #93aec8;
+    background-color: #bacee3;
+    padding: 7px;
+    border-radius: 5px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 2px 2px 7px -1px #0000005c;
+    box-sizing: border-box;
+}
+
+.basic-alert-content {
+
+    padding: 12px;
+    background-color: aliceblue;
+    border-radius: 3px;
+    min-height: 50px;
+    min-width: 220px;
+    text-align: justify;
+}
+
+.basic-alert-controll {
+
+    padding: 7px 0 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.basic-alert-btn {
+
+    border: 1px solid #587ea3;
+    border-radius: 3px;
+    padding: 2px 12px;
+    background-color: #5b8cbc;
+    color: aliceblue;
+    margin: 0 0 0 7px;
+}

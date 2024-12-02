@@ -1,0 +1,14 @@
+[
+
+    {
+        "text": "Listáim",
+        "name": "mylists",
+        "control": "",
+        "page": "",
+        "app": true,
+        "homepage": true
+    },
+    {
+        "text": "."
+    }
+]

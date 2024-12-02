@@ -1,0 +1,64 @@
+.basic-labels{
+    border-radius: 3px;
+    border: 1px solid #c4d1de;
+    background-color: #d2dfed;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.basic-labels-inner{
+    min-height: 100px;
+    background-color: #f5fafe;
+    margin-bottom: 5px;
+    border: 1px solid #c9dbeb;
+    box-sizing: border-box;
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.basic-labels-controll{
+
+}
+
+.basic-labels-controll button{
+    cursor: pointer;
+}
+
+.basic-label{
+
+    display: flex;
+    margin: 2px;
+    background-color: #b3c6db;
+    padding: 3px;
+    border-radius: 3px;
+}
+
+.basic-label .basic-label-text{
+    
+    color: #3b5266;
+    font-size: 14px;
+}
+
+.basic-label .basic-label-delete{
+    
+    padding: 0 5px;
+    background-color: #8faec9;
+    font-size: 13px;
+    line-height: 18px;
+    display: inline-flex;
+    margin: 0 0 0 5px;
+    border-radius: 3px;
+    align-items: center;
+    color: #213c53;
+    cursor: pointer;
+}
+
+.pre-tooltip{
+
+}
+
+.pre-tooltip pre{
+    
+}

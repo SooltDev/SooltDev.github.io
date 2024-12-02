@@ -1,0 +1,18 @@
+{
+  "name": "gyakorlatok",
+  "version": "1.0.0",
+  "main": "server.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "devstart": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}

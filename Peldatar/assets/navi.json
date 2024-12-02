@@ -1,0 +1,34 @@
+[
+    {
+        "text": "Házi feladatok",
+        "name": "homework",
+        "control": "",
+        "app": true,
+        "homepage": true
+    },
+    {
+        "text": "Adatbevitel"
+    },
+    {
+        "text": "Kategória",
+        "name": "category",
+        "control": "",
+        "page": "",
+        "app": true
+    },
+    {
+        "text": "Csoportok",
+        "name": "teams",
+        "control": "",
+        "app": true
+    },
+    {
+        "text": "Feladatok",
+        "name": "exercices",
+        "control": "",
+        "app": true
+    },
+    {
+        "text": "."
+    }
+]
