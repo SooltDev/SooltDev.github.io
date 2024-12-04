@@ -1,0 +1,63 @@
+{
+    "1": {
+        "id": 1,
+        "name": "Ady Endre",
+        "img": "img/ady_endre.jpg",
+        "text": [
+            "Diósadi Ady Endre, születési nevén: Ady András Endre (Érmindszent, 1877. november 22. - Budapest, Terézváros, 1919. január 27.) a huszadik század egyik legjelentősebb magyar költője. A magyar politikai újságírás egyik legnagyobb alakja. A műveltségről, irodalomról írt cikkei a fejlődést és a haladást sürgetik. Költészetének témái az emberi lét minden jelentős területére kiterjednek. Hazafi és forradalmár, példamutató magyar és európai gondolkodó. A szerelemről vagy a szülőföldjéről írt versei éppoly lényeges kifejezései az emberi létnek, mint a szabadság, az egyenlőség, a hit vagy a mulandóság kérdéseiről írott költeményei. ",
+            "Egy Szilágy megyei faluban, Érmindszenten, elszegényedett nemesi családban született. Édesapja diósadi Ady Lőrinc (1851-1929), kisparaszti gazdálkodó, édesanyja tiszaeszlári Pásztor Mária (1858-1937), református lelkipásztorok leszármazottja volt. Egy nővére (Ilona, aki még egyéves kora előtt meghalt) és egy öccse volt, Ady Lajos (1881-1940), aki magyar-latin szakos tanárként ábrándos nyelvészkedéssel nevüket Ond vezér nevéből eredeztette. Ady Mariska Ady Endre unokahúga volt.",
+            "Az első két kötete még nem jelentett semmi újat. Az új stílus elemei először esszéiben, publicisztikájában és más írásaiban mutatkoztak meg. Egy új költészeteszmény nevében lép fel, hangsúlyozva azt, hogy ő nem lesz a „szürkék hegedőse”. Az ősi, magyaros költészet, kultúrkör és az új, forradalmi változást hozó költői program egyesítése a célja – ezáltal szakítva ki a magyar költészetet az elvadult Hun táj virágtalan vidékéből."
+        ],
+        "versek": [
+            "Őrizem a szemed",
+            "A föl-földobott kő",
+            "Elbocsátó, szép üzenet",
+            "Add nekem a szemeidet",
+            "Párisban járt az Ősz",
+            "Héja-nász az avaron",
+            "Góg és Magóg fia vagyok én…",
+            "Meg akarlak tartani",
+            "Az Úr érkezése",
+            "Lédával a bálban"
+        ]
+    },
+    "2": {
+            "id": 2,
+            "name": "József Attila",
+            "img": "img/jozsef_attila.jpg",
+            "text": [
+                "József Attila (Budapest, Ferencváros, 1905. április 11. - Balatonszárszó, 1937. december 3.) Baumgarten- és posztumusz Kossuth-díjas magyar költő, a magyar irodalom egyik legkiemelkedőbb, legeredetibb alakja. Félárva, munkásosztálybeli gyermekként ifjúsága tele volt lemondással és brutalitással, felnőttként, a korszak egyik legkiválóbb költőjeként pedig szembesülnie kellett a meg nem értéssel és a politikai elnyomással. Öngyilkosságra utaló tragikus halálának pontos körülményeit azóta sem sikerült tisztázni. ",
+                "A Szegedi Tudományegyetemen tanárnak készült, de a Tiszta szívvel című verse miatt kirobbant jobboldali tiltakozások nyomán Horger Antal professzor eltanácsolta a tanári pályától. Ezután nyugati egyetemekre iratkozott be: Bécsben hallgatott előadásokat, majd Párizsban a Sorbonne-on tanult és tökéletesítette nyelvtudását. Közben megismerkedett a német és francia költészettel, melynek reprezentánsai közül főleg Villon gyakorolt rá nagy hatást.",
+                "Mindössze harminckét évet élt, mégis a magyar költészet egyik legjelentősebb alakja. Az 1945 utáni szocialista kultúrpolitika mint haladó proletárköltőt piedesztálra emelte és emlékét, munkásságát a legnagyobbaknak kijáró tisztelettel ünnepelte. Műfordítóként József Attila a szomszéd népek kortárs lírájával foglalkozott és értékesek Villon-fordításai is."
+            ],
+            "versek": [
+                "Tiszta szívvel",
+                "Mama",
+                "Reménytelenül",
+                "Altató",
+                "Keresek valakit",
+                "Kertész leszek",
+                "Hozzá!",
+                "Gyönyörűt láttam",
+                "Ha lelked, logikád…"
+            ]
+    },
+    "3": {
+            "id": 3,
+            "name": "Petőfi Sándor",
+            "img": "img/petofi_sandor.jpg",
+            "text": [
+                "Petőfi Sándor (született Petrovics Sándor, Kiskőrös, 1823. január 1. - Fehéregyháza környékén, 1849. július 31.) magyar költő, forradalmár, nemzeti hős, a magyar költészet egyik legismertebb és egyik legkiemelkedőbb alakja. Rövid élete alatt közel ezer verset írt magyarul, ebből körülbelül nyolcszázötven maradt az utókorra, és az ismertebbeket sok más nyelvre lefordították.",
+                "Petőfi Sándor az 1822. december 31-éről 1823. január 1-jére virradó éjszakán született. Kiskőrösön keresztelték meg január 1-jén az evangélikus vallás szerint. A gyermek születésekor oly gyengécske volt, hogy egy emlékező szerint „spirituszban fürdették, hogy megmaradjon”. Egyetlen testvére, öccse, Petőfi István 1825-ben született. ",
+                "1841 júliusában kezébe vette a vándorbotot. Pestre, majd Veszprémbe, Füredre ment, azután átkelvén a Balatonon, Somogy vármegyén keresztül Ozorára ért, ahol több életrajzírója szerint Sepsy Károly hattagú színészcsapatába állt. Ez egy szegényes kis társaság volt, ami Tolna és Fejér vármegye kisebb községeiben játszott. Ő írta és hordta ki a színcédulákat, majd a kellékekről gondoskodott, de fel is lépett, először a Peleskei nótáriusban. Amikor a társaság mindenből kifogyva, Mohácson feloszlott, Petőfi megunta a színészetet és anyjának tett ígéretéhez híven iskolába készült. Sopronba, onnan Pozsonyba, majd, mivel itt sem talált biztos módot a megélhetésre, Pápára ment."
+            ],
+            "versek": [
+                "Szeptember végén",
+                "Egy gondolat bánt engemet",
+                "Szabadság, szerelem!",
+                "Minek nevezzelek?",
+                "Föltámadott a tenger",
+                "Fa leszek, ha…",
+                "Nemzeti dal"
+            ]
+}}

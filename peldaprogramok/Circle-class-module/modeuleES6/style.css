@@ -1,0 +1,5 @@
+.circle{
+    position: absolute;
+    border-radius: 50%;
+    background-image: radial-gradient(farthest-corner at 33% 24%, #fff -20%, currentcolor 100%);
+}

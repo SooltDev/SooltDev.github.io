@@ -283,12 +283,20 @@ var STools = (function(){
 
         return null;
     }
+
+    const timeStringToMS = (timeString) => {
+        if (/^\d\d(:\d\d){1,2}/.test(timeString)){
+            return new Date(`1970-01-01 ${timeString}`).getTime();
+        }
+        
+        return 0;
+    }
     
     return {
         randomize, createElement, getElement, removeAllChild, 
         shuffleArray, emptyArray, deepAssign, capitalize, isObject,
         loadJSON, evalTamplate, global, require, requireCSS, camelCaseAttrName,
-        templateEvalToDOMList, remainProps, deleteFromArray
+        templateEvalToDOMList, remainProps, deleteFromArray, timeStringToMS
     }
 
 })();

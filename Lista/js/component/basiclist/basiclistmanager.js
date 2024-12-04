@@ -25,7 +25,23 @@ const BasicListManager = (function(){
                 listObject.on('delete', () => {
                     this.removeItem(listObject);
                 });
+
+                listObject.on('singleexpand', () => {
+                    this.expandAll(listObject);
+                });
             }
+        }
+
+        collapseAll(unique){            
+            this.lists
+                .filter(list => list != unique)
+                .forEach(list => list.collapse());
+        }
+
+        expandAll(unique){
+            this.lists
+                .filter(list => list != unique)
+                .forEach(list => list.expand());
         }
 
         removeItem(listObject){
@@ -36,7 +52,7 @@ const BasicListManager = (function(){
             localStorage.setItem(this.groupName, JSON.stringify(this.data));
         }
 
-        loadStorage(domContainer){
+        loadStorage(domContainer = this.domContainer){
             const listData = localStorage[this.groupName];
             if (listData && listData != "undefined"){
                 JSON.parse(localStorage[this.groupName])['lists'].forEach(item => {
@@ -47,6 +63,11 @@ const BasicListManager = (function(){
                     );
                 });
             }
+        }
+
+        clear(){
+            while (this.lists.length)
+                this.lists[0].remove();
         }
 
         get jsonStr(){
@@ -68,12 +89,27 @@ const BasicListManager = (function(){
             return dataStruct;
         }
 
-        listExport(){
-
+        listExport(filename){
+            const link = document.createElement("a");
+            const file = new Blob([JSON.stringify(this.data, null, "\t")], { type: 'application/json;charset=utf8' });
+            link.href = URL.createObjectURL(file);
+            link.download = filename || `${this.groupName}.json`;
+            link.click();
+            URL.revokeObjectURL(link.href);
         }
 
-        listImport(){
+        listImport(fileInput, domContainer = this.domContainer){
+            const fr = new FileReader();
 
+            fr.addEventListener('load', (e) => {
+                console.log(e);
+                this.clear();
+                let lines = e.target.result;
+                localStorage.setItem(this.groupName, lines);
+                this.loadStorage(domContainer);
+            });
+            
+            fr.readAsText(fileInput);
         }
     }
 })();

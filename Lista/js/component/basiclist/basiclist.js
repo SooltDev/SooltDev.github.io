@@ -1,16 +1,19 @@
 
 const BasicList = (function(){
 
-    const {evalTamplate, remainProps, templateEvalToDOMList, getElement} = STools;
+    const {
+        evalTamplate, remainProps, templateEvalToDOMList, getElement,
+        timeStringToMS
+    } = STools;
 
     const template = `
         <div class="list" data-eval="element">
-            <div class="list-head">
+            <div class="list-head" data-eval="head-element">
                 <span class="list-title" data-eval="title-element">teszt</span>
                 <span class="list-menu list-btn" data-eval="menu-btn">…</span>
                 <span class="list-del list-btn" data-eval="del-list-btn">&#128465;</span>
             </div>
-            <div class="list-body">
+            <div class="list-body" data-eval="body-element">
                 <div class="list-panel">
                     <input type="text" data-eval="input-element"><button data-eval="add-listitem-btn">+</button>
                 </div>
@@ -37,6 +40,8 @@ const BasicList = (function(){
         inputElement;
         listElement;
         titleElement;
+        bodyElement;
+        headElement;
 
         menuBtn;
         delListBtn;
@@ -63,8 +68,19 @@ const BasicList = (function(){
         build(){
             this.addListitemBtn.addEventListener('click', () => {
                 const liText = this.inputElement.value.trim();
+
+                const selectedItem = this.listElement.querySelector(".list-item-selected");
+
+
                 if (liText != ''){
-                    this.addItem({text: liText});
+                    if (!selectedItem){
+                        this.addItem({text: liText});
+                    } else {
+                        selectedItem.querySelector('.list-item-text').textContent = liText;
+                        selectedItem.classList.remove('list-item-selected');
+                        this.#extraOptions(selectedItem, liText);
+                    }
+
                     this.inputElement.value = '';
                 }
             });
@@ -74,14 +90,60 @@ const BasicList = (function(){
                     this.addListitemBtn.click();
             });
 
-            this.delListBtn.addEventListener('click', async () => {
-                
+            this.delListBtn.addEventListener('click', async (evt) => {
+                evt.stopPropagation();
                 if (await basicAlert.confirm("Biztos, hogy le akarod törölni ezt a listát?") ){
-                    this.element.remove();
-                    this.trigger('delete');
+                    this.remove();
                 }
-                
             });
+
+            this.menuBtn.addEventListener('click', (evt) => {
+                evt.stopPropagation();
+            });
+
+            this.headElement.addEventListener('click', (event) => {
+                if (event.ctrlKey){
+                    this.collapse();
+                    this.trigger('singleexpand');
+                } else
+                    this.toggle();
+            });
+        }
+
+        remove(){
+            this.element.remove();
+            this.trigger('delete');
+        }
+
+        #createTimer(listItem, time){
+            const now = timeStringToMS(new Date().toLocaleTimeString().slice(0, 5));
+            const finishTime = timeStringToMS(time);
+
+            if (finishTime > now)
+                setTimeout(() => {
+                    basicAlert.show(listItem.querySelector('.list-item-text').textContent);
+                }, finishTime - now);
+        }
+
+        #extraOptions(listItem, text){
+            switch (true){
+                case /^\?/.test(text):
+                    listItem.classList.add('list-item-optional');
+                    break;
+                case /^!/.test(text):
+                    listItem.classList.add('list-item-serious');
+                    break;     
+                case /^->/.test(text):
+                    listItem.classList.add('list-item-progress');
+                    break;
+                case /^\d\d:\d\d/.test(text):
+                    this.#createTimer(listItem, text.slice(0, 5));
+                    break;
+            }
+        }
+
+        #isActiveListItem(listItem){
+            return !listItem.classList.contains('list-item-done');
         }
 
         addItem(item){
@@ -94,14 +156,12 @@ const BasicList = (function(){
 
             liTextElement.textContent = item.text;
 
-            switch (true){
-                case /^\?/.test(item.text):
-                    listItem.classList.add('list-item-optional');
-                    break;
-                case /^!/.test(item.text):
-                    listItem.classList.add('list-item-serious');
-                    break;     
-            }
+            /**
+             * Csak akkor adja hozzá az extra opciókat, ha még nem teljesült
+             * Különben csak zavarná az összképet
+             */
+            if (this.#isActiveListItem(listItem))
+                this.#extraOptions(listItem, item.text);
 
             if (item.done)
                 listItem.classList.add('list-item-done');
@@ -120,12 +180,36 @@ const BasicList = (function(){
 
             editBtn.addEventListener('click', (ev) => {
                 ev.stopPropagation();
+
+                const selectedItem = this.listElement.querySelector(".list-item-selected");
+
+                if (selectedItem)
+                    selectedItem.classList.remove("list-item-selected");
+                
+                this.inputElement.value = '';
+
+                if (listItem != selectedItem){
+                    this.inputElement.value = liTextElement.textContent;
+                    listItem.classList.add("list-item-selected");
+                }
             });
 
             this.listElement.appendChild(listItem);
 
             this.trigger('additem');
 
+        }
+
+        expand(){
+            this.bodyElement.classList.add('list-expand');
+        }
+
+        collapse(){
+            this.bodyElement.classList.remove('list-expand');
+        }
+
+        toggle(){
+            this.bodyElement.classList.toggle('list-expand');
         }
 
         set title(text){

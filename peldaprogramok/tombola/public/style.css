@@ -1,0 +1,81 @@
+body{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: #eae7e5;;
+}
+.content{
+    display:flex;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.messagebox{
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    color: #335786;
+}
+.row{
+    display: flex;
+}
+
+.col{
+    width: 100%;
+    padding: 10px;
+}
+
+.ticketsbox{
+
+    width: 80vw;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.ticketbox-inner{
+
+    color: #223a59;
+    display: block;
+}
+
+.tickets{
+
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 3px;
+    text-align: right;
+}
+
+.ticket{
+
+    background-color: #dde8f2;
+    padding: 10px;
+    margin: 5px;
+    width: 50px;
+    display: inline-block;
+    border: 2px solid transparent;
+    border-radius: 3px;
+}
+
+.ticket.sold{
+    
+    background-color: #ededee;
+    color: #aaa;
+    font-style: italic;
+}
+
+.ticket.selected{
+    border-color: #7898b5;
+    box-shadow: 1px 1px 4px -1px #7898b5;
+    
+}
+
+.ticket.lot{
+    border-color: #28a341;
+    background-color: #d2ead6;
+    box-shadow: 1px 1px 4px -1px #1b8330;
+    color: #085217;
+}

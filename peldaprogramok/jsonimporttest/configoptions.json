@@ -1,0 +1,20 @@
+{
+    "holes": [
+        {"top": 30, "left": 30},
+        {"top": 30, "left": 140},
+        {"top": 30, "left": 250},
+        {"top": 110, "left": 82},
+        {"top": 110, "left": 193},
+        {"top": 190, "left": 30},
+        {"top": 190, "left": 140},
+        {"top": 190, "left": 250}
+    ],
+
+    "levels": {
+        "easy": 1500,
+        "medium": 750,
+        "hard": 300
+    },
+
+    "live": 3
+}

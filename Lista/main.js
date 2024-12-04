@@ -3,25 +3,25 @@ const { loadJSON, requireCSS, require, global } = STools;
 global('GLOBAL', {});
 
 (async function(){
-    const naviData = await loadJSON('/navi.json');
+    const naviData = await loadJSON('./navi.json');
 
     /**
      * További CSS fájlok betöltés
      */
 
-    requireCSS('/js/component/basicalert/style.css');
-    requireCSS('/js/component/basiclist/style.css');
-    requireCSS('/style/cpanel.css');
+    requireCSS('./js/component/basicalert/style.css');
+    requireCSS('./js/component/basiclist/style.css');
+    requireCSS('./style/cpanel.css');
 
     /**
      * Komponensek betöltése
      */
     
-    await require('/js/navi.mod.js');
-    await require('/js/component/eventmanager.cls.js');
-    await require('/js/component/basiclist/basiclist.js');
-    await require('/js/component/basiclist/basiclistmanager.js');
-    await require('/js/component/basicalert/basicalert.js');
+    await require('./js/navi.mod.js');
+    await require('./js/component/eventmanager.cls.js');
+    await require('./js/component/basiclist/basiclist.js');
+    await require('./js/component/basiclist/basiclistmanager.js');
+    await require('./js/component/basicalert/basicalert.js');
 
 
     /**

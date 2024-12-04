@@ -9,15 +9,15 @@ var mylists = (function(){
 
     let template = `
         <div class="cpanel">
-            <input type="text" name="" id="list-title" placeholder="Új lista elnevezése">
+            <input type="text" name="" id="list-title" placeholder="Lista címe">
             <button id="new-list">Új Lista</button>
             <div style="width: 10px"></div>
             <button id="save-list">Listák mentése</button>
             <span class="vlsep"></span>
-            <button id="save-lists">Listák exportálása JSON-ba</button>
+            <button id="save-lists">Exportálás</button>
             <span class="vlsep"></span>
             <input type="file" id="load-lists" style="display: none;">
-            <button id="import-json" onclick="document.getElementById('load-lists').click();">Betöltés fájlból</button>
+            <button id="import-json">Importálás</button>
             <span class="vlsep"></span>
             <button id="clear-all-list" class="hard">Listák törlése</button>
         </div>
@@ -40,7 +40,7 @@ var mylists = (function(){
         const newListBtn = renderTo.querySelector("#new-list");
         const saveListBtn = renderTo.querySelector("#save-list");
         const exportBtn = renderTo.querySelector("#save-lists");
-        const importBtn = renderTo.querySelector("#impost-json"); 
+        const importBtn = renderTo.querySelector("#import-json"); 
         const fileInput = renderTo.querySelector("#load-lists"); 
         const clearAllBtn = renderTo.querySelector("#clear-all-list"); 
         const listContainer = renderTo.querySelector(".list-container"); 
@@ -50,21 +50,7 @@ var mylists = (function(){
         listManager.loadStorage(listContainer);
 
         global('listManager', listManager);
-/*
-        const list = new BasicList({
-            title: 'Teszt lista',
-            renderTo: listContainer,
-            items: [
-                {text: "Lorem ipsum dolor"},
-                {text: "sit amet consectetur", done: true},
-                {text: "Adipisicing elit", done: true},
-                {text: "Atque"},
-                {text: "Necessitatibus", done: true}
-            ]
-        });
 
-        listManager.addItem(list);
-*/
         newListBtn.addEventListener('click', () => {
             const listTitle = listTitleInput.value.trim();
 
@@ -103,6 +89,23 @@ var mylists = (function(){
                 <p>A listát sikeresen mentettük.</p>
                 <p>Azt javasoljuk, hogy a biztonság érdekében exportáld ki a listákat.</p>
             `);
+        });
+
+        exportBtn.addEventListener('click', () => {
+            listManager.listExport(/*?filename*/);
+        });
+
+        fileInput.addEventListener('change', () => {
+            listManager.listImport(fileInput.files[0]);
+        });
+
+        importBtn.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        clearAllBtn.addEventListener('click', async () => {
+            if (await basicAlert.confirm("Biztos hogy az összes listát törölni szeretnéd?"))
+                listManager.clear();
         });
     }
 

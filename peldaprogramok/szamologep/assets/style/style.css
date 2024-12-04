@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css?family=Orbitron');
+
+.p-calculator {
+
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 243px;
+    border: 1px solid #cacaca;
+    background-image: linear-gradient(-30deg, #f0f0f0, #eaeaea, white, #e6e3e3, white);
+    border-radius: 5px;
+    margin: 30px;
+}
+
+.p-calculator .p-display {
+
+    width: 100%;
+    border: 1px solid #cecece;
+    background-image: linear-gradient(-14.44grad, #eae8e1, white);
+    height: 36px;
+    margin: 10px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 22px;
+    text-align: right;
+    padding: 0 10px 0 5px;
+    line-height: 36px;
+    color: #443a1c;
+    box-shadow: inset 2px 2px 7px -3px #000;
+    display: flex;
+    justify-content: space-between;
+}
+
+.p-calculator .p-ac {
+
+    font-family: sans-serif;
+    margin-left: 12px;
+    width: 40px;
+    border: 1px solid #666564;
+    background-image: linear-gradient(90deg, black, #515151);
+    text-align: center;
+    color: white;
+    border-radius: 10px;
+    font-size: 14px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.p-calculator .p-panel {
+
+    display: inline-flex;
+    border: 1px solid #cacaca;
+    padding: 10px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 10px;
+    background-color: white;
+}
+
+.p-calculator .p-panel .p-button {
+
+    width: 36px;
+    height: 36px;
+    border: 1px solid #cacaca;
+    text-align: center;
+    line-height: 36px;
+    color: #605959;
+    margin: 6px;
+    background-image: linear-gradient(white, #eae9e9);
+    cursor: pointer;
+    font-family: sans-serif;
+}
+
+.p-calculator .p-panel .p-button.p-proc {
+    background-image: linear-gradient(#74a7fb, #206cea);
+    border-color: #4285f4;
+    color: white;
+}
+
+.p-calculator .p-panel .p-button.p-proc1 {
+    background-image: linear-gradient(#ff9494, #bd2626);
+    border: 1px solid #f06464;
+    color: white;
+}
