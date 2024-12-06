@@ -21,6 +21,7 @@ global('GLOBAL', {});
     await require('./js/component/eventmanager.cls.js');
     await require('./js/component/basiclist/basiclist.js');
     await require('./js/component/basiclist/basiclistmanager.js');
+    await require('./js/component/basiclist/basiclistgroupmanager.js');
     await require('./js/component/basicalert/basicalert.js');
 
 

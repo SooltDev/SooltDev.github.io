@@ -201,6 +201,13 @@ var STools = (function(){
             .replace(/[^\w\s\-]/g, '')
             .replace(/[\s\-_]+[a-z]/g, hit => hit[hit.length-1].toUpperCase());
     }
+
+    const deAccentation = (str) => str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    const onlyAlphaNumeric = (str) => str.replace(/[^\w\-öüóőúéáűí]/gi, "");
+    const strToAttr = (str) => 
+            onlyAlphaNumeric(deAccentation(str))
+            .replace(/[\s\-]+/g, "-")
+            .toLowerCase();
     
     /**
      * Egy templétből csinál DOM elemet.
@@ -296,7 +303,8 @@ var STools = (function(){
         randomize, createElement, getElement, removeAllChild, 
         shuffleArray, emptyArray, deepAssign, capitalize, isObject,
         loadJSON, evalTamplate, global, require, requireCSS, camelCaseAttrName,
-        templateEvalToDOMList, remainProps, deleteFromArray, timeStringToMS
+        templateEvalToDOMList, remainProps, deleteFromArray, timeStringToMS,
+        deAccentation, onlyAlphaNumeric, strToAttr
     }
 
 })();

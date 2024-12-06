@@ -183,3 +183,75 @@
     color: aliceblue;
     position: relative;
 }
+
+/******** TABS ********/
+
+.tab-pane{
+    display: flex;
+    flex-direction: column;
+}
+
+.tabs-btn{
+
+    display: flex;
+    background-color: #343a40;
+    border-bottom: 7px solid #d10000;
+}
+
+.tabs-btn span{
+
+    padding: 10px 14px;
+    /*! border: 1px solid #b1c0ce; */
+    
+    background-color: #454c53;
+    color: #fff;
+    cursor: pointer;
+    border-top-left-radius: 1px;
+    border-top-right-radius: 1px;
+}
+.tabs-btn span:not(:first-child){
+    margin-left: 2px;
+}
+
+.tabs-btn span.active{
+    
+    z-index: 1;
+    background-color: #d10000;
+}
+
+.tabs-content{
+
+    display: flex;
+    border-top: 2px solid #d10000;
+    margin: -1px 0 0 0;
+}
+
+.tab-page{
+
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    margin-top: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    flex-direction: row;
+}
+
+.tabs-btn span.new-tab{
+    display: flex;
+    width: 0px;
+    padding: 0;
+    transition: all 0.5s;
+    overflow: hidden;
+}
+
+.tabs-btn span.new-tab-display{
+    width: 160px;
+    padding: 5px;
+}
+
+.new-tab input{
+
+    height: 31px;
+}

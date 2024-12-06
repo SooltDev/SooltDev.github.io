@@ -2,7 +2,7 @@
 
     {
         "text": "Listáim",
-        "name": "mylists",
+        "name": "groupedlist",
         "control": "",
         "page": "",
         "app": true,

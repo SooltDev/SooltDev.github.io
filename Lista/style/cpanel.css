@@ -9,27 +9,28 @@
 }
 
 .cpanel {
-    background-color: #d2dfed;
+    background-color: #bec6cf;
     padding: 10px;
     border-radius: 3px;
     display: flex;
-    /* flex-wrap: wrap;*/
+    flex-wrap: wrap;
     font-family: 'Courier New', Courier, monospace;
+    box-sizing: border-box;
 }
 
 .cpanel button, .cpanel input[type="file"]  {
     background-color: #587ea3;
     border: none;
     border-radius: 3px;
-    padding: 10px 20px;
+    padding: 6px 20px;
     color: white;
     cursor: pointer;
     white-space: nowrap;
-    line-height: 20px;
+    line-height: 16px;
 }
 
 .cpanel button:hover {
-    background-color: #456fb6;
+    background-color: #779cbf;
 }
 
 .cpanel button.hard{
@@ -44,22 +45,18 @@
 
 .cpanel input[type=text] {
 
-    padding: 10px;
+    padding: 7px 10px;
     border-radius: 3px;
-    border: 0px;
     margin-right: 10px;
     outline: none;
-    line-height: 20px;
+    line-height: 16px;
     border: 1px solid #adbbca;
     width: 220px;
 }
 
 .vlsep {
-    border-right: 1px solid #e6f0fa;
-    border-left: 1px solid #adbbca;
-    display: inline-flex;
+    border-right: 1px solid #cfdeed;
+    border-left: 1px solid #a6b1bf;
+    display: flex;
     margin: 0 10px;
-    height: 36px;
-    content: 'a';
-    line-height: 29px;
 }

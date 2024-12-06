@@ -4,16 +4,22 @@ const BasicListManager = (function(){
 
     return class BasicListManager extends EventManager{
 
-        lists = [];
+        lists = [/*basicList object*/];
         groupName;
         domContainer;
+        group; //a nyers adatok
 
-        constructor(name, domContainer){
+        constructor(group, domContainer){
             super();
-            this.groupName = name;
+            this.groupName = group.name;
             this.domContainer = getElement(domContainer);
+            this.group = group;
         }
 
+        /**
+         * Új lista hozzáadása
+         * @param {object} listObject 
+         */
         addItem(listObject){
             if (listObject instanceof BasicList){
 
@@ -32,6 +38,43 @@ const BasicListManager = (function(){
             }
         }
 
+        createItem(title){
+            const list = new BasicList({
+                title: title,
+                renderTo: this.domContainer
+            });
+
+            this.addItem(list);
+
+            return list;
+        }
+
+        loadStorage(domContainer = this.domContainer){
+            const listData = localStorage[this.groupName];
+            if (listData && listData != "undefined"){
+                JSON.parse(localStorage[this.groupName])['lists'].forEach(item => {
+                    this.addItem(
+                        new BasicList(Object.assign(item, {
+                            renderTo: domContainer
+                        }))
+                    );
+                });
+            }
+        }
+
+        render(group = this.group, domContainer = this.domContainer){
+            this.group = group;
+            this.domContainer = domContainer;
+
+            this.group.lists.forEach(item => {
+                this.addItem(
+                    new BasicList(Object.assign(item, {
+                        renderTo: domContainer
+                    }))
+                );
+            });
+        }
+
         collapseAll(unique){            
             this.lists
                 .filter(list => list != unique)
@@ -46,23 +89,6 @@ const BasicListManager = (function(){
 
         removeItem(listObject){
             return deleteFromArray(this.lists, listObject);
-        }
-
-        saveToStorage(){
-            localStorage.setItem(this.groupName, JSON.stringify(this.data));
-        }
-
-        loadStorage(domContainer = this.domContainer){
-            const listData = localStorage[this.groupName];
-            if (listData && listData != "undefined"){
-                JSON.parse(localStorage[this.groupName])['lists'].forEach(item => {
-                    this.addItem(
-                        new BasicList(Object.assign(item, {
-                            renderTo: domContainer
-                        }))
-                    );
-                });
-            }
         }
 
         clear(){
@@ -89,27 +115,5 @@ const BasicListManager = (function(){
             return dataStruct;
         }
 
-        listExport(filename){
-            const link = document.createElement("a");
-            const file = new Blob([JSON.stringify(this.data, null, "\t")], { type: 'application/json;charset=utf8' });
-            link.href = URL.createObjectURL(file);
-            link.download = filename || `${this.groupName}.json`;
-            link.click();
-            URL.revokeObjectURL(link.href);
-        }
-
-        listImport(fileInput, domContainer = this.domContainer){
-            const fr = new FileReader();
-
-            fr.addEventListener('load', (e) => {
-                console.log(e);
-                this.clear();
-                let lines = e.target.result;
-                localStorage.setItem(this.groupName, lines);
-                this.loadStorage(domContainer);
-            });
-            
-            fr.readAsText(fileInput);
-        }
     }
 })();
