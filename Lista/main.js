@@ -43,7 +43,10 @@ global('GLOBAL', {});
 
     global('navi').homepage();
 
-    //basicAlert.show("Légy üdvözölve a példatárban. Jó munkát a feladatok kiosztásához.");
+    basicAlert.show(`
+        Figyelem! A Listák csoportokkal bővült, és folyamatos fejlesztés alatt áll. 
+        Ha véletelenül használtad már, a régi listák verziót, akkor a 
+        localStorage-ben levő adatokat tedd egy tömbbe, és menni fog. :D`);
 
     window.addEventListener('pagehide', function(event) {
 

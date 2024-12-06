@@ -21,7 +21,7 @@ const BasicListGroupManager = (function () {
                 <input type="file" id="load-lists" style="display: none;" data-eval="file-input">
                 <button id="import-json" data-eval="import-btn">Importálás</button>
                 <span class="vlsep"></span>
-                <button id="clear-all-list" class="hard" data-eval="clear-all-btn">Listák törlése</button>
+                <button id="clear-all-list" class="hard" data-eval="clear-all-btn">Csoport törlése</button>
             </div>
             <div class="tabs-content" data-eval="tab-pages-element">
                 
@@ -72,7 +72,7 @@ const BasicListGroupManager = (function () {
         build() {
 
 
-            
+
             //#region newGroup
             this.addGroupBtn.addEventListener('click', () => {
                 const tabBtn = createElement({
@@ -153,8 +153,8 @@ const BasicListGroupManager = (function () {
             });
     
             this.clearAllBtn.addEventListener('click', async () => {
-                if (await basicAlert.confirm("Biztos hogy az összes listát törölni szeretnéd?"))
-                    listManager.clear();
+                if (await basicAlert.confirm("Biztos hogy törölni szeretnéd ezt a csoportot?"))
+                    this.removePage(this.activeGroup.group.as);
             });
             //#endregion
         }
