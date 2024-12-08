@@ -10,14 +10,16 @@ const BasicList = (function(){
         <div class="list" data-eval="element">
             <div class="list-head" data-eval="head-element">
                 <span class="list-title" data-eval="title-element">teszt</span>
-                <span class="list-menu list-btn" data-eval="menu-btn">…</span>
+                <span class="list-menu list-btn" data-eval="menu-btn"><span>…</span></span>
                 <span class="list-del list-btn" data-eval="del-list-btn">&#128465;</span>
             </div>
             <div class="list-body" data-eval="body-element">
                 <div class="list-panel">
                     <input type="text" data-eval="input-element"><button data-eval="add-listitem-btn">+</button>
                 </div>
-                <ul data-eval="list-element"></ul>
+                <ul data-eval="list-element">
+                    <li data-eval="list-land" class="list-land"></li>
+                </ul>
             </div>
         </div>
     `;
@@ -42,10 +44,13 @@ const BasicList = (function(){
         titleElement;
         bodyElement;
         headElement;
+        listLand;
 
         menuBtn;
         delListBtn;
         addListitemBtn;
+
+        menu;
 
         //#items;
 
@@ -97,8 +102,29 @@ const BasicList = (function(){
                 }
             });
 
+            this.menu = new PopUpMenu({
+                renderTo: this.menuBtn,
+                items: [{
+                    text: "Egy",
+                    handler: () => {
+                        console.log(this);
+                    }
+                },{
+                    text: "Kettő",
+                    handler: () => {
+                        console.log(this);
+                    }
+                },{
+                    text: "Három",
+                    handler: () => {
+                        console.log(this);
+                    }
+                }]
+            });
+
             this.menuBtn.addEventListener('click', (evt) => {
                 evt.stopPropagation();
+                this.menu.show();
             });
 
             this.headElement.addEventListener('click', (event) => {
@@ -168,6 +194,7 @@ const BasicList = (function(){
 
             listItem.addEventListener('click', () => {
                 listItem.classList.toggle('list-item-done');
+                this.#changeItemPos(listItem);
             }); 
 
             deleteBtn.addEventListener('click', async (ev) => {
@@ -194,10 +221,20 @@ const BasicList = (function(){
                 }
             });
 
-            this.listElement.appendChild(listItem);
+            //this.listElement.appendChild(listItem);
+            
+            this.#changeItemPos(listItem);
 
             this.trigger('additem');
 
+        }
+
+        #changeItemPos(listItem, done = false){
+            done = done || listItem.classList.contains('list-item-done');
+            this.listLand.insertAdjacentElement(
+                done ? 'afterend' : 'beforebegin',
+                listItem
+            );
         }
 
         expand(){
@@ -228,6 +265,8 @@ const BasicList = (function(){
          */
         set items(data){
             //this.#items = data;
+            //data.sort((a, b) => a.done ? 1 : -1);
+            
             for (const item of data){
                 this.addItem(item);
             }
@@ -262,3 +301,4 @@ const BasicList = (function(){
     }
 
 })();
+
