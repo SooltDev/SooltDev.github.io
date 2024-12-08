@@ -274,7 +274,7 @@ const BasicList = (function(){
 
         get items(){
             const listItems = [];
-            this.listElement.querySelectorAll('li').forEach(li => {
+            this.listElement.querySelectorAll('li:not(.list-land)').forEach(li => {
                 const item = {
                     text: li.querySelector('.list-item-text').textContent
                 };
