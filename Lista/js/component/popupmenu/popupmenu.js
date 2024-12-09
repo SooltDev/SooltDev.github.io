@@ -13,9 +13,13 @@ const PopUpMenu = (function(){
 
     document.body.addEventListener('keydown', (ev) => {
         if (ev.key == "Escape")
-            if (activeMenu){
-                activeMenu.hide();
-            }
+            document.body.click();
+    });
+
+    document.body.addEventListener('click', (ev) => {
+        if (activeMenu){
+            activeMenu.hide();
+        }
     });
 
     return class PopUpMenu extends EventManager {
@@ -47,16 +51,23 @@ const PopUpMenu = (function(){
 
         addItem(item){
             const menuItem = document.createElement('li');
+            this.element.appendChild(menuItem);
+
+            if (item.separator){
+                menuItem.classList.add('menu-separator');    
+                return;
+            }
+
             menuItem.textContent = item.text;
             menuItem.classList.add('menu-item');
             menuItem.addEventListener('click', (ev) => {
                 ev.stopPropagation();
+                item.handler.call(this);
             });
+
             menuItem.addEventListener('click', () => {                
                 this.hide();
             });
-
-            this.element.appendChild(menuItem);
         }
 
         set items(items){
@@ -77,6 +88,7 @@ const PopUpMenu = (function(){
             this.element.style.display = 'none';
             if (activeMenu == this)
                 activeMenu = null;
+
             
         }
     }

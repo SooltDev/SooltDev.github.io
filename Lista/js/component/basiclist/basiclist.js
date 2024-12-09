@@ -105,19 +105,34 @@ const BasicList = (function(){
             this.menu = new PopUpMenu({
                 renderTo: this.menuBtn,
                 items: [{
-                    text: "Egy",
-                    handler: () => {
-                        console.log(this);
+                    text: "Összes aktív",
+                    handler: async () => {
+                        if (await basicAlert.confirm(
+                            "Biztos, hogy ebben a listibán, az összes elemet újra aktívvá akarod tenni?"
+                        ) )
+                            this.allIncomplete();
                     }
                 },{
-                    text: "Kettő",
-                    handler: () => {
-                        console.log(this);
+                    text: "Összes inaktív",
+                    handler: async () => {
+                        if (await basicAlert.confirm(
+                            "Biztos, hogy ebben a listibán, az összes elemet újra inaktívvá akarod tenni?"
+                        ) )
+                            this.allComplete();
                     }
                 },{
-                    text: "Három",
-                    handler: () => {
-                        console.log(this);
+                    separator: true
+                },{
+                    text: "Kihúzottak törlése",
+                    handler: async () => {
+                        if (await basicAlert.confirm("Biztos, hogy eltávolítod a \"kész\" elemeket?") )
+                            this.clearAllComplete();
+                    }
+                },{
+                    text: "Összes törlése",
+                    handler: async () => {
+                        if (await basicAlert.confirm("Biztos, hogy törölni szeretnéd az összes listaelemet?") )
+                            this.clear();
                     }
                 }]
             });
@@ -139,6 +154,16 @@ const BasicList = (function(){
         remove(){
             this.element.remove();
             this.trigger('delete');
+        }
+
+        clear(){
+            this.listElement.querySelectorAll('li:not(.list-land)')
+                .forEach(li => li.remove());
+        }
+
+        clearAllComplete(){
+            this.listElement.querySelectorAll('li.list-item-done')
+                .forEach(li => li.remove());
         }
 
         #createTimer(listItem, time){
@@ -285,6 +310,18 @@ const BasicList = (function(){
             });
 
             return listItems;
+        }
+
+        allComplete(){
+            this.listElement.querySelectorAll('li:not(.list-land)')
+                .forEach(li => li.classList.add('list-item-done'));
+            this.listElement.insertAdjacentElement('afterbegin', this.listLand);
+        }
+
+        allIncomplete(){
+            this.listElement.querySelectorAll('li:not(.list-land)')
+                .forEach(li => li.classList.remove('list-item-done'));
+            this.listElement.insertAdjacentElement('beforeend', this.listLand);
         }
 
         get data(){
