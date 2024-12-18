@@ -134,6 +134,18 @@ const BasicListGroupManager = (function () {
                         if (await basicAlert.confirm("Biztos hogy törölni szeretnéd ezt a csoportot?"))
                             this.removePage(this.activeGroup.group.as);
                     }
+                },{
+                    icon: 'expand-all',
+                    title: 'Összes lista összecsukása',
+                    handler: () => {
+                        this.activeGroup.expandAll();
+                    }
+                },{
+                    icon: 'collapse-all',
+                    title: 'Összes lista Lenyitása',
+                    handler: () => {
+                        this.activeGroup.collapseAll();
+                    }
                 }]
             })
         }
@@ -204,7 +216,7 @@ const BasicListGroupManager = (function () {
                     this.activeGroup = listManager;
                     this.tabPagesElement
                         .querySelector(`[data-as="${tabBtn.dataset.as}"]`)
-                        .style.display = 'flex';
+                        .style.display = '';
                 }
             });
 

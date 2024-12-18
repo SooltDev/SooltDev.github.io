@@ -3,7 +3,9 @@
     width: 292px;
     display: flex;
     flex-direction: column;
-    align-self: flex-start;
+    /*! align-self: flex-start; */
+    break-inside: avoid;
+    margin-bottom: 20px;
 }
 
 .list.list-drag{
@@ -60,13 +62,15 @@
     display: flex;
     flex-direction: column;
     border-radius: 0 0 3px 3px;
-    transition: height 1s;
+    transition: all 0.25s;
+    /*! height: 300px; */
 }
 
 .list-body.list-expand{
     overflow: hidden;
     height: 0;
-    padding: 0;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 .list-panel{
@@ -96,7 +100,7 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
-    max-height: 280px;
+    /*! max-height: 280px; */
     overflow: auto;
     scrollbar-color: #4a77a6 #d2dfed;
     scrollbar-width: thin;
@@ -235,21 +239,23 @@
 
 .tabs-content{
 
-    display: flex;
+    /*! display: flex; */
     border-top: 2px solid #d10000;
     margin: -1px 0 0 0;
 }
 
 .tab-page{
 
-    display: flex;
-    justify-content: flex-start;
+    /*! display: flex; */
+    /*! justify-content: flex-start; */
     gap: 20px;
     margin-top: 20px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    flex-wrap: wrap;
-    align-items: flex-start;
+    /*! flex-wrap: wrap; */
+    /*! align-items: flex-start; */
     flex-direction: row;
+    columns: 5;
+    column-width: 292px;
 }
 
 .tabs-btn span.new-tab{

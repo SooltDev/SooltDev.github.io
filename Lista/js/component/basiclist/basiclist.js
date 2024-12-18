@@ -289,6 +289,10 @@ const BasicList = (function(){
             this.bodyElement.classList.toggle('list-expand');
         }
 
+        get isExpand(){
+            this.bodyElement.classList.contains('list-expand');
+        }
+
         set title(text){
             this.titleElement.textContent = text;
         }

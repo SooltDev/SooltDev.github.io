@@ -60,3 +60,11 @@
 .new-list{
     background-image: url('./icons/add-file.svg');
 }
+
+.expand-all{
+    background-image: url('./icons/expand-all.svg');
+}
+
+.collapse-all{
+    background-image: url('./icons/collapse-all.svg');
+}
