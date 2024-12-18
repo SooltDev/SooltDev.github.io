@@ -801,5 +801,21 @@
         ],
         "name": "",
         "id": 104
+    },
+    {
+        "text": "Írj függvényt, mely bemenetként megkapja egy css szín hexa vagy rgb alakját,\n    - hexa: \"#a23df4\" vagy \"#fff\"\n    - rgb: \"rgb(123, 45, 78)\"\nÉs visszatér egy 3 elemű tömbbel, melyben a piros, zöld, illetve kék színek 10-es számrendszerbeli számértékei (és number type) vannak.",
+        "category": [
+            15
+        ],
+        "name": "",
+        "id": 105
+    },
+    {
+        "text": "Írjatok egy függvényt, mely bemenetként megkapja egy css szín egy alakját (hexa vagy rgb) és egy -100 és 100 közti értéket, \nmely értékkel, az első paraméterként megadott színt, tudjuk világosítani, vagy sötétíteni. \nA negítív értékek sötétítik (tehát elvonnak színt, az alanyból), míg a pozitívak, világosítják (azaz hozzáadnak színt)",
+        "category": [
+            15
+        ],
+        "name": "",
+        "id": 106
     }
 ]

@@ -1,0 +1,62 @@
+.toolbox{
+
+    list-style-type: none;
+    padding: 5px;
+    margin: 0;
+    display: flex;
+    gap: 10px;
+}
+
+.toolbox.horizontal{
+
+}
+
+.toolbox.vertical{
+
+}
+
+.toolbox .tool-btn{
+
+    width: 30px;
+    height: 30px;
+    background-size: 26px, 26px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: center;
+    /*background-color: #aab4c0;*/
+    border-radius: 3px;
+    color: aliceblue;
+}
+
+.toolbox .tool-btn:hover{
+    background-color: #aab4c0;
+}
+.toolbox .tool-separator{
+
+    border-left: 1px solid #9ca4ac;
+    border-right: 1px solid #c9d5e1;
+}
+
+.export{
+    background-image: url('./icons/download.svg');
+}
+
+.import{
+    background-image: url('./icons/upload.svg');
+}
+
+.save{
+    background-image: url('./icons/save.svg');
+}
+
+.delete{
+    background-image: url('./icons/trash.svg');
+}
+
+.group-delete{
+    background-image: url('./icons/folder-remove.svg');
+}
+
+.new-list{
+    background-image: url('./icons/add-file.svg');
+}

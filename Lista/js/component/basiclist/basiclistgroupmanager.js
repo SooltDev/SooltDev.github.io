@@ -10,19 +10,8 @@ const BasicListGroupManager = (function () {
             <div class="tabs-btn" data-eval="tabs-btn-element">
                 <span class="add-group" data-eval="add-group-btn">+</span>
             </div>
-            <div class="cpanel">
-                <input type="text" name="" id="list-title" placeholder="Lista címe" data-eval="list-title-input">
-                <button id="new-list" data-eval="new-list-btn">Új Lista</button>
-                <div style="width: 10px"></div>
-                <button id="save-list" data-eval="save-list-btn">Listák mentése</button>
-                <span class="vlsep"></span>
-                <button id="save-lists" data-eval="export-btn">Exportálás</button>
-                <span class="vlsep"></span>
-                <input type="file" id="load-lists" style="display: none;" data-eval="file-input">
-                <button id="import-json" data-eval="import-btn">Importálás</button>
-                <span class="vlsep"></span>
-                <button id="clear-all-list" class="hard" data-eval="clear-all-btn">Csoport törlése</button>
-            </div>
+            <input type="file" id="load-lists" style="display: none;" data-eval="file-input">
+            <div class="cpanel" data-eval="toolbox-element"></div>
             <div class="tabs-content" data-eval="tab-pages-element">
                 
             </div>
@@ -36,19 +25,14 @@ const BasicListGroupManager = (function () {
 
         tabsBtnElement;
         tabPagesElement;
+        toolboxElement;
         //tabPageElement;
 
         addGroupBtn;
 
         groupsName = 'lists';
 
-        listTitleInput;
-        newListBtn;
-        saveListBtn;
         fileInput;
-        exportBtn
-        importBtn
-        clearAllBtn
 
         groups = {}; //{Objects:ListManager}
 
@@ -103,60 +87,55 @@ const BasicListGroupManager = (function () {
             });
 
             //#endregion
-
-            this.newListBtn.addEventListener('click', () => {
-                const listTitle = this.listTitleInput.value.trim();
-    
-                if (listTitle == ''){
-                    basicAlert.show("A név mezőt kötelező kitölteni");
-                    return ;
-                }
-    
-                if (listTitle.length < 3){
-                    basicAlert.show("A lista címének 3 karakternél hosszabbnak kell lennie.");
-                    return ;
-                }
-    
-                const list = this.activeGroup.createItem(listTitle);
-    
-                list.on('delete', function(){
-                    //this = null;
-                });
-    
-                this.listTitleInput.value = '';
-            });
-    
-            //#region cpanel events
-            this.listTitleInput.addEventListener('keydown', (ev) => {
-                if (ev.key == 'Enter')
-                    this.newListBtn.click();
-            });
-            
-            this.saveListBtn.addEventListener('click', () => {
-                this.saveStorage();
-                basicAlert.show(`
-                    <p>A listát sikeresen mentettük.</p>
-                    <p>Azt javasoljuk, hogy a biztonság érdekében exportáld ki a listákat.</p>
-                `);
-            });
-    
-            this.exportBtn.addEventListener('click', () => {
-                this.listExport(/*?filename*/);
-            });
     
             this.fileInput.addEventListener('change', () => {
                 this.listImport();
             });
-    
-            this.importBtn.addEventListener('click', () => {
-                this.fileInput.click();
-            });
-    
-            this.clearAllBtn.addEventListener('click', async () => {
-                if (await basicAlert.confirm("Biztos hogy törölni szeretnéd ezt a csoportot?"))
-                    this.removePage(this.activeGroup.group.as);
-            });
-            //#endregion
+
+            new Toolbox({
+                renderTo: this.toolboxElement,
+                items: [{
+                    icon: 'new-list',
+                    title: 'Új lista',
+                    handler: () => {
+                        const list = this.activeGroup.createItem();
+                        list.editTitle();
+                    }
+                },{
+                    icon: 'save',
+                    title: 'Listák mentése',
+                    handler: () => {
+                        this.saveStorage();
+                        basicAlert.show(`
+                            <p>A listát sikeresen mentettük.</p>
+                            <p>Azt javasoljuk, hogy a biztonság érdekében exportáld ki a listákat.</p>
+                        `);
+                    }
+                },{
+                    separator: true
+                },{
+                    icon: 'export',
+                    title: 'Exportálás', 
+                    handler: () => {
+                        this.listExport(/*?filename*/);
+                    }
+                },{
+                    icon: 'import', 
+                    title: 'Importálás',
+                    handler: () => {
+                        this.fileInput.click();
+                    }
+                },{
+                    separator: true
+                },{
+                    icon: 'group-delete',
+                    title: 'Csoport törlése',
+                    handler: async () => {
+                        if (await basicAlert.confirm("Biztos hogy törölni szeretnéd ezt a csoportot?"))
+                            this.removePage(this.activeGroup.group.as);
+                    }
+                }]
+            })
         }
         //#endregion
 

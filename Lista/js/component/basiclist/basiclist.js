@@ -7,11 +7,11 @@ const BasicList = (function(){
     } = STools;
 
     const template = `
-        <div class="list" data-eval="element">
+        <div class="list" data-eval="element" draggable="false">
             <div class="list-head" data-eval="head-element">
                 <span class="list-title" data-eval="title-element">teszt</span>
                 <span class="list-menu list-btn" data-eval="menu-btn"><span>…</span></span>
-                <span class="list-del list-btn" data-eval="del-list-btn">&#128465;</span>
+                <span class="list-del list-btn" data-eval="del-list-btn"></span>
             </div>
             <div class="list-body" data-eval="body-element">
                 <div class="list-panel">
@@ -71,6 +71,11 @@ const BasicList = (function(){
         }
 
         build(){
+
+            this.element.addEventListener('dragstart', () => {
+
+            });
+
             this.addListitemBtn.addEventListener('click', () => {
                 const liText = this.inputElement.value.trim();
 
@@ -90,7 +95,12 @@ const BasicList = (function(){
                 }
             });
 
+            this.inputElement.addEventListener('click', (ev) => {
+                ev.stopPropagation();
+            });
+
             this.inputElement.addEventListener('keydown', (ev) => {
+                ev.stopPropagation();
                 if (ev.key == 'Enter')
                     this.addListitemBtn.click();
             });
@@ -105,6 +115,11 @@ const BasicList = (function(){
             this.menu = new PopUpMenu({
                 renderTo: this.menuBtn,
                 items: [{
+                    text: "Cím szerkesztése",
+                    handler: () => {
+                        this.editTitle();
+                    }
+                },{separator: true},{
                     text: "Összes aktív",
                     handler: async () => {
                         if (await basicAlert.confirm(
@@ -280,6 +295,29 @@ const BasicList = (function(){
 
         get title(){
             return this.titleElement.textContent;
+        }
+
+        editTitle(){
+            const title = this.title;
+            this.titleElement.innerHTML = `<input type="text" class="list-head-input" value="${title}">`;
+            const titleInput = this.titleElement.firstElementChild;
+
+            titleInput.focus();
+            
+            // Set the cursor to the end
+            const length = title.length;
+            titleInput.setSelectionRange(length, length);
+
+            titleInput.addEventListener('click', (ev) => {
+                ev.stopPropagation();
+            })
+
+            titleInput.addEventListener('keydown', (ev) => {
+                ev.stopPropagation();
+                if (ev.key == "Enter"){
+                    this.title = titleInput.value;
+                }
+            });
         }
 
         /**

@@ -12,6 +12,7 @@ global('GLOBAL', {});
     requireCSS('./js/component/basicalert/style.css');
     requireCSS('./js/component/basiclist/style.css');
     requireCSS('./js/component/popupmenu/style.css');
+    requireCSS('./js/component/toolbox/style.css');
     requireCSS('./style/cpanel.css');
 
     /**
@@ -21,6 +22,7 @@ global('GLOBAL', {});
     await require('./js/navi.mod.js');
     await require('./js/component/eventmanager.cls.js');
     await require('./js/component/popupmenu/popupmenu.js');
+    await require('./js/component/toolbox/toolbox.js');
     await require('./js/component/basiclist/basiclist.js');
     await require('./js/component/basiclist/basiclistmanager.js');
     await require('./js/component/basiclist/basiclistgroupmanager.js');

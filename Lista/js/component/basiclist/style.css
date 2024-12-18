@@ -6,6 +6,10 @@
     align-self: flex-start;
 }
 
+.list.list-drag{
+    border: 3px dashed darkblue;
+}
+
 .list-head{
 
     display: flex;
@@ -45,6 +49,9 @@
 .list-del{
 
     display: flex;
+    background-image: url('./trash.svg');
+    background-size: 22px 22px;
+    background-position: center;
 }
 
 .list-body{
@@ -261,4 +268,12 @@
 .new-tab input{
 
     height: 31px;
+}
+
+.list-head-input{
+    padding: 0 6px !important;
+    border: none !important;
+    background-color: #94bae3 !important;
+    line-height: 24px !important;
+    width: 100%;
 }
