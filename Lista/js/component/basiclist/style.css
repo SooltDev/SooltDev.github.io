@@ -299,8 +299,8 @@
     transform: translateX(-50%);
     display: none;
     cursor: pointer;
-    color: #3c5874;
-    background-color: #7fa3c7;
+    color: #6586a7;
+    /*background-color: #93b4d4;*/
     border-radius: 3px;
     /*! text-align: center; */
 }
@@ -317,4 +317,8 @@
 .list-body ul li:not(.list-item-done):not(:first-child):hover .list-item-up,
 .list-body ul li:not(.list-item-done):not(:has(+ .list-land)):hover .list-item-down{
     display: flex;
+}
+
+.list-body ul li:hover{
+    background-color: #93b4d4;
 }
