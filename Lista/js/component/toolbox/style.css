@@ -17,9 +17,9 @@
 
 .toolbox .tool-btn{
 
-    width: 30px;
-    height: 30px;
-    background-size: 26px, 26px;
+    width: 32px;
+    height: 32px;
+    /*background-size: 26px, 26px;*/
     cursor: pointer;
     background-repeat: no-repeat;
     background-position: center;

@@ -29,6 +29,8 @@ const BasicList = (function(){
             <span class="list-item-text"></span>
             <span class="list-item-del-btn list-item-btn">&#10006;</span>
             <span class="list-item-edit-btn list-item-btn">&#9998;</span>
+            <span class="list-item-up">▲</span>
+            <span class="list-item-down">▼</span>
         </li>
     `;
 
@@ -62,8 +64,9 @@ const BasicList = (function(){
             Object.assign(this, templateEvalToDOMList(template));
 
             Object.assign(this, {
-                title: undefined
-            }, remainProps(options, "title", "renderTo", "items"));
+                title: undefined,
+                timestamp: Date.now()
+            }, remainProps(options, "title", "renderTo", "items", "timestamp"));
 
             this.parentElement.appendChild(this.element);
 
@@ -217,6 +220,8 @@ const BasicList = (function(){
             const liTextElement = listItem.querySelector('.list-item-text');
             const editBtn = listItem.querySelector('.list-item-edit-btn');
             const deleteBtn = listItem.querySelector('.list-item-del-btn');
+            const downBtn = listItem.querySelector('.list-item-down');
+            const upBtn = listItem.querySelector('.list-item-up');
 
             let extraCss = "";
 
@@ -261,6 +266,18 @@ const BasicList = (function(){
                 }
             });
 
+            upBtn.addEventListener('click', (ev) => {
+                ev.stopPropagation();
+                if (listItem.previousElementSibling)
+                    this.listElement.insertBefore(listItem, listItem.previousElementSibling);
+            });
+
+            downBtn.addEventListener('click', (ev) => {
+                ev.stopPropagation();
+                if (listItem.nextElementSibling && listItem.nextElementSibling.nextElementSibling)
+                    this.listElement.insertBefore(listItem, listItem.nextElementSibling.nextElementSibling);
+            });
+
             //this.listElement.appendChild(listItem);
             
             this.#changeItemPos(listItem);
@@ -299,6 +316,14 @@ const BasicList = (function(){
 
         get title(){
             return this.titleElement.textContent;
+        }
+
+        set timestamp(ts = Date.now()){
+            this.element.dataset.timestamp = ts;
+        }
+
+        get timestamp(){
+            return this.element.dataset.timestamp;
         }
 
         editTitle(){
@@ -369,7 +394,8 @@ const BasicList = (function(){
         get data(){
             return {
                 title: this.title,
-                items: this.items
+                items: this.items,
+                timestamp: this.timestamp
             }
         }
 

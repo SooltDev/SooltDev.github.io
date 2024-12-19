@@ -101,7 +101,7 @@
     flex-direction: column;
     gap: 5px;
     /*! max-height: 280px; */
-    overflow: auto;
+    /*! overflow: auto; */
     scrollbar-color: #4a77a6 #d2dfed;
     scrollbar-width: thin;
     margin: 20px 0px 10px 0;
@@ -114,6 +114,7 @@
     display: flex;
     border-radius: 3px;
     border: 1px solid #afc3d9;
+    position: relative;
 }
 
 .list-container{
@@ -180,7 +181,7 @@
 }
 
 .list-body ul li.list-item-serious:not(:is(.list-item-done)){
-    background-color: #d86988;
+    background-color: #e4a7b5;;
 }
 .list-body ul li.list-item-progress:not(:is(.list-item-done)){
     background-color: #a2cdb9;;
@@ -282,4 +283,38 @@
     background-color: #94bae3 !important;
     line-height: 24px !important;
     width: 100%;
+}
+
+.list-item-up, .list-item-down{
+    align-self: center;
+    width: 21px;
+    height: 20px;
+    z-index: 1;
+    /*! align-content: center; */
+    align-items: center;
+    /*display: flex;*/
+    justify-content: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    cursor: pointer;
+    color: #3c5874;
+    background-color: #7fa3c7;
+    border-radius: 3px;
+    /*! text-align: center; */
+}
+.list-item-up{
+    top: 0px;
+    transform: translate(-50%, -50%);
+}
+.list-item-down{
+
+    bottom: 0px;
+    transform: translate(-50%, 50%);
+}
+
+.list-body ul li:not(.list-item-done):not(:first-child):hover .list-item-up,
+.list-body ul li:not(.list-item-done):not(:has(+ .list-land)):hover .list-item-down{
+    display: flex;
 }
