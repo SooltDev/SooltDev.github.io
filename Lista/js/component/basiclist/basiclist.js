@@ -266,16 +266,54 @@ const BasicList = (function(){
                 }
             });
 
+            function fixTop(element){
+                element.style.top = '0px';
+                return element.offsetHeight;
+            }
+
+            function relaseTop(element){
+                element.style.top = null;
+            }
+
+            function animationReplace(element, siblingElement, direction = 'up'){
+                const elTop = fixTop(element);
+                const sTop = fixTop(siblingElement);
+
+                element.style.top = (direction == 'up' ? -1 : 1 ) * sTop + 'px';
+                siblingElement.style.top = (direction == 'up' ? 1 : -1 ) * elTop + 'px';
+
+            }
+
             upBtn.addEventListener('click', (ev) => {
                 ev.stopPropagation();
-                if (listItem.previousElementSibling)
-                    this.listElement.insertBefore(listItem, listItem.previousElementSibling);
+                if (listItem.previousElementSibling){
+                    console.log(listItem);
+                    
+                    animationReplace(listItem, listItem.previousElementSibling);
+                    //*
+                    setTimeout(()=>{
+                        
+                        relaseTop(listItem);
+                        relaseTop(listItem.previousElementSibling);
+
+                        this.listElement.insertBefore(listItem, listItem.previousElementSibling);
+                    }, 250);
+                //*/
+                }
             });
 
             downBtn.addEventListener('click', (ev) => {
                 ev.stopPropagation();
                 if (listItem.nextElementSibling && listItem.nextElementSibling.nextElementSibling)
-                    this.listElement.insertBefore(listItem, listItem.nextElementSibling.nextElementSibling);
+                    animationReplace(listItem, listItem.nextElementSibling, 'down');
+                    setTimeout(()=>{
+                            
+                        relaseTop(listItem);
+                        relaseTop(listItem.nextElementSibling);
+
+                        this.listElement.insertBefore(listItem, listItem.nextElementSibling.nextElementSibling);
+                    }, 250);
+                    
             });
 
             //this.listElement.appendChild(listItem);
