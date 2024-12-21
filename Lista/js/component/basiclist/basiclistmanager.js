@@ -33,7 +33,7 @@ const BasicListManager = (function(){
                 });
 
                 listObject.on('singleexpand', () => {
-                    this.expandAll(listObject);
+                    this.collapseAll(listObject);
                 });
             }
         }

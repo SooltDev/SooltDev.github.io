@@ -5,8 +5,8 @@
     flex-direction: column;
     flex-grow: 1;
     background-color: #d2dfed;
-    overflow: visible;
-    padding: 10px;
+    /*! overflow: visible; */
+    padding: 10px 0;
     gap: 2px;
     align-items: flex-start;
     align-self: baseline;
@@ -14,21 +14,32 @@
     box-shadow: 2px 2px 10px #00000024;
     right: -10px;
     border: 1px solid #b3c7dc;
-    z-index: 1;
+    z-index: 9;
+    box-sizing: border-box;
 }
 
 .popup-menu .menu-item {
 
-    /*! flex-grow: 1; */
+    flex-grow: 1;
     display: block;
     line-height: 16px;
     width: fit-content;
-    padding: 6px 10px;
+    padding: 6px 20px 6px 25px;
     font-size: 14px;
     color: #2b4b6f;
     text-wrap: nowrap;
     width: 100%;
     box-sizing: border-box;
+    /*! height: 16px; */
+}
+
+.popup-menu .menu-item.type-check.checked::before{
+    content: '\2713';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+    left: 8px;
 }
 
 .popup-menu .menu-item:hover{

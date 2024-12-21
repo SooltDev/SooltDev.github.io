@@ -152,6 +152,18 @@ const BasicList = (function(){
                         if (await basicAlert.confirm("Biztos, hogy törölni szeretnéd az összes listaelemet?") )
                             this.clear();
                     }
+                },{separator: true},{
+                    text: "Archiv",
+                    type: "check",
+                    handler: async (menuItem) => {
+                        console.log(menuItem);
+                        
+                        return basicAlert.confirm(
+                            menuItem.checked ? 
+                                "Biztis, hogy vissza szeretnéd állítani?" : 
+                                "Biztos, hogy archiválni szeretnéd?"
+                        );
+                    }
                 }]
             });
 
@@ -162,7 +174,7 @@ const BasicList = (function(){
 
             this.headElement.addEventListener('click', (event) => {
                 if (event.ctrlKey){
-                    this.collapse();
+                    this.expand();
                     this.trigger('singleexpand');
                 } else
                     this.toggle();
@@ -333,19 +345,23 @@ const BasicList = (function(){
         }
 
         expand(){
-            this.bodyElement.classList.add('list-expand');
+            this.bodyElement.classList.remove('list-collapse');
         }
 
         collapse(){
-            this.bodyElement.classList.remove('list-expand');
+            this.bodyElement.classList.add('list-collapse');
         }
 
         toggle(){
-            this.bodyElement.classList.toggle('list-expand');
+            this.bodyElement.classList.toggle('list-collapse');
         }
 
         get isExpand(){
-            this.bodyElement.classList.contains('list-expand');
+            !this.bodyElement.classList.contains('list-collapse');
+        }
+
+        get isCollapsed(){
+            this.bodyElement.classList.contains('list-collapse');
         }
 
         set title(text){

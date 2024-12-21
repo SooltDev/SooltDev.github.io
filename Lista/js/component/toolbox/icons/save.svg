@@ -2,9 +2,9 @@
 <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
 
 <svg
-   width="32"
-   height="32"
-   viewBox="0 0 2.56 2.56"
+   width="24"
+   height="24"
+   viewBox="0 0 1.92 1.92"
    stroke-width="3"
    stroke="#000000"
    fill="none"
@@ -29,16 +29,19 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1" />
-  <path
-     style="color:#000000;fill:#000000;stroke:none;stroke-width:3;stroke-linecap:round;-inkscape-stroke:none"
-     d="M 0.486283,0.32 C 0.395203,0.32 0.32,0.3952 0.32,0.486283 V 2.24 H 2.073717 C 2.164797,2.24 2.24,2.1648 2.24,2.073717 V 0.621397 L 1.891117,0.32 Z m 0,0.125324 h 1.358164 l 0.270229,0.233432 v 1.394961 c 0,0.02335 -0.01761,0.04096 -0.04096,0.04096 H 0.445324 V 0.486283 c 0,-0.02335 0.01761,-0.04096 0.04096,-0.04096 z"
-     id="path1" />
-  <path
-     style="color:#000000;fill:#000000;stroke:none;stroke-width:3;stroke-linecap:round;-inkscape-stroke:none"
-     d="M 0.778705,0.32 V 1.09283 H 1.781703 V 0.32 Z m 0.125324,0.125324 h 0.75235 v 0.522182 h -0.75235 z"
-     id="rect1" />
-  <path
-     style="color:#000000;fill:#000000;stroke:none;stroke-width:3;stroke-linecap:round;-inkscape-stroke:none"
-     d="M 0.626619,1.403692 V 2.24 H 1.933381 V 1.403692 Z m 0.125324,0.125324 h 1.056114 v 0.58566 H 0.751943 Z"
-     id="rect2" />
+  <g
+     id="g1">
+    <path
+       style="color:#000000;fill:#000000;stroke:none;stroke-width:3;stroke-linecap:round;-inkscape-stroke:none"
+       d="m 0.43085533,0.32 c -0.06072,0 -0.11085534,0.0501333 -0.11085534,0.11085534 V 1.6 H 1.4891447 C 1.5498647,1.6 1.6,1.5498667 1.6,1.4891447 V 0.52093134 L 1.3674113,0.32 Z m 0,0.0835493 H 1.336298 L 1.5164507,0.55917067 V 1.4891447 c 0,0.015567 -0.01174,0.027307 -0.027307,0.027307 H 0.40354933 V 0.43085534 c 0,-0.0155667 0.01174,-0.0273067 0.027306,-0.027306 z"
+       id="path1" />
+    <path
+       style="color:#000000;fill:#000000;stroke:none;stroke-width:3;stroke-linecap:round;-inkscape-stroke:none"
+       d="M 0.62580333,0.32 V 0.83522001 H 1.2944687 V 0.32 Z m 0.0835493,0.0835493 H 1.2109193 V 0.75167067 H 0.70935266 Z"
+       id="rect1" />
+    <path
+       style="color:#000000;fill:#000000;stroke:none;stroke-width:3;stroke-linecap:round;-inkscape-stroke:none"
+       d="M 0.52441267,1.0424613 V 1.6 H 1.3955873 V 1.0424613 Z m 0.0835493,0.083549 H 1.312038 v 0.39044 H 0.60796201 Z"
+       id="rect2" />
+  </g>
 </svg>

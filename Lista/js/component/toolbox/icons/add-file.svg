@@ -2,9 +2,9 @@
 <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
 
 <svg
-   width="32"
-   height="32"
-   viewBox="0 0 2.56 2.56"
+   width="24"
+   height="24"
+   viewBox="0 0 1.92 1.92"
    stroke-width="3"
    stroke="#000000"
    fill="none"
@@ -42,47 +42,54 @@
      inkscape:current-layer="svg7" />
   <g
      id="g7"
-     transform="translate(-17.600743,-12.47408)">
+     transform="matrix(0.66666701,0,0,0.66666701,-11.627168,-8.2093917)"
+     style="stroke-width:4.5">
     <path
-       style="color:#000000;fill:#000000;stroke:none;stroke-width:3;stroke-linecap:round;-inkscape-stroke:none"
+       style="color:#000000;fill:#000000;stroke:none;stroke-width:4.5;stroke-linecap:round;-inkscape-stroke:none"
        d="m 19.258682,13.917729 c -0.219296,0 -0.398176,0.17888 -0.398176,0.398176 0,0.219296 0.17888,0.398175 0.398176,0.398175 0.219296,0 0.398175,-0.178879 0.398175,-0.398175 0,-0.219296 -0.178879,-0.398176 -0.398175,-0.398176 z m 0,0.103784 c 0.163207,0 0.294392,0.131185 0.294392,0.294392 0,0.163207 -0.131185,0.294392 -0.294392,0.294392 -0.163207,0 -0.294392,-0.131185 -0.294392,-0.294392 0,-0.163207 0.131185,-0.294392 0.294392,-0.294392 z"
        id="circle5"
        inkscape:export-filename="add-file.svg"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <circle
-       style="fill:#00d600;fill-opacity:1;stroke:none;stroke-width:0.332598;stroke-linejoin:round;paint-order:fill markers stroke"
+       style="fill:#00d600;fill-opacity:1;stroke:none;stroke-width:0.498897;stroke-linejoin:round;paint-order:fill markers stroke"
        id="path7"
        cx="19.258682"
        cy="14.315905"
        r="0.30478591" />
     <path
-       style="color:#000000;fill:#000000;stroke:none;stroke-width:3;-inkscape-stroke:none"
-       d="m 18.547668,12.794081 -0.44304,0.476351 v 1.306284 h 0.862094 v -0.103784 h -0.758311 v -1.161689 l 0.38446,-0.413379 h 0.812838 v 1.112906 h 0.103784 v -1.216689 z"
-       id="polyline1" />
+       style="color:#000000;fill:#000000;stroke:none;stroke-width:4.5;-inkscape-stroke:none"
+       d="m 18.547668,12.794081 -0.44304,0.476351 v 1.443647 h 1.153026 l -0.07481,-0.101349 h -0.974436 v -1.301487 l 0.38446,-0.413379 h 0.812838 v 1.112906 h 0.103784 v -1.216689 z"
+       id="polyline1"
+       sodipodi:nodetypes="ccccccccccccc" />
     <path
-       style="color:#000000;fill:#000000;stroke:none;stroke-width:3;-inkscape-stroke:none"
-       d="m 18.519019,12.845905 -6.08e-4,0.39304 h -0.361892 v 0.103784 h 0.465541 l 7.43e-4,-0.496689 z"
-       id="polyline2" />
+       style="color:#000000;fill:#000000;stroke:none;stroke-width:4.5;-inkscape-stroke:none"
+       d="m 18.519019,12.845905 -0.3625,0.39304 v 0.103784 h 0.465541 l 7.43e-4,-0.496689 z"
+       id="polyline2"
+       sodipodi:nodetypes="cccccc" />
     <path
-       style="color:#000000;fill:#000000;stroke:none;stroke-width:3;-inkscape-stroke:none"
-       d="m 18.334695,14.175432 v 0.103784 h 0.415473 v -0.103784 z"
+       style="color:#000000;fill:#000000;stroke:none;stroke-width:4.5;-inkscape-stroke:none"
+       d="m 18.334695,14.300117 v 0.103784 h 0.415473 v -0.103784 z"
        id="line2" />
     <path
-       style="color:#000000;fill:#000000;stroke:none;stroke-width:3;-inkscape-stroke:none"
-       d="m 18.334695,13.851446 v 0.103784 h 0.519257 v -0.103784 z"
+       style="color:#000000;fill:#000000;stroke:none;stroke-width:4.5;-inkscape-stroke:none"
+       d="m 18.334695,13.913788 v 0.103784 h 0.519257 v -0.103784 z"
        id="line3" />
     <path
-       style="color:#000000;fill:#000000;stroke:none;stroke-width:3;-inkscape-stroke:none"
+       style="color:#000000;fill:#000000;stroke:none;stroke-width:4.5;-inkscape-stroke:none"
        d="m 18.334695,13.527459 v 0.103784 h 0.934392 v -0.103784 z"
        id="line5" />
     <path
-       style="color:#000000;fill:#000000;stroke:none;stroke-width:3;-inkscape-stroke:none"
+       style="color:#000000;fill:#000000;stroke:none;stroke-width:4.5;-inkscape-stroke:none"
        d="m 19.20679,14.12631 v 0.379189 h 0.103784 V 14.12631 Z"
        id="line6" />
     <path
-       style="color:#000000;fill:#000000;stroke:none;stroke-width:3;-inkscape-stroke:none"
+       style="color:#000000;fill:#000000;stroke:none;stroke-width:4.5;-inkscape-stroke:none"
        d="m 19.069425,14.264013 v 0.103784 h 0.378851 v -0.103784 z"
        id="line7" />
+    <path
+       style="color:#000000;fill:#000000;stroke:none;stroke-width:4.5;-inkscape-stroke:none"
+       d="m 18.334695,13.527459 v 0.103784 h 0.934392 v -0.103784 z"
+       id="path1" />
   </g>
 </svg>

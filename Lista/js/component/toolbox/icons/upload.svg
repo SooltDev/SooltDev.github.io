@@ -2,9 +2,9 @@
 <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
 
 <svg
-   width="32"
-   height="32"
-   viewBox="0 0 2.56 2.56"
+   width="24"
+   height="24"
+   viewBox="0 0 1.92 1.92"
    stroke-width="3"
    stroke="#000000"
    fill="none"
@@ -28,17 +28,26 @@
      inkscape:showpageshadow="2"
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#d1d1d1" />
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="12.40625"
+     inkscape:cx="16.36272"
+     inkscape:cy="18.297229"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
   <path
      style="color:#000000;fill:#000000;stroke:none;stroke-width:3;-inkscape-stroke:none"
-     d="m 0.38643495,1.3518949 v 0.7489376 2.292e-4 c 7.245e-4,0.076518 0.064389,0.1393027 0.1409096,0.1389366 H 2.0326561 c 0.07652,3.645e-4 0.140185,-0.06242 0.140909,-0.1389382 V 2.1008309 1.3518933 h -0.116552 v 0.7481029 c -1.28e-4,0.013725 -0.0101,0.023513 -0.02383,0.023447 H 2.033035 0.52696545 0.52681385 c -0.013726,6.72e-5 -0.023697,-0.00972 -0.023827,-0.023445 V 1.3518949 Z"
+     d="m 0.38643495,1.00793 v 0.4992918 1.528e-4 c 4.83e-4,0.051012 0.042926,0.092869 0.0939397,0.092624 H 1.4839158 c 0.051013,2.43e-4 0.093457,-0.041613 0.093939,-0.092625 V 1.5072208 1.007929 h -0.077701 v 0.4987353 c -8.53e-5,0.00915 -0.00673,0.015675 -0.015887,0.015631 H 1.484168 0.48012156 0.48002049 c -0.009151,4.48e-5 -0.015798,-0.00648 -0.0158847,-0.01563 V 1.00793 Z"
      id="path1" />
   <path
      style="color:#000000;fill:#000000;stroke:none;stroke-width:3;-inkscape-stroke:none"
-     d="M 0.90894605,0.855411 0.82661605,0.772929 1.2800002,0.3200001 1.733384,0.772929 1.651054,0.855411 1.2800002,0.4847363 Z"
+     d="M 0.73477572,0.6769407 0.67988905,0.6219527 0.98214518,0.3200001 1.2844011,0.6219527 1.2295144,0.6769407 0.98214518,0.4298242 Z"
      id="polyline1" />
   <path
      style="color:#000000;fill:#000000;stroke:none;stroke-width:3;-inkscape-stroke:none"
-     d="M 1.2217241,1.9132569 V 0.4023304 h 0.1165521 v 1.5109265 z"
+     d="M 0.94329444,1.3821714 V 0.374887 h 0.0777015 v 1.0072844 z"
      id="line1" />
 </svg>

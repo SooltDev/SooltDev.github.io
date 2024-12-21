@@ -135,17 +135,31 @@ const BasicListGroupManager = (function () {
                             this.removePage(this.activeGroup.group.as);
                     }
                 },{
-                    icon: 'expand-all',
-                    title: 'Összes lista összecsukása',
+                    icon: 'collapse-all',
+                    title: 'Összes lista Összecsukása',
                     handler: () => {
                         this.activeGroup.expandAll();
-                    }
-                },{
-                    icon: 'collapse-all',
-                    title: 'Összes lista Lenyitása',
-                    handler: () => {
+                    },
+
+                    icon1: 'expand-all',
+                    title1: 'Összes lista lenyitása',
+                    handler1: () => {
                         this.activeGroup.collapseAll();
-                    }
+                    },
+                    switch: true
+                },{
+                    icon: 'archive-open',
+                    title: 'Archiváltak mutatása',
+                    handler: () => {
+                        
+                    },
+                    
+                    icon1: 'archive-closed',
+                    title1: 'Archiváltak elrejtése',
+                    handler1: () => {
+                        
+                    },
+                    switch: true
                 }]
             })
         }

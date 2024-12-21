@@ -60,9 +60,33 @@ const PopUpMenu = (function(){
 
             menuItem.textContent = item.text;
             menuItem.classList.add('menu-item');
-            menuItem.addEventListener('click', (ev) => {
+
+            const checkType = item.type && item.type == "check";
+
+            if (checkType){
+                menuItem.classList.add('type-check');
+                if (item.checked)
+                    menuItem.classList.add('checked');
+
+                //menuItem.checked = 
+
+                Object.defineProperty(
+                    menuItem, 
+                    'checked', 
+                    {
+                        get() { 
+                            return this.classList.contains('checked');
+                        }
+                    }
+                );
+            }
+
+            menuItem.addEventListener('click', async (ev) => {
                 ev.stopPropagation();
-                item.handler.call(this);
+                const res = await item.handler.call(this, menuItem, ev);
+                if (checkType && res){
+                    menuItem.classList.toggle('checked');
+                }
             });
 
             menuItem.addEventListener('click', () => {                

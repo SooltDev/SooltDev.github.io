@@ -4,7 +4,7 @@
     padding: 5px;
     margin: 0;
     display: flex;
-    gap: 10px;
+    gap: 5px;
 }
 
 .toolbox.horizontal{
@@ -17,8 +17,8 @@
 
 .toolbox .tool-btn{
 
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
     /*background-size: 26px, 26px;*/
     cursor: pointer;
     background-repeat: no-repeat;
@@ -67,4 +67,12 @@
 
 .collapse-all{
     background-image: url('./icons/collapse-all.svg');
+}
+
+.archive-open{
+    background-image: url('./icons/archive-open.svg');
+}
+
+.archive-closed{
+    background-image: url('./icons/archive-closed.svg');
 }
