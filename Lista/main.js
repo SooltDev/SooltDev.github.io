@@ -47,10 +47,7 @@ global('GLOBAL', {});
 
     global('navi').homepage();
 
-    basicAlert.show(`
-        Figyelem! A Listák csoportokkal bővült, és folyamatos fejlesztés alatt áll. 
-        Ha véletelenül használtad már, a régi listák verziót, akkor a 
-        localStorage-ben levő adatokat tedd egy tömbbe, és menni fog. :D`);
+    basicAlert.show(`Archiválás funkció fejlesztés alatt ;)`);
 
     window.addEventListener('pagehide', function(event) {
 
