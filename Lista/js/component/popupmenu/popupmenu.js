@@ -87,6 +87,8 @@ const PopUpMenu = (function(){
                 if (checkType && res){
                     menuItem.classList.toggle('checked');
                 }
+                if (item.checkHandler && typeof item.checkHandler == 'function')
+                    item.checkHandler(menuItem.classList.contains('checked'), menuItem);
             });
 
             menuItem.addEventListener('click', () => {                

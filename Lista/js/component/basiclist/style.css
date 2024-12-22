@@ -325,3 +325,20 @@
 .list-body ul li:hover{
     background-color: #93b4d4;
 }
+
+.list[data-archive="true"]{
+
+    box-sizing: border-box;
+    border: 1px solid #76a2d0;
+    border-radius: 5px;
+}
+
+.list[data-archive="true"] .list-head{
+    
+    background-color: #a0bcd9;
+}
+
+.list[data-archive="true"] .list-body{
+    
+    background-color: #d3dae3;
+}

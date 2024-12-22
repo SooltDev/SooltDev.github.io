@@ -151,13 +151,13 @@ const BasicListGroupManager = (function () {
                     icon: 'archive-open',
                     title: 'Archiváltak mutatása',
                     handler: () => {
-                        
+                        this.archiveView(false);
                     },
                     
                     icon1: 'archive-closed',
                     title1: 'Archiváltak elrejtése',
                     handler1: () => {
-                        
+                        this.archiveView(true);
                     },
                     switch: true
                 }]
@@ -174,6 +174,12 @@ const BasicListGroupManager = (function () {
 
             return dataStruct;
         }
+
+        archiveView(archive = true){
+            for (const key in this.groups)
+                this.groups[key].archiveView(archive);
+        }
+        
         //#region storage
         saveStorage(){
             localStorage.setItem(this.groupsName, JSON.stringify(this.data));

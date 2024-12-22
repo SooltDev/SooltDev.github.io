@@ -66,9 +66,10 @@ const BasicList = (function(){
             Object.assign(this, {
                 title: undefined,
                 timestamp: Date.now()
-            }, remainProps(options, "title", "renderTo", "items", "timestamp"));
+            }, remainProps(options, "title", "renderTo", "items", "timestamp", "archive"));
 
-            this.parentElement.appendChild(this.element);
+            if (!this.archive)
+                this.parentElement.appendChild(this.element);
 
             this.build();
         }
@@ -155,14 +156,24 @@ const BasicList = (function(){
                 },{separator: true},{
                     text: "Archiv",
                     type: "check",
+                    checked: this.archive,
                     handler: async (menuItem) => {
-                        console.log(menuItem);
-                        
-                        return basicAlert.confirm(
+                        return await basicAlert.confirm(
                             menuItem.checked ? 
                                 "Biztis, hogy vissza szeretnéd állítani?" : 
                                 "Biztos, hogy archiválni szeretnéd?"
                         );
+                    },
+                    checkHandler: (checked, menuItem) => {
+                        
+                        if (checked){
+                            this.setData('archive', checked);
+                            this.removeDOM();
+                        } else {
+                            this.setData('archive', false);
+                            if (this.element.parentElement)
+                                this.removeDOM();
+                        }
                     }
                 }]
             });
@@ -373,11 +384,31 @@ const BasicList = (function(){
         }
 
         set timestamp(ts = Date.now()){
-            this.element.dataset.timestamp = ts;
+            this.setData('timestamp', ts);
         }
 
         get timestamp(){
-            return this.element.dataset.timestamp;
+            return this.getData('timestamp');
+        }
+
+        set archive(v){
+            this.setData('archive', Boolean(v));
+        }
+
+        get archive(){
+            return this.getData('archive') == "true" ? true : false;
+        }
+
+        setData(key, val){
+            this.element.dataset[key] = val;
+        }
+
+        getData(key){
+            return this.element.dataset[key];
+        }
+
+        removeData(key){
+            delete this.element.dataset[key];
         }
 
         editTitle(){
@@ -449,12 +480,22 @@ const BasicList = (function(){
             return {
                 title: this.title,
                 items: this.items,
-                timestamp: this.timestamp
+                timestamp: this.timestamp,
+                archive: this.archive
             }
         }
 
         set data(o){
 
+        }
+
+        removeDOM(){
+            this.element.remove();
+        }
+
+        addDOM(parentElement = this.parentElement){
+            this.parentElement = parentElement;
+            this.parentElement.appendChild(this.element);
         }
 
     }

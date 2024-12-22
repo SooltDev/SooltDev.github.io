@@ -75,6 +75,17 @@ const BasicListManager = (function(){
             });
         }
 
+        archiveView(display = true){
+            this.lists.forEach(listItem => {
+                if (listItem.archive == display){
+                    listItem.addDOM();
+                } else {
+                    listItem.removeDOM();
+                }
+
+            });
+        }
+
         collapseAll(unique){            
             this.lists
                 .filter(list => list != unique)

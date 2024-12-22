@@ -1,0 +1,332 @@
+[
+	{
+		"name": "listak",
+		"lists": [
+			{
+				"title": "Lista megvalósítás",
+				"items": [
+					{
+						"text": "-> listaelem előtt időpont, az adott időpontban csörög"
+					},
+					{
+						"text": "Lista másolat létrehozása"
+					},
+					{
+						"text": "Megújúló lista - másolat készül, az új hónap név előtaggal"
+					},
+					{
+						"text": "Lista áthelyezése, egyik csoportból a másikba"
+					},
+					{
+						"text": "?szűrés (összes, kész, fontos, nem fontos, folyamatban, összekattintgatós)"
+					},
+					{
+						"text": "? Listaelem helyben szerkesztése (content editable)"
+					},
+					{
+						"text": "? Jegyezze meg at is, hogy melyik van összecsukott állapotban, ujratöltésnél csukja össze"
+					}
+				],
+				"timestamp": "1734605060688"
+			},
+			{
+				"title": "Lista opciók",
+				"items": [
+					{
+						"text": "! Megújúló"
+					},
+					{
+						"text": "! Határidő"
+					},
+					{
+						"text": "! Létrehozási dátum",
+						"done": true
+					}
+				],
+				"timestamp": "1734605060688"
+			},
+			{
+				"title": "Egyéb",
+				"items": [
+					{
+						"text": "A basicAlert-et úgy megcsinálni, hogy egyszerre akármennyi ablak megjelenhessen"
+					}
+				],
+				"timestamp": "1734605060689"
+			},
+			{
+				"title": "Listacsoportok",
+				"items": [
+					{
+						"text": "Tabok szerkeszthetősége (Duplaklikk - input mezőt hozzáadni, - animálva méretezni, szélesség, onchange elmenti)"
+					},
+					{
+						"text": "Csoport törlése, a listák törlése helyett",
+						"done": true
+					}
+				],
+				"timestamp": "1734605060689"
+			},
+			{
+				"title": "Archiv",
+				"items": [
+					{
+						"text": "Archiv ikon, kapcsoló, fiók kihúzva, betolva"
+					},
+					{
+						"text": "fiok kihúzva mutatja, becsukva elrejti az archiváltakat"
+					}
+				],
+				"timestamp": "1734726860128"
+			},
+			{
+				"title": "Eszköztár",
+				"items": [
+					{
+						"text": "Kapcsoló gomb készítése 2 ikonnal, bekapcsolt állapot, kikapcsolt állapot"
+					},
+					{
+						"text": "Ikonokat kis elegáns méretre elkészíteni"
+					},
+					{
+						"text": "? Inkább saját ikonok készítése"
+					}
+				],
+				"timestamp": "1734727565407"
+			}
+		]
+	},
+	{
+		"name": "Teendők",
+		"lists": [
+			{
+				"title": "Havi megujulo",
+				"items": [
+					{
+						"text": "Óraállás MVM"
+					},
+					{
+						"text": "-> MVM, megjött a számla"
+					},
+					{
+						"text": "DBH"
+					},
+					{
+						"text": "Digi",
+						"done": true
+					},
+					{
+						"text": "Yettel",
+						"done": true
+					},
+					{
+						"text": "Óraállás jelentés FEVIX",
+						"done": true
+					},
+					{
+						"text": "Óraállás Fővárosi VÍzművek",
+						"done": true
+					},
+					{
+						"text": "Lakbér",
+						"done": true
+					},
+					{
+						"text": "Óraállás Vízművek",
+						"done": true
+					}
+				],
+				"timestamp": "1734605060689"
+			},
+			{
+				"title": "Menza Havi megujóló",
+				"items": [
+					{
+						"text": "Iringó",
+						"done": true
+					},
+					{
+						"text": "Csenge",
+						"done": true
+					},
+					{
+						"text": "! Keve",
+						"done": true
+					}
+				],
+				"timestamp": "1734605060690"
+			},
+			{
+				"title": "Vegyes",
+				"items": [
+					{
+						"text": "AVG visszamondani a vásárlásokat."
+					},
+					{
+						"text": "Erikának a téli dekort",
+						"done": true
+					},
+					{
+						"text": "16:00 Kakokuglof koncert 17:00",
+						"done": true
+					},
+					{
+						"text": "14:30 Erikának feltenni az ablakdekort",
+						"done": true
+					}
+				],
+				"timestamp": "1734605060690"
+			},
+			{
+				"title": "Elolvasni",
+				"items": [
+					{
+						"text": "Máté Evangyélioma 7. rész"
+					}
+				],
+				"timestamp": "1734817968631"
+			}
+		]
+	},
+	{
+		"name": "Prooktatás",
+		"lists": [
+			{
+				"title": "szeptemberi-szombati-javascript2024",
+				"items": [
+					{
+						"text": "tananyagot előkészíteni",
+						"done": true
+					},
+					{
+						"text": "Teszteket előkészíteni",
+						"done": true
+					},
+					{
+						"text": "-> Házikat leellenőrizni",
+						"done": true
+					},
+					{
+						"text": "Teszteket kijavítani",
+						"done": true
+					},
+					{
+						"text": "Kő-Papír-Ollo",
+						"done": true
+					}
+				],
+				"timestamp": "1734605060690"
+			},
+			{
+				"title": "Szombati tananyag",
+				"items": [
+					{
+						"text": "Házi - Kő-papír-olló",
+						"done": true
+					},
+					{
+						"text": "-> OOP",
+						"done": true
+					},
+					{
+						"text": "Textboxok OOP",
+						"done": true
+					}
+				],
+				"timestamp": "1734605060691"
+			},
+			{
+				"title": "OOP",
+				"items": [
+					{
+						"text": "Levezetés",
+						"done": true
+					},
+					{
+						"text": "setter/getter",
+						"done": true
+					},
+					{
+						"text": "privát",
+						"done": true
+					},
+					{
+						"text": "statikus",
+						"done": true
+					}
+				],
+				"timestamp": "1734605060691"
+			},
+			{
+				"title": "Egyeb",
+				"items": [
+					{
+						"text": "Penta Dávid beadandót kijavítani"
+					}
+				],
+				"timestamp": "1734605060691"
+			},
+			{
+				"title": "Szombat 2024.12.13",
+				"items": [
+					{
+						"text": "?Tab rendszer építése - segédletből"
+					},
+					{
+						"text": "Házik átnézése",
+						"done": true
+					},
+					{
+						"text": "Tesztek kijavítása",
+						"done": true
+					},
+					{
+						"text": "1. Teszt írás",
+						"done": true
+					},
+					{
+						"text": "Tesztek előkészítése",
+						"done": true
+					}
+				],
+				"timestamp": "1734605060691"
+			},
+			{
+				"title": "Tananyag",
+				"items": [
+					{
+						"text": "? Statikus változók és függvények"
+					},
+					{
+						"text": "Extends",
+						"done": true
+					},
+					{
+						"text": "class Melos extends Ember + profession",
+						"done": true
+					},
+					{
+						"text": "Kör osztály",
+						"done": true
+					}
+				],
+				"timestamp": "1734605060692"
+			},
+			{
+				"title": "Hazi",
+				"items": [
+					{
+						"text": "színtartomány generátor"
+					},
+					{
+						"text": "snowflake effekt"
+					},
+					{
+						"text": "Ajax"
+					}
+				],
+				"timestamp": "1734605060692"
+			}
+		]
+	}
+]
