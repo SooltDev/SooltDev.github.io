@@ -27,7 +27,8 @@
 						"text": "? Jegyezze meg at is, hogy melyik van összecsukott állapotban, ujratöltésnél csukja össze"
 					}
 				],
-				"timestamp": "1734605060688"
+				"timestamp": "1734605060688",
+				"archive": false
 			},
 			{
 				"title": "Lista opciók",
@@ -43,7 +44,8 @@
 						"done": true
 					}
 				],
-				"timestamp": "1734605060688"
+				"timestamp": "1734605060688",
+				"archive": false
 			},
 			{
 				"title": "Egyéb",
@@ -52,7 +54,8 @@
 						"text": "A basicAlert-et úgy megcsinálni, hogy egyszerre akármennyi ablak megjelenhessen"
 					}
 				],
-				"timestamp": "1734605060689"
+				"timestamp": "1734605060689",
+				"archive": false
 			},
 			{
 				"title": "Listacsoportok",
@@ -65,34 +68,27 @@
 						"done": true
 					}
 				],
-				"timestamp": "1734605060689"
-			},
-			{
-				"title": "Archiv",
-				"items": [
-					{
-						"text": "Archiv ikon, kapcsoló, fiók kihúzva, betolva"
-					},
-					{
-						"text": "fiok kihúzva mutatja, becsukva elrejti az archiváltakat"
-					}
-				],
-				"timestamp": "1734726860128"
+				"timestamp": "1734605060689",
+				"archive": false
 			},
 			{
 				"title": "Eszköztár",
 				"items": [
 					{
-						"text": "Kapcsoló gomb készítése 2 ikonnal, bekapcsolt állapot, kikapcsolt állapot"
+						"text": "Ikonokat kis elegáns méretre elkészíteni",
+						"done": true
 					},
 					{
-						"text": "Ikonokat kis elegáns méretre elkészíteni"
+						"text": "? Inkább saját ikonok készítése",
+						"done": true
 					},
 					{
-						"text": "? Inkább saját ikonok készítése"
+						"text": "Kapcsoló gomb készítése 2 ikonnal, bekapcsolt állapot, kikapcsolt állapot",
+						"done": true
 					}
 				],
-				"timestamp": "1734727565407"
+				"timestamp": "1734727565407",
+				"archive": true
 			}
 		]
 	},
@@ -106,25 +102,10 @@
 						"text": "Óraállás MVM"
 					},
 					{
-						"text": "-> MVM, megjött a számla"
-					},
-					{
 						"text": "DBH"
 					},
 					{
-						"text": "Digi",
-						"done": true
-					},
-					{
-						"text": "Yettel",
-						"done": true
-					},
-					{
-						"text": "Óraállás jelentés FEVIX",
-						"done": true
-					},
-					{
-						"text": "Óraállás Fővárosi VÍzművek",
+						"text": "Óraállás Vízművek",
 						"done": true
 					},
 					{
@@ -132,17 +113,34 @@
 						"done": true
 					},
 					{
-						"text": "Óraállás Vízművek",
+						"text": "Óraállás Fővárosi VÍzművek",
+						"done": true
+					},
+					{
+						"text": "Óraállás jelentés FEVIX",
+						"done": true
+					},
+					{
+						"text": "Yettel",
+						"done": true
+					},
+					{
+						"text": "Digi",
+						"done": true
+					},
+					{
+						"text": "-> MVM, megjött a számla",
 						"done": true
 					}
 				],
-				"timestamp": "1734605060689"
+				"timestamp": "1734605060689",
+				"archive": false
 			},
 			{
 				"title": "Menza Havi megujóló",
 				"items": [
 					{
-						"text": "Iringó",
+						"text": "! Keve",
 						"done": true
 					},
 					{
@@ -150,41 +148,39 @@
 						"done": true
 					},
 					{
-						"text": "! Keve",
+						"text": "Iringó",
 						"done": true
 					}
 				],
-				"timestamp": "1734605060690"
+				"timestamp": "1734605060690",
+				"archive": false
 			},
 			{
 				"title": "Vegyes",
 				"items": [
 					{
 						"text": "AVG visszamondani a vásárlásokat."
-					},
-					{
-						"text": "Erikának a téli dekort",
-						"done": true
-					},
-					{
-						"text": "16:00 Kakokuglof koncert 17:00",
-						"done": true
-					},
-					{
-						"text": "14:30 Erikának feltenni az ablakdekort",
-						"done": true
 					}
 				],
-				"timestamp": "1734605060690"
+				"timestamp": "1734605060690",
+				"archive": false
 			},
 			{
-				"title": "Elolvasni",
+				"title": "Hazautazás",
 				"items": [
 					{
-						"text": "Máté Evangyélioma 7. rész"
+						"text": "Laptopot előkészíteni"
+					},
+					{
+						"text": "? fényképezőgép"
+					},
+					{
+						"text": "Könyvprés tervet előkészíteni",
+						"done": true
 					}
 				],
-				"timestamp": "1734817968631"
+				"timestamp": "1734881421549",
+				"archive": false
 			}
 		]
 	},
@@ -195,15 +191,7 @@
 				"title": "szeptemberi-szombati-javascript2024",
 				"items": [
 					{
-						"text": "tananyagot előkészíteni",
-						"done": true
-					},
-					{
-						"text": "Teszteket előkészíteni",
-						"done": true
-					},
-					{
-						"text": "-> Házikat leellenőrizni",
+						"text": "Kő-Papír-Ollo",
 						"done": true
 					},
 					{
@@ -211,17 +199,26 @@
 						"done": true
 					},
 					{
-						"text": "Kő-Papír-Ollo",
+						"text": "-> Házikat leellenőrizni",
+						"done": true
+					},
+					{
+						"text": "Teszteket előkészíteni",
+						"done": true
+					},
+					{
+						"text": "tananyagot előkészíteni",
 						"done": true
 					}
 				],
-				"timestamp": "1734605060690"
+				"timestamp": "1734605060690",
+				"archive": true
 			},
 			{
 				"title": "Szombati tananyag",
 				"items": [
 					{
-						"text": "Házi - Kő-papír-olló",
+						"text": "Textboxok OOP",
 						"done": true
 					},
 					{
@@ -229,21 +226,18 @@
 						"done": true
 					},
 					{
-						"text": "Textboxok OOP",
+						"text": "Házi - Kő-papír-olló",
 						"done": true
 					}
 				],
-				"timestamp": "1734605060691"
+				"timestamp": "1734605060691",
+				"archive": true
 			},
 			{
 				"title": "OOP",
 				"items": [
 					{
-						"text": "Levezetés",
-						"done": true
-					},
-					{
-						"text": "setter/getter",
+						"text": "statikus",
 						"done": true
 					},
 					{
@@ -251,11 +245,16 @@
 						"done": true
 					},
 					{
-						"text": "statikus",
+						"text": "setter/getter",
+						"done": true
+					},
+					{
+						"text": "Levezetés",
 						"done": true
 					}
 				],
-				"timestamp": "1734605060691"
+				"timestamp": "1734605060691",
+				"archive": true
 			},
 			{
 				"title": "Egyeb",
@@ -264,7 +263,8 @@
 						"text": "Penta Dávid beadandót kijavítani"
 					}
 				],
-				"timestamp": "1734605060691"
+				"timestamp": "1734605060691",
+				"archive": false
 			},
 			{
 				"title": "Szombat 2024.12.13",
@@ -273,11 +273,7 @@
 						"text": "?Tab rendszer építése - segédletből"
 					},
 					{
-						"text": "Házik átnézése",
-						"done": true
-					},
-					{
-						"text": "Tesztek kijavítása",
+						"text": "Tesztek előkészítése",
 						"done": true
 					},
 					{
@@ -285,11 +281,16 @@
 						"done": true
 					},
 					{
-						"text": "Tesztek előkészítése",
+						"text": "Tesztek kijavítása",
+						"done": true
+					},
+					{
+						"text": "Házik átnézése",
 						"done": true
 					}
 				],
-				"timestamp": "1734605060691"
+				"timestamp": "1734605060691",
+				"archive": false
 			},
 			{
 				"title": "Tananyag",
@@ -298,7 +299,7 @@
 						"text": "? Statikus változók és függvények"
 					},
 					{
-						"text": "Extends",
+						"text": "Kör osztály",
 						"done": true
 					},
 					{
@@ -306,26 +307,37 @@
 						"done": true
 					},
 					{
-						"text": "Kör osztály",
+						"text": "Extends",
 						"done": true
 					}
 				],
-				"timestamp": "1734605060692"
+				"timestamp": "1734605060692",
+				"archive": false
 			},
 			{
 				"title": "Hazi",
 				"items": [
 					{
-						"text": "színtartomány generátor"
+						"text": "színtartomány generátor",
+						"done": true
 					},
 					{
-						"text": "snowflake effekt"
-					},
-					{
-						"text": "Ajax"
+						"text": "snowflake effekt",
+						"done": true
 					}
 				],
-				"timestamp": "1734605060692"
+				"timestamp": "1734605060692",
+				"archive": true
+			},
+			{
+				"title": "! Fontos",
+				"items": [
+					{
+						"text": "Házit adni a szombati csoportnak - Promise"
+					}
+				],
+				"timestamp": "1734897733650",
+				"archive": false
 			}
 		]
 	}
