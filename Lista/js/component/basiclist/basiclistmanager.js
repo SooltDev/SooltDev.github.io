@@ -35,6 +35,17 @@ const BasicListManager = (function(){
                 listObject.on('singleexpand', () => {
                     this.collapseAll(listObject);
                 });
+
+                listObject.on('clone', () => {
+                    const item = listObject.data;
+                    this.addItem(
+                        new BasicList(Object.assign(item, {
+                            renderTo: this.domContainer,
+                            title: "Másolat - " + item.title
+                        }))
+                    );
+                });
+    
             }
         }
 

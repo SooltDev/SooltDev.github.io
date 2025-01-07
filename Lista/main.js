@@ -47,7 +47,10 @@ global('GLOBAL', {});
 
     global('navi').homepage();
 
-    basicAlert.show(`Archiválás funkció fejlesztés alatt ;)`);
+    basicAlert.show(`Archiválás funkció javítva. <br>
+        Új, funkció: Másolat készítése<br>
+        Havi megújúló lista fejlesztés alatt.
+        `);
 
     window.addEventListener('pagehide', function(event) {
 

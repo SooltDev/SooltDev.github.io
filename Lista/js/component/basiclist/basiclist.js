@@ -116,6 +116,8 @@ const BasicList = (function(){
                 }
             });
 
+            //#region popUpMenu
+
             this.menu = new PopUpMenu({
                 renderTo: this.menuBtn,
                 items: [{
@@ -175,8 +177,19 @@ const BasicList = (function(){
                                 this.removeDOM();
                         }
                     }
+                }, {
+                    text: "Másolat készítése",
+                    /**
+                     * A másolat készítése a basicListManager-ben van megírva, arendezettség miatt.
+                     * Mert a listManager-ben kell létrejönnie a másolatnak, azaz az új példánynak.
+                     */
+                    handler: (menuItem) => {
+                        this.trigger('clone');
+                    }
                 }]
             });
+
+            //#endregion
 
             this.menuBtn.addEventListener('click', (evt) => {
                 evt.stopPropagation();

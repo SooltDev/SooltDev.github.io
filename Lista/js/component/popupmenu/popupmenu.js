@@ -84,10 +84,11 @@ const PopUpMenu = (function(){
             menuItem.addEventListener('click', async (ev) => {
                 ev.stopPropagation();
                 const res = await item.handler.call(this, menuItem, ev);
+                
                 if (checkType && res){
                     menuItem.classList.toggle('checked');
                 }
-                if (item.checkHandler && typeof item.checkHandler == 'function')
+                if (res && item.checkHandler && typeof item.checkHandler == 'function')
                     item.checkHandler(menuItem.classList.contains('checked'), menuItem);
             });
 
