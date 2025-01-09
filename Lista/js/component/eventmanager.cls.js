@@ -30,6 +30,10 @@ class EventManager{
             for (const eventFn of this.#events[event])
                 eventFn.call(this, ...args);
     }
+
+    clearEvent(event){
+        this.#events[event] = [];
+    }
     
     get events(){
         return this.#events;

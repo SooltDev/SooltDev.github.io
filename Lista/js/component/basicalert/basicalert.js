@@ -37,6 +37,7 @@ const basicAlert = function(){
             super();
             this.render();
             this.afterRender();
+            this.trigger('afterrender');
         }
 
         render(){
@@ -51,22 +52,33 @@ const basicAlert = function(){
                 this.trigger('ok');
             });
 
-            docBody.appendChild(this.element);
+            //docBody.appendChild(this.element);
         }
 
         afterRender(){
 
         }
 
+        set okBtnText(text){
+            this.okBtn.textContent = text;
+        }
+        get okBtnText(){
+            return this.okBtn.textContent;
+        }
+
         show(text){
             this.contentElement.innerHTML = text;
             this.element.style.display = "block";
             coverUpLayer.style.display = "block";
+            docBody.appendChild(this.element);
+            this.trigger('show');
         }
 
         hide(){
             this.element.style.display = "none";
             coverUpLayer.style.display = "none";
+            this.element.remove();
+            this.trigger('hide');
         }
     }
 
@@ -83,6 +95,7 @@ const basicAlert = function(){
                 className: "basic-alert-btn", 
                 textContent: "Mégse"
             });
+
             this.controllsElement.insertAdjacentElement("afterbegin", this.cancelBtn);
             this.cancelBtn.addEventListener('click', () => {
                 this.hide();
@@ -97,13 +110,46 @@ const basicAlert = function(){
                 this.resolve(true);
             });
         }
+    }
 
+    class BasicInputWindow extends BasicConfirm {
+
+        resetBtn;
+
+        constructor(tpl){
+            super();
+
+            this.clearEvent('ok');
+            this.clearEvent('cancel');
+
+            this.contentElement.innerHTML = tpl;
+
+            this.okBtn.textContent = "Mentés";
+            this.resetBtn = createElement({
+                tagName: "Button",
+                className: "basic-alert-btn", 
+                textContent: "Visszaállítás"
+            });
+            this.resetBtn.addEventListener('click', () => {
+                this.hide();
+                this.trigger('reset');
+            });
+
+            this.controllsElement.insertAdjacentElement("afterbegin", this.resetBtn);
+        }
+
+        show(){
+            this.element.style.display = "block";
+            coverUpLayer.style.display = "block";
+            docBody.appendChild(this.element);
+            this.trigger('show');
+        }
     }
 
     const basicConfirm = new BasicConfirm();
     const basicAlert = new BasicAlert();
 
-    const confirm = async (text) => {
+    const confirm = async (text, options) => {
         return new Promise((resolve, reject) => {
             basicConfirm.show(text);
             basicConfirm.resolve = resolve;
@@ -111,8 +157,10 @@ const basicAlert = function(){
         });
     }
 
-
     return {
+        BasicConfirm,
+        BasicAlert,
+        BasicInputWindow,
         confirm,
         show: (text) => basicAlert.show(text),
         hide: () => basicAlert.hide(),
@@ -120,8 +168,6 @@ const basicAlert = function(){
             if (await confirm("Biztos, hogy törölni szeretnéd?"))
                 console.log("Sikeres törlés");
             else console.log("Mégse");
-            
-                
         }
     }
 }();

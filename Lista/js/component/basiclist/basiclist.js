@@ -66,7 +66,7 @@ const BasicList = (function(){
             Object.assign(this, {
                 title: undefined,
                 timestamp: Date.now()
-            }, remainProps(options, "title", "renderTo", "items", "timestamp", "archive"));
+            }, remainProps(options, "title", "renderTo", "items", "timestamp", "archive", "monthly", "dayly", "weekly"));
 
             if (!this.archive)
                 this.parentElement.appendChild(this.element);
@@ -117,13 +117,43 @@ const BasicList = (function(){
             });
 
             //#region popUpMenu
-
             this.menu = new PopUpMenu({
                 renderTo: this.menuBtn,
                 items: [{
                     text: "Cím szerkesztése",
                     handler: () => {
                         this.editTitle();
+                    }
+                },{
+                    text: "Megújúló",
+                    //inactive: true,
+                    type: 'radio',
+                    items: [
+                        {
+                            text: "Havi megújóló",
+                            type: "check",
+                            checked: this.monthly ? true : false,
+                            handler: async () => {
+                                return this.monthlyFunc();
+                            }
+                        },{
+                            type: "check",
+                            checked: this.weekly ? true : false,
+                            text: "Heti megújóló",
+                            handler: async () => {
+                                return this.weeklyFunc();
+                            }
+                        },{
+                            type: "check",
+                            text: "Napi megújóló",
+                            checked: this.dayly ? true : false,
+                            handler: async () => {
+                                return this.daylyFunc();
+                            }
+                        }
+                    ],
+                    handler: async () => {
+                        
                     }
                 },{separator: true},{
                     text: "Összes aktív",
@@ -204,6 +234,124 @@ const BasicList = (function(){
                     this.toggle();
             });
         }
+        //#region inputWindow
+        async inputWindow(tpl, middleware, type){
+            const basicConfirm = new basicAlert.BasicInputWindow(tpl);
+            console.log(this);
+            
+            return new Promise((resolve, reject) => {
+                basicConfirm.show();
+                
+                basicConfirm.resolve = resolve;
+                basicConfirm.reject = reject;
+    
+                if (middleware && typeof middleware == 'function'){
+                    middleware(basicConfirm, resolve, reject);
+                } else {
+                    const day = basicConfirm.contentElement.querySelector(`[name="${type}"]`);
+                    
+                    basicConfirm.on('ok', () => {
+                        this[type] = day.value;
+                        resolve(true);
+                    });
+
+                    basicConfirm.on('cancel', () => {
+                        if (this[type])
+                            resolve(true);
+                        else resolve(false);
+                    });
+
+                    basicConfirm.on('reset', () => {
+                        this.removeData(type);
+                        resolve(false);
+                    });
+                }
+                
+            });
+        }
+        //#endregion
+        //#region renewable
+        async monthlyFunc(){
+
+            return this.inputWindow(`
+                <div>
+                    <label>Frissítés napjának kiválkasztása:</label>
+                    <input 
+                        type="number" 
+                        min="1" 
+                        max="31" 
+                        value="${this.getData('monthly') || 1}" 
+                        name="monthly"
+                    >
+                </div>`,
+                false,
+                'monthly'
+            );//end inputWindow
+        }
+
+        set monthly(v){
+            if (v){
+                this.setData('monthly', v);
+                this.removeData('weekly');
+                this.removeData('dayly');
+            }
+        }
+
+        get monthly(){
+            return this.getData('monthly');
+        }
+
+        async weeklyFunc(){
+            const days = ["Hétfő", "Kedd", "Szerda", "Csütörtök", "Péntek", "Szombat", "Vasárnap"];
+            let selectStr = `<select name="weekly">`;
+            const w = Number(this.weekly);
+            const selectedDay = !w ? 0 : w;
+
+            days.forEach((day, i) => {
+                const ind = i + 1;
+                selectStr += `<option value="${ind}" ${selectedDay == ind ? 'selected' : ''}>${day}</option>`;
+            });
+
+            selectStr += "</select>";
+            return this.inputWindow(`
+                <div>
+                    <label>Frissítés napjának kiválkasztása:</label>
+                    ${selectStr}
+                </div>`, 
+                false,
+                'weekly'
+            );
+        }
+
+        set weekly(v){
+            if (v){
+                this.setData('weekly', v);
+                this.removeData('monthly');
+                this.removeData('dayly');
+            }
+        }
+
+        get weekly(){
+            return this.getData('weekly');
+        }
+
+        async daylyFunc(){
+
+        }
+
+        set dayly(v){
+            if (v){
+                this.setData('dayly', v);
+                this.removeData('weekly');
+                this.removeData('monthly')
+            };
+        }
+
+        get dayly(){
+            return this.getData('dayly');
+        }
+
+        //#endregion
 
         remove(){
             this.element.remove();
@@ -490,12 +638,21 @@ const BasicList = (function(){
         }
 
         get data(){
-            return {
+            const dataObj = {
                 title: this.title,
                 items: this.items,
                 timestamp: this.timestamp,
                 archive: this.archive
             }
+
+            if (this.monthly)
+                dataObj.monthly = this.monthly;
+            if (this.weekly)
+                dataObj.weekly = this.weekly;
+            if (this.dayly)
+                dataObj.dayly = this.dayly;
+
+            return dataObj;
         }
 
         set data(o){

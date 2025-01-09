@@ -54,3 +54,22 @@
     border-top: solid 1px #b3c7dc;
     border-bottom: 1px solid #e5eef6;
 }
+
+.popup-menu .menu-item.menu-item-inactive{
+    color: #6f7984;
+    text-shadow: 1px 1px aliceblue;
+}
+
+.popup-menu .menu-item.menu-item-inactive:hover{
+    background-color: transparent;
+}
+
+.popup-menu .menu-item:has(> .popup-menu)::after{
+    content: '⯈';
+    position: absolute;
+    right: 10px;
+}
+
+.popup-menu .menu-item > .popup-menu{
+    right: -60px;
+}

@@ -61,6 +61,7 @@ const PopUpMenu = (function(){
             menuItem.textContent = item.text;
             menuItem.classList.add('menu-item');
 
+            //#region check type
             const checkType = item.type && item.type == "check";
 
             if (checkType){
@@ -80,26 +81,66 @@ const PopUpMenu = (function(){
                     }
                 );
             }
+            //#endregion
 
-            menuItem.addEventListener('click', async (ev) => {
-                ev.stopPropagation();
-                const res = await item.handler.call(this, menuItem, ev);
+
+
+            if (item.type){
+                menuItem.dataset.type = item.type;
+            }
+
+            if (item.inactive){
+                menuItem.classList.add('menu-item-inactive');
+            } else {
+                menuItem.addEventListener('click', async (ev) => {
                 
-                if (checkType && res){
-                    menuItem.classList.toggle('checked');
-                }
-                if (res && item.checkHandler && typeof item.checkHandler == 'function')
-                    item.checkHandler(menuItem.classList.contains('checked'), menuItem);
-            });
+                    const res = await item.handler.call(this, menuItem, ev);
 
-            menuItem.addEventListener('click', () => {                
-                this.hide();
-            });
+                    if (this.parentType == "radio"){
+                        const checkedEl = this.element.querySelector('.checked');
+                        if (checkedEl)
+                            checkedEl.classList.remove('checked');
+                    }
+                    
+                    if (checkType && res){
+                        menuItem.classList.toggle('checked');
+                    }
+                    if (res && item.checkHandler && typeof item.checkHandler == 'function')
+                        item.checkHandler(menuItem.classList.contains('checked'), menuItem);
+                });
+    
+                menuItem.addEventListener('click', (ev) => {
+                    ev.stopPropagation();                
+                    this.hide();
+                });
+            }
+
+            if (item.items){
+                const popUpmenu = new PopUpMenu({
+                    renderTo: menuItem,
+                    items: item.items
+                });
+                menuItem.addEventListener('mouseover', () => {
+                    popUpmenu.element.style.display = null;
+                    
+                });
+                menuItem.addEventListener('mouseout', () => {
+                    popUpmenu.element.style.display = 'none';
+                });
+            }
         }
 
         set items(items){
             for (const item of items)
                 this.addItem(item);
+        }
+
+        get type(){
+            return this.element.dataset.type || 'normal';
+        }
+
+        get parentType(){
+            return this.parentElement.dataset.type || 'normal';
         }
 
         show(){
@@ -115,8 +156,6 @@ const PopUpMenu = (function(){
             this.element.style.display = 'none';
             if (activeMenu == this)
                 activeMenu = null;
-
-            
         }
     }
 
