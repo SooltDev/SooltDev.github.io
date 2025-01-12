@@ -8,12 +8,16 @@ const BasicListManager = (function(){
         groupName;
         domContainer;
         group; //a nyers adatok
+        idIndex = 0;
 
         constructor(group, domContainer){
             super();
             this.groupName = group.name;
             this.domContainer = getElement(domContainer);
             this.group = group;
+
+            console.log(this.group);
+            
         }
 
         /**
@@ -52,6 +56,7 @@ const BasicListManager = (function(){
         createItem(title){
             const list = new BasicList({
                 title: title,
+                id: this.#nextId(),
                 renderTo: this.domContainer
             });
 
@@ -60,29 +65,53 @@ const BasicListManager = (function(){
             return list;
         }
 
-        loadStorage(domContainer = this.domContainer){
-            const listData = localStorage[this.groupName];
-            if (listData && listData != "undefined"){
-                JSON.parse(localStorage[this.groupName])['lists'].forEach(item => {
-                    this.addItem(
-                        new BasicList(Object.assign(item, {
-                            renderTo: domContainer
-                        }))
-                    );
-                });
-            }
+        /**
+         * Előállítja a hiányzó ID kulcsokat.
+         */
+        fixIdsIfNotExists(){
+            this.group.lists.forEach(item => {
+                let id;
+                if (item.id && (id = this.indexById(item.id)) > this.idIndex)
+                    this.idIndex = id;
+            });
+
+            this.group.lists.forEach(item => {
+                if (!item.id )
+                    item.id = this.#nextId();
+            });
+        }
+
+        #nextId(){
+            return `${this.group.as}-${++this.idIndex}`;
+        }
+
+        indexById(idstring){
+            return Number(idstring.match(/[0-9]+/g)[0]);
         }
 
         render(group = this.group, domContainer = this.domContainer){
             this.group = group;
             this.domContainer = domContainer;
 
+            this.fixIdsIfNotExists();
+
             this.group.lists.forEach(item => {
-                this.addItem(
-                    new BasicList(Object.assign(item, {
-                        renderTo: domContainer
-                    }))
-                );
+
+                const list = new BasicList(Object.assign(item, {
+                    renderTo: domContainer,
+                    group: this
+                }));
+
+                this.addItem(list);
+            });
+
+            this.renewCheck();
+        }
+
+        renewCheck(){
+            this.lists.filter(list => list.isRenewable).forEach(list => {
+                console.log(list);
+                
             });
         }
 

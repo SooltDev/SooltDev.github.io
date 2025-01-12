@@ -36,6 +36,8 @@ const BasicList = (function(){
 
     const listItemElement = evalTamplate(listItemTemplate);
 
+    let idIndex = 1;
+
     return class BasicList extends EventManager{
 
         element;
@@ -54,6 +56,8 @@ const BasicList = (function(){
 
         menu;
 
+        #group; //A csoport ahova tartozik
+
         //#items;
 
         constructor(options){
@@ -66,7 +70,9 @@ const BasicList = (function(){
             Object.assign(this, {
                 title: undefined,
                 timestamp: Date.now()
-            }, remainProps(options, "title", "renderTo", "items", "timestamp", "archive", "monthly", "dayly", "weekly"));
+            }, remainProps(options, 
+                "title", "renderTo", "items", "timestamp", "archive", "monthly", "dayly", "weekly", "id", "group"
+            ));
 
             if (!this.archive)
                 this.parentElement.appendChild(this.element);
@@ -84,7 +90,6 @@ const BasicList = (function(){
                 const liText = this.inputElement.value.trim();
 
                 const selectedItem = this.listElement.querySelector(".list-item-selected");
-
 
                 if (liText != ''){
                     if (!selectedItem){
@@ -270,6 +275,7 @@ const BasicList = (function(){
             });
         }
         //#endregion
+
         //#region renewable
         async monthlyFunc(){
 
@@ -336,7 +342,18 @@ const BasicList = (function(){
         }
 
         async daylyFunc(){
-
+            return this.inputWindow(`
+                <div>
+                    <label>Frissítés ideje "hh:mm" :</label>
+                    <input 
+                        type="time" 
+                        value="${this.getData('dayly') || '00:00'}" 
+                        name="dayly"
+                    >
+                </div>`,
+                false,
+                'dayly'
+            );//end inputWindow
         }
 
         set dayly(v){
@@ -349,6 +366,13 @@ const BasicList = (function(){
 
         get dayly(){
             return this.getData('dayly');
+        }
+
+        get isRenewable() {
+            if (this.dayly || this.monthly || this.weekly)
+                return true;
+
+            return false;
         }
 
         //#endregion
@@ -373,12 +397,13 @@ const BasicList = (function(){
             const finishTime = timeStringToMS(time);
 
             if (finishTime > now)
-                setTimeout(() => {
+                listItem.timerId = setTimeout(() => {
                     basicAlert.show(listItem.querySelector('.list-item-text').textContent);
                 }, finishTime - now);
         }
 
         #extraOptions(listItem, text){
+            listItem.className = '';
             switch (true){
                 case /^\?/.test(text):
                     listItem.classList.add('list-item-optional');
@@ -560,6 +585,23 @@ const BasicList = (function(){
             return this.getData('archive') == "true" ? true : false;
         }
 
+        set id(id){
+            this.element.id = id;
+        }
+
+        get id(){
+            return this.element.id;
+        }
+
+        set group(g){
+            if (g instanceof BasicListManager)
+                this.#group = g;
+        }
+
+        get group(){
+            return this.#group;
+        }
+
         setData(key, val){
             this.element.dataset[key] = val;
         }
@@ -645,6 +687,8 @@ const BasicList = (function(){
                 archive: this.archive
             }
 
+            if (this.id)
+                dataObj.id = this.id;
             if (this.monthly)
                 dataObj.monthly = this.monthly;
             if (this.weekly)
