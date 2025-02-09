@@ -11,7 +11,7 @@
     },
     {
         "id": 2,
-        "text": "Írj javasvcript programot, mely kiszámolya egy téglalap, vagy négyzet területét",
+        "text": "Írj javasvcript programot, mely kiszámolja egy téglalap, vagy négyzet területét",
         "code": "",
         "strong": 1,
         "category": [
@@ -20,7 +20,7 @@
         "name": "négyszög terültete"
     },
     {
-        "text": "Írj javasvcript programot, mely kiszámolya egy henger, űrtartalmát.",
+        "text": "Írj javasvcript programot, mely kiszámolja egy henger, űrtartalmát.",
         "id": 3,
         "category": [
             1
@@ -28,7 +28,7 @@
         "name": "henger űrtartalma"
     },
     {
-        "text": "Írj javasvcript programot, mely kiszámolya egy kör kerültetét.",
+        "text": "Írj javasvcript programot, mely kiszámolja egy kör kerületét.",
         "category": [
             1
         ],

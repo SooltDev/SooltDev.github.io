@@ -71,7 +71,7 @@ const BasicList = (function(){
                 title: undefined,
                 timestamp: Date.now()
             }, remainProps(options, 
-                "title", "renderTo", "items", "timestamp", "archive", "monthly", "dayly", "weekly", "id", "group"
+                "title", "renderTo", "items", "timestamp", "archive", "monthly", "dayly", "weekly", "id", "group", "renewabledate"
             ));
 
             if (!this.archive)
@@ -80,7 +80,10 @@ const BasicList = (function(){
             this.build();
         }
 
+        //#region Build
         build(){
+
+            this.titleElement.title = `Létrehozva: ${this.dateString}`;
 
             this.element.addEventListener('dragstart', () => {
 
@@ -138,6 +141,7 @@ const BasicList = (function(){
                             text: "Havi megújóló",
                             type: "check",
                             checked: this.monthly ? true : false,
+                            name: "monthly",
                             handler: async () => {
                                 return this.monthlyFunc();
                             }
@@ -145,6 +149,7 @@ const BasicList = (function(){
                             type: "check",
                             checked: this.weekly ? true : false,
                             text: "Heti megújóló",
+                            inactive: true,
                             handler: async () => {
                                 return this.weeklyFunc();
                             }
@@ -152,6 +157,7 @@ const BasicList = (function(){
                             type: "check",
                             text: "Napi megújóló",
                             checked: this.dayly ? true : false,
+                            inactive: true,
                             handler: async () => {
                                 return this.daylyFunc();
                             }
@@ -239,6 +245,8 @@ const BasicList = (function(){
                     this.toggle();
             });
         }
+        //#endregion
+
         //#region inputWindow
         async inputWindow(tpl, middleware, type){
             const basicConfirm = new basicAlert.BasicInputWindow(tpl);
@@ -295,11 +303,32 @@ const BasicList = (function(){
             );//end inputWindow
         }
 
+        set renewabledate(ts){
+            this.setData("renewabledate", ts);
+        }
+
+        get renewabledate(){
+            return Number(this.getData("renewabledate"));
+        }
+
         set monthly(v){
+            let menuItem;
+
+            if (this.menu)
+                menuItem = this.menu.getByName('monthly');
+
+            console.log(menuItem);
+            
+
             if (v){
                 this.setData('monthly', v);
                 this.removeData('weekly');
                 this.removeData('dayly');
+                if (menuItem)
+                    menuItem.check(true);
+            } else if (menuItem){
+                menuItem.check(false);
+                this.removeData('monthly');
             }
         }
 
@@ -375,6 +404,46 @@ const BasicList = (function(){
             return false;
         }
 
+        get renewableType(){
+            return this.monthly ? "monthly" : this.weekly ? "weekly" : "dayly";
+        }
+
+        clearRenewable(){
+            this.removeData('dayly');
+            this.removeData('weekly');
+            this.removeData('monthly')
+        }
+
+        get renewabled(){
+            const now = new Date();
+            const created = new Date(Number(this.timestamp));
+            const renewabledate = new Date(Number(this.renewabledate));
+
+            const renewableType = this.renewableType;
+
+            const lastCreated = renewabledate.getTime() ? renewabledate : created;
+            lastCreated.setDate(Number(this.monthly));
+
+            const diffDays = (now - lastCreated) / (1000 * 60 * 60 * 24);
+
+            if (renewableType == "monthly" ){
+                const difDate = new Date(lastCreated);
+                difDate.setDate(diffDays);
+                if (difDate.getMonth() != lastCreated.getMonth()){
+                    return false;
+                }
+            }
+            
+            /*
+            if (renewableType == "weekly" && diffDays >= 7)
+                return false;
+
+            if (renewableType == "dayly" && diffDays > )
+            */
+
+            return true;
+        }
+
         //#endregion
 
         remove(){
@@ -436,15 +505,15 @@ const BasicList = (function(){
 
             liTextElement.textContent = item.text;
 
+            if (item.done)
+                listItem.classList.add('list-item-done');
+
             /**
              * Csak akkor adja hozzá az extra opciókat, ha még nem teljesült
              * Különben csak zavarná az összképet
              */
             if (this.#isActiveListItem(listItem))
                 this.#extraOptions(listItem, item.text);
-
-            if (item.done)
-                listItem.classList.add('list-item-done');
 
             listItem.addEventListener('click', () => {
                 listItem.classList.toggle('list-item-done');
@@ -581,6 +650,10 @@ const BasicList = (function(){
             this.setData('archive', Boolean(v));
         }
 
+        get dateString(){
+            return new Date( Number(this.getData('timestamp')) ).toLocaleDateString();
+        }
+
         get archive(){
             return this.getData('archive') == "true" ? true : false;
         }
@@ -695,6 +768,8 @@ const BasicList = (function(){
                 dataObj.weekly = this.weekly;
             if (this.dayly)
                 dataObj.dayly = this.dayly;
+            if (this.renewabledate)
+                dataObj.renewabledate = this.renewabledate;
 
             return dataObj;
         }

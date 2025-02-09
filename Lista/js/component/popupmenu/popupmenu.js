@@ -49,6 +49,10 @@ const PopUpMenu = (function(){
 
         }
 
+        getByName(name){
+            return this.element.querySelector(`li[data-name="${name}"]`);
+        }
+
         addItem(item){
             const menuItem = document.createElement('li');
             this.element.appendChild(menuItem);
@@ -80,10 +84,23 @@ const PopUpMenu = (function(){
                         }
                     }
                 );
+
+                Object.defineProperty(
+                    menuItem, 
+                    'check',
+                    {
+                        value: function (c){
+                            this.classList[c ? "add" : "remove"]("checked")
+                        }
+                    }
+                );
             }
             //#endregion
 
-
+            if (item.name){
+                menuItem.dataset.name = item.name;
+                menuItem.name = item.name;
+            }
 
             if (item.type){
                 menuItem.dataset.type = item.type;

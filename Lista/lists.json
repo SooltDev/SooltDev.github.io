@@ -9,9 +9,6 @@
 						"text": "-> listaelem előtt időpont, az adott időpontban csörög"
 					},
 					{
-						"text": "Lista másolat létrehozása"
-					},
-					{
 						"text": "Megújúló lista - másolat készül, az új hónap név előtaggal"
 					},
 					{
@@ -25,10 +22,15 @@
 					},
 					{
 						"text": "? Jegyezze meg at is, hogy melyik van összecsukott állapotban, ujratöltésnél csukja össze"
+					},
+					{
+						"text": "Lista másolat létrehozása",
+						"done": true
 					}
 				],
 				"timestamp": "1734605060688",
-				"archive": false
+				"archive": false,
+				"id": "listak-1"
 			},
 			{
 				"title": "Lista opciók",
@@ -45,7 +47,9 @@
 					}
 				],
 				"timestamp": "1734605060688",
-				"archive": false
+				"archive": false,
+				"id": "listak-2",
+				"monthly": "1"
 			},
 			{
 				"title": "Egyéb",
@@ -55,7 +59,8 @@
 					}
 				],
 				"timestamp": "1734605060689",
-				"archive": false
+				"archive": false,
+				"id": "listak-3"
 			},
 			{
 				"title": "Listacsoportok",
@@ -69,11 +74,32 @@
 					}
 				],
 				"timestamp": "1734605060689",
-				"archive": false
+				"archive": false,
+				"id": "listak-4"
+			},
+			{
+				"title": "Archiv",
+				"items": [
+					{
+						"text": "Archiv ikon, kapcsoló, fiók kihúzva, betolva",
+						"done": true
+					},
+					{
+						"text": "fiok kihúzva mutatja, becsukva elrejti az archiváltakat",
+						"done": true
+					}
+				],
+				"timestamp": "1734726860128",
+				"archive": false,
+				"id": "listak-5"
 			},
 			{
 				"title": "Eszköztár",
 				"items": [
+					{
+						"text": "Kapcsoló gomb készítése 2 ikonnal, bekapcsolt állapot, kikapcsolt állapot",
+						"done": true
+					},
 					{
 						"text": "Ikonokat kis elegáns méretre elkészíteni",
 						"done": true
@@ -81,14 +107,11 @@
 					{
 						"text": "? Inkább saját ikonok készítése",
 						"done": true
-					},
-					{
-						"text": "Kapcsoló gomb készítése 2 ikonnal, bekapcsolt állapot, kikapcsolt állapot",
-						"done": true
 					}
 				],
 				"timestamp": "1734727565407",
-				"archive": true
+				"archive": false,
+				"id": "listak-6"
 			}
 		]
 	},
@@ -96,51 +119,10 @@
 		"name": "Teendők",
 		"lists": [
 			{
-				"title": "Havi megujulo",
-				"items": [
-					{
-						"text": "Óraállás MVM"
-					},
-					{
-						"text": "DBH"
-					},
-					{
-						"text": "Óraállás Vízművek",
-						"done": true
-					},
-					{
-						"text": "Lakbér",
-						"done": true
-					},
-					{
-						"text": "Óraállás Fővárosi VÍzművek",
-						"done": true
-					},
-					{
-						"text": "Óraállás jelentés FEVIX",
-						"done": true
-					},
-					{
-						"text": "Yettel",
-						"done": true
-					},
-					{
-						"text": "Digi",
-						"done": true
-					},
-					{
-						"text": "-> MVM, megjött a számla",
-						"done": true
-					}
-				],
-				"timestamp": "1734605060689",
-				"archive": false
-			},
-			{
 				"title": "Menza Havi megujóló",
 				"items": [
 					{
-						"text": "! Keve",
+						"text": "Keve",
 						"done": true
 					},
 					{
@@ -153,17 +135,24 @@
 					}
 				],
 				"timestamp": "1734605060690",
-				"archive": false
+				"archive": false,
+				"id": "teendok-2",
+				"monthly": "1"
 			},
 			{
 				"title": "Vegyes",
 				"items": [
 					{
-						"text": "AVG visszamondani a vásárlásokat."
+						"text": "Linux könyvtárszerkezet"
+					},
+					{
+						"text": "AVG visszamondani a vásárlásokat.",
+						"done": true
 					}
 				],
 				"timestamp": "1734605060690",
-				"archive": false
+				"archive": false,
+				"id": "teendok-3"
 			},
 			{
 				"title": "Hazautazás",
@@ -180,7 +169,109 @@
 					}
 				],
 				"timestamp": "1734881421549",
-				"archive": false
+				"archive": true,
+				"id": "teendok-4"
+			},
+			{
+				"title": "2025 Január - Befizetések",
+				"items": [
+					{
+						"text": "MVM",
+						"done": true
+					},
+					{
+						"text": "DBH",
+						"done": true
+					},
+					{
+						"text": "Yettel",
+						"done": true
+					},
+					{
+						"text": "Lakbér",
+						"done": true
+					},
+					{
+						"text": "Digi",
+						"done": true
+					}
+				],
+				"timestamp": "1734605060689",
+				"archive": true,
+				"id": "teendok-5",
+				"monthly": "1"
+			},
+			{
+				"title": "Leolvasások",
+				"items": [
+					{
+						"text": "MVM"
+					},
+					{
+						"text": "Fővárosi Vízművek"
+					},
+					{
+						"text": "Önkörmányzat",
+						"done": true
+					}
+				],
+				"timestamp": "1736432725690",
+				"archive": false,
+				"id": "teendok-6",
+				"monthly": "1"
+			},
+			{
+				"title": "Teendők",
+				"items": [
+					{
+						"text": "!Pályamatrica Jász-Nagykún-Szolnok megyére"
+					},
+					{
+						"text": "!Pályamatrica Pest megyére",
+						"done": true
+					}
+				],
+				"timestamp": "1736928690995",
+				"archive": false,
+				"id": "teendok-7"
+			},
+			{
+				"title": "Csenge",
+				"items": [
+					{
+						"text": "Szolfézs alapvizsgára bejelentkezni"
+					}
+				],
+				"timestamp": "1738617803473",
+				"archive": false,
+				"id": "teendok-8"
+			},
+			{
+				"title": "2025 Februar - Befizetések",
+				"items": [
+					{
+						"text": "DBH"
+					},
+					{
+						"text": "MVM"
+					},
+					{
+						"text": "Lakbér",
+						"done": true
+					},
+					{
+						"text": "Yettel",
+						"done": true
+					},
+					{
+						"text": "Digi",
+						"done": true
+					}
+				],
+				"timestamp": "1734605060689",
+				"archive": false,
+				"id": "teendok-5",
+				"monthly": "1"
 			}
 		]
 	},
@@ -191,15 +282,7 @@
 				"title": "szeptemberi-szombati-javascript2024",
 				"items": [
 					{
-						"text": "Kő-Papír-Ollo",
-						"done": true
-					},
-					{
-						"text": "Teszteket kijavítani",
-						"done": true
-					},
-					{
-						"text": "-> Házikat leellenőrizni",
+						"text": "tananyagot előkészíteni",
 						"done": true
 					},
 					{
@@ -207,18 +290,27 @@
 						"done": true
 					},
 					{
-						"text": "tananyagot előkészíteni",
+						"text": "-> Házikat leellenőrizni",
+						"done": true
+					},
+					{
+						"text": "Teszteket kijavítani",
+						"done": true
+					},
+					{
+						"text": "Kő-Papír-Ollo",
 						"done": true
 					}
 				],
 				"timestamp": "1734605060690",
-				"archive": true
+				"archive": true,
+				"id": "prooktatas-1"
 			},
 			{
 				"title": "Szombati tananyag",
 				"items": [
 					{
-						"text": "Textboxok OOP",
+						"text": "Házi - Kő-papír-olló",
 						"done": true
 					},
 					{
@@ -226,22 +318,19 @@
 						"done": true
 					},
 					{
-						"text": "Házi - Kő-papír-olló",
+						"text": "Textboxok OOP",
 						"done": true
 					}
 				],
 				"timestamp": "1734605060691",
-				"archive": true
+				"archive": true,
+				"id": "prooktatas-2"
 			},
 			{
 				"title": "OOP",
 				"items": [
 					{
-						"text": "statikus",
-						"done": true
-					},
-					{
-						"text": "privát",
+						"text": "Levezetés",
 						"done": true
 					},
 					{
@@ -249,95 +338,287 @@
 						"done": true
 					},
 					{
-						"text": "Levezetés",
+						"text": "privát",
+						"done": true
+					},
+					{
+						"text": "statikus",
 						"done": true
 					}
 				],
 				"timestamp": "1734605060691",
-				"archive": true
-			},
-			{
-				"title": "Egyeb",
-				"items": [
-					{
-						"text": "Penta Dávid beadandót kijavítani"
-					}
-				],
-				"timestamp": "1734605060691",
-				"archive": false
-			},
-			{
-				"title": "Szombat 2024.12.13",
-				"items": [
-					{
-						"text": "?Tab rendszer építése - segédletből"
-					},
-					{
-						"text": "Tesztek előkészítése",
-						"done": true
-					},
-					{
-						"text": "1. Teszt írás",
-						"done": true
-					},
-					{
-						"text": "Tesztek kijavítása",
-						"done": true
-					},
-					{
-						"text": "Házik átnézése",
-						"done": true
-					}
-				],
-				"timestamp": "1734605060691",
-				"archive": false
-			},
-			{
-				"title": "Tananyag",
-				"items": [
-					{
-						"text": "? Statikus változók és függvények"
-					},
-					{
-						"text": "Kör osztály",
-						"done": true
-					},
-					{
-						"text": "class Melos extends Ember + profession",
-						"done": true
-					},
-					{
-						"text": "Extends",
-						"done": true
-					}
-				],
-				"timestamp": "1734605060692",
-				"archive": false
+				"archive": true,
+				"id": "prooktatas-3"
 			},
 			{
 				"title": "Hazi",
 				"items": [
 					{
-						"text": "színtartomány generátor",
+						"text": "snowflake effekt",
 						"done": true
 					},
 					{
-						"text": "snowflake effekt",
+						"text": "színtartomány generátor",
 						"done": true
 					}
 				],
 				"timestamp": "1734605060692",
-				"archive": true
+				"archive": true,
+				"id": "prooktatas-5"
 			},
 			{
-				"title": "! Fontos",
+				"title": "januári-hsz-javascript-2025",
 				"items": [
 					{
-						"text": "Házit adni a szombati csoportnak - Promise"
+						"text": "köremail kiküldése",
+						"done": true
+					},
+					{
+						"text": "github meghívók kiküldése",
+						"done": true
+					},
+					{
+						"text": "Táblázat előkészítése",
+						"done": true
+					},
+					{
+						"text": "Könyvtár létrehozása",
+						"done": true
+					},
+					{
+						"text": "Tananyag átnézése, javítésa",
+						"done": true
+					},
+					{
+						"text": "Github repo készítése",
+						"done": true
 					}
 				],
-				"timestamp": "1734897733650",
-				"archive": false
+				"timestamp": "1736192214480",
+				"archive": true,
+				"id": "prooktatas-6"
+			},
+			{
+				"title": "Januári-szombati-Javascr-2025",
+				"items": [
+					{
+						"text": "git-repo a csoportnak",
+						"done": true
+					},
+					{
+						"text": "mindenki hozzáadva githez",
+						"done": true
+					},
+					{
+						"text": "Stégmájer Zoltán - email",
+						"done": true
+					},
+					{
+						"text": "Stégmájer Zoltán - Git",
+						"done": true
+					}
+				],
+				"timestamp": "1737710122835",
+				"archive": true,
+				"id": "prooktatas-10"
+			},
+			{
+				"title": "Januári-szombati-Javascr-2025 1. alkalom",
+				"items": [
+					{
+						"text": "Bemutatkozás",
+						"done": true
+					},
+					{
+						"text": "A JS-ről röviden",
+						"done": true
+					},
+					{
+						"text": "A JS betöltése",
+						"done": true
+					},
+					{
+						"text": "async",
+						"done": true
+					},
+					{
+						"text": "defer",
+						"done": true
+					},
+					{
+						"text": "egyszerű DOM",
+						"done": true
+					},
+					{
+						"text": "console bemutatása",
+						"done": true
+					},
+					{
+						"text": "document.querySelector - különbség a getElementById-hoz képest",
+						"done": true
+					},
+					{
+						"text": "típusok és változók",
+						"done": true
+					},
+					{
+						"text": "változók definiálása - annak szabályai",
+						"done": true
+					}
+				],
+				"timestamp": "1737710122835",
+				"archive": true,
+				"id": "prooktatas-10"
+			},
+			{
+				"title": "Dorinának",
+				"items": [
+					{
+						"text": "MEgnézni: http://salonsapi.prooktatas.hu/api hogy miért nem megy",
+						"done": true
+					}
+				],
+				"timestamp": "1737990295505",
+				"archive": true,
+				"id": "prooktatas-12"
+			},
+			{
+				"title": "Januári-szombati-2025",
+				"items": [
+					{
+						"text": "Teszt",
+						"done": true
+					},
+					{
+						"text": "Ismétlés",
+						"done": true
+					},
+					{
+						"text": "Típuskonverzió",
+						"done": true
+					},
+					{
+						"text": "function",
+						"done": true
+					},
+					{
+						"text": "Vezérlési szerkezetek",
+						"done": true
+					},
+					{
+						"text": "if",
+						"done": true
+					},
+					{
+						"text": "thearnary ? : operátor",
+						"done": true
+					},
+					{
+						"text": "switch",
+						"done": true
+					},
+					{
+						"text": "->for",
+						"done": true
+					}
+				],
+				"timestamp": "1738397981326",
+				"archive": false,
+				"id": "prooktatas-13"
+			},
+			{
+				"title": "Másolat - Januári-h-sz-2025 5. alkalom",
+				"items": [
+					{
+						"text": "Stringkezelő függvények"
+					},
+					{
+						"text": "1. feladat segedfuggbenyes megoldas, utolso szamjegy",
+						"done": true
+					},
+					{
+						"text": "3. házi",
+						"done": true
+					},
+					{
+						"text": "Math object",
+						"done": true
+					},
+					{
+						"text": "random függvény",
+						"done": true
+					},
+					{
+						"text": "Házik ellenörzése",
+						"done": true
+					},
+					{
+						"text": "Teszt",
+						"done": true
+					}
+				],
+				"timestamp": "1737970158795",
+				"archive": false,
+				"id": "prooktatas-11"
+			},
+			{
+				"title": "Januári-szombati-2025 3.",
+				"items": [
+					{
+						"text": "Math"
+					},
+					{
+						"text": "Tesz",
+						"done": true
+					},
+					{
+						"text": "Házi",
+						"done": true
+					},
+					{
+						"text": "2. feladat Math Object",
+						"done": true
+					},
+					{
+						"text": "5. feladat",
+						"done": true
+					},
+					{
+						"text": "7.",
+						"done": true
+					},
+					{
+						"text": "for folyamatábrával",
+						"done": true
+					},
+					{
+						"text": "for in",
+						"done": true
+					},
+					{
+						"text": "in operátor",
+						"done": true
+					},
+					{
+						"text": "for of",
+						"done": true
+					},
+					{
+						"text": "while",
+						"done": true
+					},
+					{
+						"text": "dowhile",
+						"done": true
+					},
+					{
+						"text": "Változók hatásköre",
+						"done": true
+					}
+				],
+				"timestamp": "1739001687507",
+				"archive": false,
+				"id": "prooktatas-14"
 			}
 		]
 	}

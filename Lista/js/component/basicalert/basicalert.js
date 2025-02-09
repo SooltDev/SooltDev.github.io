@@ -72,6 +72,7 @@ const basicAlert = function(){
             coverUpLayer.style.display = "block";
             docBody.appendChild(this.element);
             this.trigger('show');
+            
         }
 
         hide(){

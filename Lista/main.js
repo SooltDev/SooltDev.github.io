@@ -47,10 +47,14 @@ global('GLOBAL', {});
 
     global('navi').homepage();
 
-    basicAlert.show(`Archiválás funkció javítva. <br>
-        Új, funkció: Másolat készítése<br>
-        Havi megújúló lista fejlesztés alatt.
-        `);
+    basicAlert.show(`
+        <h3>Figyelem!</h3><br>
+        <h4>Havi megújúló lista élesítve!</h4></br>
+        <p>Ha véletlenül előző hónapokban bepipáltad valemelyik listádnál ezt a lehetőséget, 
+        akkor a rendszer észre fogja venni, hogy van meg nem újított lista, így arról másolatot készít, vagyis megújítja.
+        <p>A régit is meghagyja, hogy tudd archiválni, eltenni, ha még szükséged lenne rá. </p>
+        <p>Mindig az új lista fogja magát megújítani következő hónapban, nem a régi. Így a régit bátran törölheted, módosíthatod, vagy csinálhatsz vele bármit.</p>
+    `);
 
     window.addEventListener('pagehide', function(event) {
 
