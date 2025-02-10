@@ -10,5 +10,12 @@
     },
     {
         "text": "."
+    },
+    {
+        "text": "Müködés",
+        "name": "help",
+        "control": "",
+        "page": "",
+        "app": true
     }
 ]
