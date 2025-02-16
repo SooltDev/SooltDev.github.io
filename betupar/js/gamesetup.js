@@ -8,7 +8,7 @@ import { letterCSVToJSON, loadLetterCSV } from "./assets/csvtojson.js";
 const template = `
     <div class="playground gamemenu" data-eval="dom" data-domname="element">
         <div class="palyground-inner gamemenu">
-            <img width="320" src="./style/svg/logo.svg"></img>
+            <img width="320" src="./style/svg/szoszolo.svg"></img>
         </div>
 
         <div class="panel">

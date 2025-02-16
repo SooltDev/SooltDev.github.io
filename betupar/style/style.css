@@ -302,6 +302,7 @@ html, body {
     border-radius: 3px;
     height: auto;
     justify-content: center;
+    padding: 20px;
 }
 
 .playground.gamemenu{
