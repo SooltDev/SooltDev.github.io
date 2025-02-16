@@ -19,6 +19,16 @@ const setHeightToHeight = (element1, element2) => {
         ((element2.offsetHeight + element2.offsetTop) - element1.offsetTop) + 'px';
 }
 
+const SUCESS_PATH = './success.mp3';
+const ALL_SUCESS_PATH = './all_success.mp3';
+const FAIL_PATH = './brass-fail.mp3';
+const CORRECT_PATH = './success1.mp3';
+
+const successVoice = new Audio(SUCESS_PATH);
+const allSuccessVoice = new Audio(ALL_SUCESS_PATH);
+const failVoice = new Audio(FAIL_PATH);
+const correctVoice = new Audio(CORRECT_PATH);
+
 const rewards = (o) => {
 
     const parentElement = sTools.getElement(o.parentElement);
@@ -83,15 +93,18 @@ const rewards = (o) => {
     }
 
     const correct = async () => {
+        correctVoice.play();
         await rewardAnim('line-correct', 'zoomin');
     }
 
     const incorrect =() => {
+        failVoice.play();
         rewardAnim('line-incorrect', 'zoomin');
     }
 
     const success = async () => {
         layerExtraCss = 'finish';
+        allSuccessVoice.play();
         await rewardAnim('all-success', 'zoomin', {
             hideAfterFinish: false
         });
@@ -99,6 +112,7 @@ const rewards = (o) => {
 
     const finished = async () => {
         layerExtraCss = 'finish';
+        successVoice.play();
         await rewardAnim('all-finished', 'zoomin', {
             hideAfterFinish: false
         });

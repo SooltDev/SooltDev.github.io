@@ -158,10 +158,50 @@ const isObject = o => o instanceof Object && !Array.isArray(o);
 const removeAccents = str =>
   str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
+/**
+     * A window objectbe beállít egy értéket, amennyiben nincs érték, úgy visszaadja az értéket.
+     * tehát setter/getter függvényként használható
+     * @param {string} key 
+     * @param {any} val 
+     * @returns 
+     */
+const global = (key, val="/*null*/") => {
+    if (val != "/*null*/")
+        window[key] = val;
+
+    return window[key];
+}
+
+Object.defineProperties(global, {
+    GLOBAL: {
+        value: {},
+        writable: true
+    },
+    define: {
+        value: function(key, val){
+            this.GLOBAL[key] = val;
+        }
+    },
+
+    val: {
+        value: function(key){
+            return this.GLOBAL[key];
+        }
+    },
+
+    remove: {
+        value: function(key){
+            delete this.GLOBAL[key];
+        }
+    }
+});
+
+global('global', global);
+
 const isTouchScreen = "ontouchstart" in document.documentElement;
 //const isTouchScreen = true;
 export {
     randomize, createElement, getElement, removeAllChild, 
     shuffleArray, emptyArray, deepAssign, capitalize, isObject,
-    removeAccents, delay, isTouchScreen
+    removeAccents, delay, isTouchScreen, global
 };

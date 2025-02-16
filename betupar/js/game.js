@@ -38,10 +38,10 @@ const upperCaseLetters = lowerCaseLetters.map(
     l => l.length == 1 ? l.toUpperCase() : l[0].toUpperCase() + l.slice(1)
 );
 
-const IMAGE_PATH = 'data/images/';
+const IMAGE_PATH = './data/images/';
 const getIMGPath = (img, ext = 'png') => IMAGE_PATH + img + '.' + ext;
 
-const VOICE_PATH = 'data/voices/';
+const VOICE_PATH = './data/voices/';
 const getVoicePath = (voice, ext = 'wav') => VOICE_PATH + voice.toLowerCase() + '.' + ext;
 
 const wowels = 'a,á,e,é,i,í,o,ó,ö,ő,u,ú,ü,ű'.split(',');

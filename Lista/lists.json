@@ -9,9 +9,6 @@
 						"text": "-> listaelem előtt időpont, az adott időpontban csörög"
 					},
 					{
-						"text": "Megújúló lista - másolat készül, az új hónap név előtaggal"
-					},
-					{
 						"text": "Lista áthelyezése, egyik csoportból a másikba"
 					},
 					{
@@ -26,6 +23,10 @@
 					{
 						"text": "Lista másolat létrehozása",
 						"done": true
+					},
+					{
+						"text": "Megújúló lista - másolat készül, az új hónap név előtaggal",
+						"done": true
 					}
 				],
 				"timestamp": "1734605060688",
@@ -36,20 +37,20 @@
 				"title": "Lista opciók",
 				"items": [
 					{
-						"text": "! Megújúló"
-					},
-					{
 						"text": "! Határidő"
 					},
 					{
 						"text": "! Létrehozási dátum",
 						"done": true
+					},
+					{
+						"text": "! Megújúló",
+						"done": true
 					}
 				],
 				"timestamp": "1734605060688",
 				"archive": false,
-				"id": "listak-2",
-				"monthly": "1"
+				"id": "listak-2"
 			},
 			{
 				"title": "Egyéb",
@@ -90,7 +91,7 @@
 					}
 				],
 				"timestamp": "1734726860128",
-				"archive": false,
+				"archive": true,
 				"id": "listak-5"
 			},
 			{
@@ -110,7 +111,7 @@
 					}
 				],
 				"timestamp": "1734727565407",
-				"archive": false,
+				"archive": true,
 				"id": "listak-6"
 			}
 		]
@@ -135,7 +136,7 @@
 					}
 				],
 				"timestamp": "1734605060690",
-				"archive": false,
+				"archive": true,
 				"id": "teendok-2",
 				"monthly": "1"
 			},
@@ -173,7 +174,7 @@
 				"id": "teendok-4"
 			},
 			{
-				"title": "2025 Január - Befizetések",
+				"title": "Befizetések megújúló",
 				"items": [
 					{
 						"text": "MVM",
@@ -202,7 +203,7 @@
 				"monthly": "1"
 			},
 			{
-				"title": "Leolvasások",
+				"title": "Leolvasások megújúló",
 				"items": [
 					{
 						"text": "MVM"
@@ -216,7 +217,7 @@
 					}
 				],
 				"timestamp": "1736432725690",
-				"archive": false,
+				"archive": true,
 				"id": "teendok-6",
 				"monthly": "1"
 			},
@@ -247,13 +248,39 @@
 				"id": "teendok-8"
 			},
 			{
-				"title": "2025 Februar - Befizetések",
+				"title": "2025 Február - Menza Havi",
 				"items": [
+					{
+						"text": "Iringó",
+						"done": true
+					},
+					{
+						"text": "Keve",
+						"done": true
+					},
+					{
+						"text": "Csenge",
+						"done": true
+					}
+				],
+				"timestamp": "1739129459849",
+				"archive": false,
+				"id": "teendok-14",
+				"monthly": "1",
+				"renewabledate": 1739129459849
+			},
+			{
+				"title": "2025 Február - Befizetések",
+				"items": [
+					{
+						"text": "MVM"
+					},
 					{
 						"text": "DBH"
 					},
 					{
-						"text": "MVM"
+						"text": "Digi",
+						"done": true
 					},
 					{
 						"text": "Lakbér",
@@ -262,16 +289,35 @@
 					{
 						"text": "Yettel",
 						"done": true
+					}
+				],
+				"timestamp": "1739129459850",
+				"archive": false,
+				"id": "teendok-15",
+				"monthly": "1",
+				"renewabledate": 1739129459852
+			},
+			{
+				"title": "2025 Február - Leolvasások",
+				"items": [
+					{
+						"text": "Önkörmányzat",
+						"done": true
 					},
 					{
-						"text": "Digi",
+						"text": "MVM",
+						"done": true
+					},
+					{
+						"text": "Fővárosi Vízművek",
 						"done": true
 					}
 				],
-				"timestamp": "1734605060689",
+				"timestamp": "1739129459852",
 				"archive": false,
-				"id": "teendok-5",
-				"monthly": "1"
+				"id": "teendok-16",
+				"monthly": "1",
+				"renewabledate": 1739129459853
 			}
 		]
 	},
@@ -468,7 +514,7 @@
 				],
 				"timestamp": "1737710122835",
 				"archive": true,
-				"id": "prooktatas-10"
+				"id": "prooktatas-15"
 			},
 			{
 				"title": "Dorinának",
@@ -523,7 +569,7 @@
 					}
 				],
 				"timestamp": "1738397981326",
-				"archive": false,
+				"archive": true,
 				"id": "prooktatas-13"
 			},
 			{
@@ -564,9 +610,6 @@
 			{
 				"title": "Januári-szombati-2025 3.",
 				"items": [
-					{
-						"text": "Math"
-					},
 					{
 						"text": "Tesz",
 						"done": true
@@ -613,6 +656,10 @@
 					},
 					{
 						"text": "Változók hatásköre",
+						"done": true
+					},
+					{
+						"text": "Math",
 						"done": true
 					}
 				],
