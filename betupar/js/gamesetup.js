@@ -40,8 +40,6 @@ const gameSetup = (options) => {
         const app = GAME;
 
         app.render();
-        
-        console.log(opt);
 
         app.gameOptions({
             letterNumber: opt.letterNumber || 4,
@@ -95,7 +93,7 @@ const gameSetup = (options) => {
 
         letterToFigureBtn.addEventListener('click', async () => {
             const data = await loadLetterCSV('./data/szavak.csv');
-            console.log(data);
+
             GAME.images = data;
             newGame({
                 parentElement,

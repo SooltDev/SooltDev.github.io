@@ -133,7 +133,7 @@ const rewards = (o) => {
 
         const stars = [];
 
-        console.log(starsCt);
+        //console.log(starsCt);
 
         let zIndex = 110;
 
@@ -152,7 +152,7 @@ const rewards = (o) => {
         }
 
         stars.reverse().slice(1).every( (star, i) => {
-            console.log(star);
+            //console.log(star);
             stars[i].addEventListener("animationend", () => {
                 star.classList.add('zoominout');
             });
