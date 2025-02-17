@@ -10,6 +10,7 @@
     background-size: 100% 100%;
     /*! transform: translate(-50%, -50%); */
     background-repeat: no-repeat;
+    animation: all .2s ease-in; 
 }
 
 .reward.line-correct {
@@ -38,6 +39,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .layerfadein{

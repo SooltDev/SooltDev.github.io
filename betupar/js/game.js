@@ -1,7 +1,7 @@
 "use strict";
 
 import * as sTools from "./assets/stools.js";
-import { elementsFromTempalte, templateToObject } from "./assets/evaltemplate.js";
+import { elementsFromTempalte, evalTemplate, templateToObject } from "./assets/evaltemplate.js";
 import { Matchbox } from "./assets/matchbox.js";
 import { HTMLLine } from "./assets/line.cls.js";
 import { rewards } from "./assets/rewards.js";
@@ -220,8 +220,20 @@ const matchLine = function(options){
         if (isComplete()){
             await (isPerfect() ? REWARD.success : REWARD.finished)();
             await sTools.delay(600);
+            const newGameBtn = extraNewGameBtn();
+            REWARD.layer.appendChild(newGameBtn);
+            newGameBtn.classList.add('zoomin');
             REWARD.addStars(letterNumber - countWrong());
         }
+    }
+    
+    const extraNewGameBtn = () => {
+        const btn = evalTemplate(`<button class="extralarge-btn">Következő</button>`)[0];
+        console.log(btn);
+        
+        btn.addEventListener("click", newGame);
+
+        return btn;
     }
 
     const newGame = () => {
