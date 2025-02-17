@@ -168,7 +168,6 @@ const matchLine = function(options){
                 }
             }, o);
 
-        //console.log(o);
         letterNumber = o.letterNumber;
         from = o.from;
         to = o.to;
@@ -229,7 +228,6 @@ const matchLine = function(options){
     
     const extraNewGameBtn = () => {
         const btn = evalTemplate(`<button class="extralarge-btn">Következő</button>`)[0];
-        console.log(btn);
         
         btn.addEventListener("click", newGame);
 
@@ -237,9 +235,6 @@ const matchLine = function(options){
     }
 
     const newGame = () => {
-
-        console.log(gameMode());
-        console.log(IMAGES);
 
         epmtyLine(fromBoxes);
         epmtyLine(toBoxes);
@@ -266,7 +261,7 @@ const matchLine = function(options){
                 voicePath: gameMode() == 'voiceToLetter' ? getVoicePath(letter) : undefined 
             });
             //- elkészítjül a társának is az új példányát
-            console.log("GameMode: ", gameMode(), getVoicePath(letter));
+
             const toBox = new Matchbox({
                 type: to.type,
                 letter: gameMode() == 'letterToLetter' ? reverseChar(letter) : letter,
