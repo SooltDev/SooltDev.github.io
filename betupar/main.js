@@ -8,18 +8,6 @@
  * Published: 2025. február
  */
 
-window.addEventListener('load', function () {
-    let elem = document.documentElement;
-
-    elem.requestFullscreen({ navigationUI: "show" })
-        .then(() => { })
-        .catch((err) => {
-            alert(
-                `An error occurred while trying to switch into fullscreen mode: ${err.message} (${err.name})`,
-            );
-        });
-}); 
-
 
 import { gameSetup } from "./js/gamesetup.js";
 import { matchLine } from "./js/game.js";
