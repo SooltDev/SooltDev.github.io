@@ -1,0 +1,58 @@
+.chessboard{
+    display: inline-flex;
+    padding: 20px 20px 7px 7px;
+    border: 2px solid #261c0d;
+    border-radius: 3px;
+    background-color: #f6ecdd;
+
+}
+.chess-inner{
+    display: block;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 16px;
+    color: #261c0d;
+    font-weight: 600;
+}
+
+.letter-indexes{
+    height: 25px;
+    display: flex;
+}
+.letter-field{
+    width: 50px;
+    text-align: center;
+    line-height: 25px;
+}
+.number-indexes{
+    width: 25px;
+    text-align: center;
+    line-height: 50px;
+}
+.number-field{
+    height: 50px;
+}
+.letter-space-field{
+    width: 25px;
+    height: 25px;
+}
+.fields{
+
+    border: 1px solid #261c0d;
+    border-radius: 3px;
+    margin: 5px;
+}
+.chess-row{
+    display: flex;
+}
+.chess-cell{
+    width:50px;
+    height: 50px;
+}
+
+.chess-cell.white{
+    background-color: #edd7b5;
+}
+
+.chess-cell.black{
+    background-color: #261c0d;
+}

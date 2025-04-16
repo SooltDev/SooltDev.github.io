@@ -1,0 +1,2 @@
+
+koPapirOllo.render("#content");

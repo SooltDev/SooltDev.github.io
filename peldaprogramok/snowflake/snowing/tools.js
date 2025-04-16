@@ -31,14 +31,20 @@ const colorRange = (color, range) => {
 
     console.log(r, g, b);
     
-    
     const calcRange = (cr) => cr + Math.round((range >= 0 ? (255 - cr) : cr) / 100 * range);
     const calcColor = (c) => c > 255 ? 255 : c < 0 ? 0 : c;
-
+    
+    /*
     const newR = calcColor(calcRange(r));
     const newG = calcColor(calcRange(g));
     const newB = calcColor(calcRange(b));
+    //*/
 
+    //*
+    const newR = calcRange(r);
+    const newG = calcRange(g);
+    const newB = calcRange(b);
+    //*/
     return `rgb(${newR}, ${newG}, ${newB})`;
 }
 

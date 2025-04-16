@@ -1,8 +1,9 @@
 import { snowfall } from "./snowing/snowfall.js";
+import { colorRange } from "./snowing/tools.js";
 
-/*
+///*
 for (let i = -100; i < 100; i++){
-    const color = colorRange('rgb(167, 207, 240)', i);
+    const color = colorRange('rgb(82, 7, 57)', i);
     const div = document.createElement("div");
     Object.assign(div.style, {
         backgroundColor: color,
@@ -24,8 +25,8 @@ const snowing = snowfall({
     snowflakeNumber: 350
 });
 
-document.getElementById('snowing').addEventListener('click', () => snowing.start());
-document.getElementById('stop-snowing').addEventListener('click', () => snowing.stop());
+document.getElementById('snowing').addEventListener('click', snowing.start);
+document.getElementById('stop-snowing').addEventListener('click', snowing.stop);
 
 //snowing.start();
 

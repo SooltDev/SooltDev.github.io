@@ -731,7 +731,7 @@
         "name": "Fordítva"
     },
     {
-        "text": "Készítsetek egy dobókocka osztályt\n        - Az osztály rendelkezzen egy dob metódussal, mely szimulálja, hogy dobtunk egyet a kockával.\n          viszatér a dobott számmal, ám a példányban el is tárolja, hogy hányast dobtunk, amit egy getter függvénnyel lehessen lekérdezni.\n          És itt máris megtanultik egy újabb értelmét a getternek. Úgy kérünk le értéket, hogy az csak olvasható legyen.\n          ha nem írjuk meg a settert melléje, akkor azt ugy nem tudjuk beállítani. És ez esetben nem is kell, hisz új értéket, \n          csak új dobással szerezhet a kocka.\n        - Továbbá ezt a kocák lehessen bárhova HTML-en belül lerenderelni. Amit persze megtehetünk úgy is, hogy megadjuk a konstruktorban\n          a renderTo lehetőséget, és a kocka ide jön létre.\n        - Hétfőn megtanuljuk a setTimeOut és setInterval függvényeket, és akkor szimulálni fogjuk a kocka gurítást is.",
+        "text": "Készítsetek egy dobókocka osztályt\n        - Az osztály rendelkezzen egy dob metódussal, mely szimulálja, hogy dobtunk egyet a kockával.\n          viszatér a dobott számmal, ám a példányban el is tárolja, hogy hányast dobtunk, amit egy getter függvénnyel lehessen lekérdezni.\n          És itt máris megtanultuk egy újabb értelmét a getternek. Úgy kérünk le értéket, hogy az csak olvasható legyen.\n          ha nem írjuk meg a settert melléje, akkor azt ugy nem tudjuk beállítani. És ez esetben nem is kell, hisz új értéket, \n          csak új dobással szerezhet a kocka.\n        - Továbbá ezt a kocák lehessen bárhova HTML-en belül lerenderelni. Amit persze megtehetünk úgy is, hogy megadjuk a konstruktorban\n          a renderTo lehetőséget, és a kocka ide jön létre.\n        - Időzített scriptekkel, akár  szimulálni is tudjuk, a kocka gurítást.",
         "category": [
             5
         ],
@@ -817,5 +817,53 @@
         ],
         "name": "",
         "id": 106
+    },
+    {
+        "text": "Írj függvényt, mely egy számokat tartalmazó tömbből kikeresi a prímszámokat.",
+        "category": [
+            3
+        ],
+        "name": "primek egy tömbben",
+        "id": 107
+    },
+    {
+        "text": "Adott az alábbi tömb:\n*/\nconst tanulok = [\n    {\n        id: 1,\n        nev: \"Teri\",\n        kor: 12\n    },\n    {\n        id: 2,\n        nev: \"Jani\",\n        kor: 10\n    },\n    {\n        id: 3,\n        nev: \"Laci\",\n        kor: 12\n    },\n    {\n        id: 4,\n        nev: \"Sári\",\n        kor: 12\n    },\n    {\n        id: 5,\n        nev: \"Iri\",\n        kor: 8\n    },\n    {\n        id: 6,\n        nev: \"Tomi\",\n        kor: 13\n    }\n];\n*/\n\nírj függvényt, mely egy ilyen tömb elemeit kiegészíti a \"kor\"-al, amlyet a születési dátumból számol ki.",
+        "category": [
+            16
+        ],
+        "name": "Kor számítás",
+        "id": 108
+    },
+    {
+        "text": "Fejlesszük tovább a Bevásárló lista applikációt, Készítsünk egy szerkesztés funkcionalitást az alábbiak szerint. \n    - Egy lista elemen való Ctrl + Click kattintás hatására, jelöljük ki az elemet css hozzáadásának segítségével (hasonlóan, az áthúzáshoz)\n      Azzal a különbséggel, hogy itt egyszerre csak egyet lehessen kijelölni.\n    - A Kijelöléssel egyidejűleg, a listaelem szövegét tegyük fel az input mezőbe. \n    - Majd a Mentés gombra klikkelve, vagy az input mezőn való enter lenyomására írjuk felül a szerkesztendő listaelem szövegét azzal, ami az input mezőben van.\n    - Felülírása után pedig vegyük le a kijelölést a szerkesztett elemről, ezzel jelezve, hogy a listaelem szerkesztése befejeződött.",
+        "category": [
+            6
+        ],
+        "name": "Bevásárlólista",
+        "id": 109
+    },
+    {
+        "text": "Írjatok egy függvényt, mely az alábbi tömbből tartalmat generál:\n*/\n\nconst data = [\n\t{\n\t\ttitle: \"Lorem ipsum\",\n\t\tsubtitle: \"ipsum dolor sit amet\",\n\t\ttext: \"Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab illo incidunt, numquam, fugiat voluptates asperiores dolorum deserunt, tempora libero cum exercitationem unde praesentium esse eligendi.\"\n\t},\n\t{\n\t\ttitle: \"Incidunt\",\n\t\tsubtitle: \"Incidunt minima porro\",\n\t\ttext: \"Incidunt minima porro, voluptates voluptatibus obcaecati non pariatur? Omnis perferendis distinctio minus iure et facere expedita assumenda, beatae debitis, inventore cumque eius magni architecto tempore?\"\n\t},\n\t{\n\t\ttitle: \"Modi nulla\",\n\t\tsubtitle: \"quo autem vitae aut quia\",\n\t\ttext: \"Modi nulla quo autem vitae aut quia! Cumque, necessitatibus id? Repudiandae ipsum, neque dolor dignissimos, distinctio, voluptatibus doloribus dolore molestias esse minima quidem magni deserunt.\"\n\t}\n]\n/*\nA tartalomgenerátor függvény paraméterként kapjon meg egy ilyen adattömböt, és egy selectort, ahova lerendereli a tartalmat. A függvény annyi szövegdobozt (textbox) hozzon létre, amennyi eleme van az adattömbnek.",
+        "category": [
+            6
+        ],
+        "name": "Textbox",
+        "id": 110
+    },
+    {
+        "text": "Írjatok egy olyan modult, mely egy adattömbből képes egy táblázat legenerálására. A függvény mellyel legeneráljátok a táblázatot, egy külön tömbben kapja meg a táblázat fejlécét is.",
+        "category": [
+            6
+        ],
+        "name": "Táblázat modul",
+        "id": 111
+    },
+    {
+        "text": "Írjatok egy modult, mely képdobozok előállítására alkalmas. Kapja meg egy kép elérési útját, és a kép szövegét. Ebből akét adatból állítson elő egy \"képkeretet\" hasonlóan, ahogy azt a textBoxal csináltuk.",
+        "category": [
+            6
+        ],
+        "name": "Képkeret",
+        "id": 112
     }
 ]

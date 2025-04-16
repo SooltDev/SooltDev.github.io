@@ -1,0 +1,87 @@
+.game {
+
+    display: flex;
+    gap: 20px;
+    margin-top: 40px;
+}
+.gamer{
+    
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.game #player1, .game #player2 {
+
+    display: flex;
+    width: 200px;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-position: 50% 100%;
+}
+
+.ko,
+.papir,
+.ollo {}
+
+.ko {
+    background-image: url('ko.png');
+}
+
+.papir {
+    background-image: url('papir.png');
+}
+
+.ollo {
+
+    background-image: url('ollo.png');
+}
+
+#player2.ko,
+#player2.papir,
+#player2.ollo {
+    transform: rotateY(180deg);
+}
+
+.gameland{
+    display: flex;
+    width: 200px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 25px;
+}
+
+button {
+    
+    font-size: 24px;
+    border: 3px solid #3f3b3c;
+    border-radius: 5px;
+    padding: 13px 27px;
+    background-color: #93d7e4;
+    cursor: pointer;
+}
+.player-name{
+
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    padding: 10px 20px;
+    font-size: 22px;
+    color: #3f3b3c;
+    border: 3px solid #3f3b3c;
+    border-radius: 5px;
+    background-color: #e4b893;
+    gap: 5px;
+}
+
+.message-box{
+    
+    font-size: 32px;
+    padding: 10px;
+    color: #09282d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
