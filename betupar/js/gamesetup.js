@@ -8,7 +8,7 @@ import { letterCSVToJSON, loadLetterCSV } from "./assets/csvtojson.js";
 const template = `
     <div class="playground gamemenu" data-eval="dom" data-domname="element">
         <div class="palyground-inner gamemenu">
-            <img width="320" src="./style/svg/logo.svg"></img>
+            <img width="320" src="./style/svg/szoszolo.svg"></img>
         </div>
 
         <div class="panel">
@@ -40,8 +40,6 @@ const gameSetup = (options) => {
         const app = GAME;
 
         app.render();
-        
-        console.log(opt);
 
         app.gameOptions({
             letterNumber: opt.letterNumber || 4,
@@ -95,7 +93,7 @@ const gameSetup = (options) => {
 
         letterToFigureBtn.addEventListener('click', async () => {
             const data = await loadLetterCSV('./data/szavak.csv');
-            console.log(data);
+
             GAME.images = data;
             newGame({
                 parentElement,

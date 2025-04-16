@@ -80,7 +80,7 @@ class Matchbox extends EventManager{
         this.element = document.createElement('div');
         this.element.className = 'matchcard in-game';
 
-        console.info(this.makeFuncName());
+        //console.info(this.makeFuncName());
         
         this[this.makeFuncName()]();
 
@@ -164,7 +164,7 @@ class Matchbox extends EventManager{
             document.removeEventListener('touchend', this.#mouseUp);
 
             const onUpElement = document.elementFromPoint(e.changedTouches[0].clientX, e.changedTouches[0].clientY);
-            console.log(onUpElement);
+            //console.log(onUpElement);
             
             if (onUpElement == this.partner.typeElement){
                 this.#partner.checkPartner(e);

@@ -83,7 +83,9 @@ const rewards = (o) => {
             });
     
             element.className = 'reward ' + cssName + ' ' + animName;
-
+            /**
+             * Csak akkor tűnik el, ha a hideAfterFinish = true
+             */
             if (options.hideAfterFinish)
                 setTimeout(() => {
                     parent.remove();
@@ -99,7 +101,7 @@ const rewards = (o) => {
 
     const incorrect =() => {
         failVoice.play();
-        rewardAnim('line-incorrect', 'zoomin');
+        //rewardAnim('line-incorrect', 'zoomin');
     }
 
     const success = async () => {
@@ -108,6 +110,8 @@ const rewards = (o) => {
         await rewardAnim('all-success', 'zoomin', {
             hideAfterFinish: false
         });
+        //alert('Egyből');
+        
     }
 
     const finished = async () => {
@@ -116,6 +120,7 @@ const rewards = (o) => {
         await rewardAnim('all-finished', 'zoomin', {
             hideAfterFinish: false
         });
+        //alert('A végére értél');
     }
 
     const failed = () => {
@@ -128,12 +133,17 @@ const rewards = (o) => {
 
         const stars = [];
 
-        console.log(starsCt);
+        //console.log(starsCt);
+
+        let zIndex = 110;
 
         for (let i = 0; i < starNumber; i++){
             const star = sTools.createElement({
                 tagName: 'span',
-                className: 'reward-star'
+                className: 'reward-star',
+                style: {
+                    zIndex: zIndex--
+                }
             });
 
             starsInner.appendChild(star);
@@ -142,7 +152,7 @@ const rewards = (o) => {
         }
 
         stars.reverse().slice(1).every( (star, i) => {
-            console.log(star);
+            //console.log(star);
             stars[i].addEventListener("animationend", () => {
                 star.classList.add('zoominout');
             });

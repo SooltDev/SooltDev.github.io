@@ -78,7 +78,7 @@ class SElement extends EventManager{
     }
 
     set id(_id){
-        console.log(_id);
+        //console.log(_id);
         if (this.#cache && this.#id){
             this.destroy();
         }
